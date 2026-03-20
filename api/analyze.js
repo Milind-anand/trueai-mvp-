@@ -1,5 +1,5 @@
 // TrueAI v4 — Secure Gemini API Proxy
-// Runs on Vercel server — GEMINI_KEY in Environment Variables only
+// GEMINI_KEY stored in Vercel Environment Variables only — never in code
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{ parts: [{ text }] }],
-          generationConfig: { temperature: 0.1, maxOutputTokens: 1000 }
+          generationConfig: { temperature: 0.1, maxOutputTokens: 1200 }
         })
       }
     );
@@ -38,9 +38,7 @@ export default async function handler(req, res) {
 
     const data = await geminiRes.json();
     const raw = data.candidates[0].content.parts[0].text
-      .trim()
-      .replace(/```json\n?|```/g, '')
-      .trim();
+      .trim().replace(/```json\n?|```/g, '').trim();
 
     const result = JSON.parse(raw);
 
@@ -52,12 +50,12 @@ export default async function handler(req, res) {
       reasoning: result.reasoning ?? '',
       ai_percent: result.ai_percent ?? result.overall_score ?? 50,
       mixed_percent: result.mixed_percent ?? 10,
-      human_percent: result.human_percent ?? Math.max(0, 40 - (result.overall_score ?? 50)),
+      human_percent: result.human_percent ?? Math.max(0, 100 - (result.overall_score ?? 50) - 10),
       ai_sentences: result.ai_sentences ?? []
     });
 
   } catch (err) {
-    console.error('TrueAI API error:', err.message);
+    console.error('TrueAI error:', err.message);
     res.status(500).json({ error: err.message || 'Analysis failed' });
   }
 }
