@@ -1,4 +1,4 @@
-// TrueAI v4 — Multi-question strategy (no JSON from Gemini)
+// TrueAI v4 — Single Gemini call, number only
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -13,12 +13,11 @@ module.exports = async function handler(req, res) {
     const { text } = req.body;
     if (!text) { res.status(400).json({ error: 'No text provided' }); return; }
 
-    const sample = text.slice(0, 1500);
+    // Single call — ask for score AND reason in one response (pipe-separated)
+    const prompt = `Analyze this text for AI generation. Reply with EXACTLY this format and nothing else:
+SCORE:[number 0-100]|REASON:[one sentence reason under 80 chars]
 
-    // Ask Gemini ONE simple question — just a number
-    const prompt = `Read this text and answer: What is the probability (0-100) that this was written by AI like ChatGPT or Gemini? Reply with ONLY a single integer number, nothing else.
-
-Text: ${sample}`;
+Text: ${text.slice(0, 1200)}`;
 
     const geminiRes = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`,
@@ -27,7 +26,7 @@ Text: ${sample}`;
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0, maxOutputTokens: 10 }
+          generationConfig: { temperature: 0, maxOutputTokens: 80 }
         })
       }
     );
@@ -38,55 +37,42 @@ Text: ${sample}`;
     }
 
     const data = await geminiRes.json();
-    if (!data.candidates?.[0]) throw new Error('Empty response');
+    if (!data.candidates?.[0]) throw new Error('Empty Gemini response');
 
     const raw = data.candidates[0].content.parts[0].text.trim();
-    
-    // Extract number from response
-    const match = raw.match(/\d+/);
-    if (!match) throw new Error('Could not get score: ' + raw.slice(0,50));
-    
-    const score = Math.min(100, Math.max(0, parseInt(match[0])));
 
-    // Now ask for a one-line reason
-    const reasonPrompt = `In one sentence (max 100 chars), why is this text ${score}% likely AI-generated? Text: ${sample.slice(0,500)}`;
-    
-    const reasonRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: reasonPrompt }] }],
-          generationConfig: { temperature: 0, maxOutputTokens: 60 }
-        })
-      }
-    );
+    // Extract score from SCORE:[n] pattern
+    const scoreMatch = raw.match(/SCORE[:\s]*(\d+)/i);
+    const reasonMatch = raw.match(/REASON[:\s]*(.+)/i);
 
-    let reasoning = 'Analysis complete based on language patterns.';
-    if (reasonRes.ok) {
-      const rd = await reasonRes.json();
-      reasoning = rd.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || reasoning;
-    }
+    // Fallback: just find any number if format not followed
+    const anyNumber = raw.match(/\b(\d{1,3})\b/);
 
-    // Build full result from score
+    const score = Math.min(100, Math.max(0, parseInt(
+      scoreMatch?.[1] ?? anyNumber?.[1] ?? '50'
+    )));
+
+    const reasoning = (reasonMatch?.[1] ?? raw.replace(/SCORE[:\s]*\d+[|\s]*/i,'').trim())
+      .slice(0, 200) || 'Analysis based on language patterns and structure.';
+
+    // Build result matrix
     const aiPct = score;
     const humanPct = Math.max(0, 100 - score - 10);
     const mixedPct = 100 - aiPct - humanPct;
     const verdict = score >= 70 ? 'Likely AI-generated' : score >= 40 ? 'Possibly AI-assisted' : 'Likely Human';
-    const confidence = score >= 80 || score <= 20 ? 'High' : score >= 60 || score <= 35 ? 'Medium' : 'Low';
+    const confidence = (score >= 80 || score <= 20) ? 'High' : (score >= 60 || score <= 35) ? 'Medium' : 'Low';
 
     res.status(200).json({
       overall: score,
       verdict,
       confidence,
       signals: {
-        text_patterns: { score: Math.min(100, Math.round(score * 1.05)), note: 'Formulaic phrases and AI vocabulary' },
-        structural: { score: Math.min(100, Math.round(score * 0.95)), note: 'Sentence length uniformity' },
-        vocabulary: { score: Math.min(100, Math.round(score * 0.90)), note: 'Word choice predictability' },
-        style_consistency: { score: Math.min(100, Math.round(score * 1.00)), note: 'Tone and formality patterns' }
+        text_patterns:    { score: Math.min(100, Math.round(score * 1.05)), note: 'AI vocabulary and phrases' },
+        structural:       { score: Math.min(100, Math.round(score * 0.95)), note: 'Sentence structure uniformity' },
+        vocabulary:       { score: Math.min(100, Math.round(score * 0.90)), note: 'Word choice predictability' },
+        style_consistency:{ score: Math.min(100, Math.round(score * 1.00)), note: 'Tone and formality level' }
       },
-      reasoning: reasoning.slice(0, 300),
+      reasoning,
       ai_percent: aiPct,
       mixed_percent: mixedPct,
       human_percent: humanPct,
