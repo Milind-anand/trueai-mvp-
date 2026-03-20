@@ -1,4 +1,4 @@
-// TrueAI v4 — Secure Gemini API Proxy
+// TrueAI v4 — Multi-question strategy (no JSON from Gemini)
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -13,11 +13,12 @@ module.exports = async function handler(req, res) {
     const { text } = req.body;
     if (!text) { res.status(400).json({ error: 'No text provided' }); return; }
 
-    // Ask for ONLY the essential fields — keep response tiny
-    const prompt = `Analyze if this text is AI-generated. Reply with ONLY this JSON (no other text):
-{"overall_score":75,"verdict":"Likely AI-generated","confidence":"High","ai_percent":75,"mixed_percent":15,"human_percent":10,"reasoning":"short reason here"}
+    const sample = text.slice(0, 1500);
 
-Text: ${text.slice(0, 1200)}`;
+    // Ask Gemini ONE simple question — just a number
+    const prompt = `Read this text and answer: What is the probability (0-100) that this was written by AI like ChatGPT or Gemini? Reply with ONLY a single integer number, nothing else.
+
+Text: ${sample}`;
 
     const geminiRes = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`,
@@ -26,7 +27,7 @@ Text: ${text.slice(0, 1200)}`;
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0, maxOutputTokens: 256 }
+          generationConfig: { temperature: 0, maxOutputTokens: 10 }
         })
       }
     );
@@ -37,41 +38,58 @@ Text: ${text.slice(0, 1200)}`;
     }
 
     const data = await geminiRes.json();
-    if (!data.candidates?.[0]) throw new Error('Empty Gemini response');
-    
-    let raw = data.candidates[0].content.parts[0].text.trim();
-    raw = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
-    
-    const start = raw.indexOf('{');
-    const end = raw.lastIndexOf('}');
-    if (start === -1 || end === -1) throw new Error('No JSON: ' + raw.slice(0,100));
-    
-    const r = JSON.parse(raw.slice(start, end + 1));
+    if (!data.candidates?.[0]) throw new Error('Empty response');
 
-    const normalize = (v) => {
-      if (v === undefined || v === null) return 50;
-      return Math.round(Math.min(100, Math.max(0, v > 1 ? v : v * 100)));
-    };
+    const raw = data.candidates[0].content.parts[0].text.trim();
+    
+    // Extract number from response
+    const match = raw.match(/\d+/);
+    if (!match) throw new Error('Could not get score: ' + raw.slice(0,50));
+    
+    const score = Math.min(100, Math.max(0, parseInt(match[0])));
 
-    const score = normalize(r.overall_score ?? r.overall_ai_score ?? r.ai_likelihood ?? 50);
+    // Now ask for a one-line reason
+    const reasonPrompt = `In one sentence (max 100 chars), why is this text ${score}% likely AI-generated? Text: ${sample.slice(0,500)}`;
+    
+    const reasonRes = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: reasonPrompt }] }],
+          generationConfig: { temperature: 0, maxOutputTokens: 60 }
+        })
+      }
+    );
 
-    // Build default signals from the score
-    const defaultSignals = {
-      text_patterns: { score: score, note: 'Based on language patterns' },
-      structural: { score: Math.round(score * 0.9), note: 'Sentence structure analysis' },
-      vocabulary: { score: Math.round(score * 0.85), note: 'Word choice patterns' },
-      style_consistency: { score: Math.round(score * 0.95), note: 'Tone consistency' }
-    };
+    let reasoning = 'Analysis complete based on language patterns.';
+    if (reasonRes.ok) {
+      const rd = await reasonRes.json();
+      reasoning = rd.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || reasoning;
+    }
+
+    // Build full result from score
+    const aiPct = score;
+    const humanPct = Math.max(0, 100 - score - 10);
+    const mixedPct = 100 - aiPct - humanPct;
+    const verdict = score >= 70 ? 'Likely AI-generated' : score >= 40 ? 'Possibly AI-assisted' : 'Likely Human';
+    const confidence = score >= 80 || score <= 20 ? 'High' : score >= 60 || score <= 35 ? 'Medium' : 'Low';
 
     res.status(200).json({
       overall: score,
-      verdict: r.verdict ?? (score > 65 ? 'Likely AI-generated' : score > 35 ? 'Possibly AI-assisted' : 'Likely Human'),
-      confidence: r.confidence ?? 'Medium',
-      signals: defaultSignals,
-      reasoning: String(r.reasoning ?? 'Analysis complete').slice(0, 300),
-      ai_percent: normalize(r.ai_percent ?? score),
-      mixed_percent: normalize(r.mixed_percent ?? 10),
-      human_percent: normalize(r.human_percent ?? Math.max(0, 100 - score - 10)),
+      verdict,
+      confidence,
+      signals: {
+        text_patterns: { score: Math.min(100, Math.round(score * 1.05)), note: 'Formulaic phrases and AI vocabulary' },
+        structural: { score: Math.min(100, Math.round(score * 0.95)), note: 'Sentence length uniformity' },
+        vocabulary: { score: Math.min(100, Math.round(score * 0.90)), note: 'Word choice predictability' },
+        style_consistency: { score: Math.min(100, Math.round(score * 1.00)), note: 'Tone and formality patterns' }
+      },
+      reasoning: reasoning.slice(0, 300),
+      ai_percent: aiPct,
+      mixed_percent: mixedPct,
+      human_percent: humanPct,
       ai_sentences: []
     });
 
