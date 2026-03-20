@@ -13,11 +13,12 @@ module.exports = async function handler(req, res) {
     const { text } = req.body;
     if (!text) { res.status(400).json({ error: 'No text provided' }); return; }
 
-    // Very short prompt = very short response = no truncation
-    const prompt = `Is this text AI-generated or human? Reply with ONLY this JSON, values filled in:
-{"overall_score":0,"verdict":"Likely Human","confidence":"Medium","ai_percent":0,"mixed_percent":10,"human_percent":90,"signals":{"text_patterns":{"score":0,"note":"x"},"structural":{"score":0,"note":"x"},"vocabulary":{"score":0,"note":"x"},"style_consistency":{"score":0,"note":"x"}},"reasoning":"x","ai_sentences":[]}
+    const prompt = `Analyze if this text is AI-generated. Reply with ONLY a JSON object.
+Use integers 0-100 for all scores. Keep all "note" and "reasoning" values under 60 characters.
 
-Text: ${text.slice(0, 800)}`;
+Text: ${text.slice(0, 800)}
+
+JSON:`;
 
     const geminiRes = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`,
@@ -44,19 +45,32 @@ Text: ${text.slice(0, 800)}`;
     
     const start = raw.indexOf('{');
     const end = raw.lastIndexOf('}');
-    if (start === -1 || end === -1) throw new Error('No JSON found: ' + raw.slice(0,100));
+    if (start === -1 || end === -1) throw new Error('No JSON: ' + raw.slice(0,100));
     
     const result = JSON.parse(raw.slice(start, end + 1));
 
+    // Normalize all scores to integers 0-100
+    const normalize = (v) => Math.round(Math.min(100, Math.max(0, (v > 1 ? v : v * 100))));
+    const score = normalize(result.overall_score ?? 50);
+
+    const sig = result.signals ?? {};
+    const normSig = {};
+    for (const key of ['text_patterns','structural','vocabulary','style_consistency']) {
+      normSig[key] = {
+        score: normalize(sig[key]?.score ?? 50),
+        note: (sig[key]?.note || '').slice(0,80)
+      };
+    }
+
     res.status(200).json({
-      overall: result.overall_score ?? 50,
+      overall: score,
       verdict: result.verdict ?? 'Analysis complete',
       confidence: result.confidence ?? 'Medium',
-      signals: result.signals ?? {},
-      reasoning: result.reasoning ?? '',
-      ai_percent: result.ai_percent ?? result.overall_score ?? 50,
-      mixed_percent: result.mixed_percent ?? 10,
-      human_percent: result.human_percent ?? Math.max(0, 100 - (result.overall_score ?? 50) - 10),
+      signals: normSig,
+      reasoning: (result.reasoning || '').slice(0, 300),
+      ai_percent: normalize(result.ai_percent ?? score),
+      mixed_percent: normalize(result.mixed_percent ?? 10),
+      human_percent: normalize(result.human_percent ?? Math.max(0, 100 - score - 10)),
       ai_sentences: result.ai_sentences ?? []
     });
 
