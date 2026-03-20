@@ -13,12 +13,12 @@ module.exports = async function handler(req, res) {
     const { text } = req.body;
     if (!text) { res.status(400).json({ error: 'No text provided' }); return; }
 
-    const prompt = `You are an AI content detector. Analyze this text and respond with ONLY a JSON object, nothing else before or after it.
+    const prompt = `Analyze if this text is AI-generated. Respond with ONLY valid JSON, no other text.
 
-Text: "${text.slice(0, 1500)}"
+Text to analyze: "${text.slice(0, 1000)}"
 
-JSON response (fill in real values):
-{"overall_score":0,"verdict":"Likely Human","confidence":"Medium","ai_percent":0,"mixed_percent":10,"human_percent":90,"signals":{"text_patterns":{"score":0,"note":"brief note"},"structural":{"score":0,"note":"brief note"},"vocabulary":{"score":0,"note":"brief note"},"style_consistency":{"score":0,"note":"brief note"}},"reasoning":"Your analysis here.","ai_sentences":[]}`;
+Respond with exactly this JSON structure (replace values with your analysis):
+{"overall_score":75,"verdict":"Likely AI-generated","confidence":"High","ai_percent":75,"mixed_percent":15,"human_percent":10,"signals":{"text_patterns":{"score":80,"note":"AI phrases detected"},"structural":{"score":70,"note":"Uniform structure"},"vocabulary":{"score":65,"note":"Generic words"},"style_consistency":{"score":75,"note":"Consistent tone"}},"reasoning":"This text shows AI patterns.","ai_sentences":[0,1]}`;
 
     const geminiRes = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`,
@@ -27,7 +27,7 @@ JSON response (fill in real values):
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.1, maxOutputTokens: 800 }
+          generationConfig: { temperature: 0, maxOutputTokens: 500 }
         })
       }
     );
@@ -38,14 +38,27 @@ JSON response (fill in real values):
     }
 
     const data = await geminiRes.json();
+    
+    // Check if response exists
+    if (!data.candidates || !data.candidates[0]) {
+      throw new Error('Empty response from Gemini: ' + JSON.stringify(data).slice(0,200));
+    }
+    
     let raw = data.candidates[0].content.parts[0].text.trim();
     
-    // Extract JSON from response — find first { and last }
+    // Remove markdown code blocks if present
+    raw = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+    
+    // Extract JSON - find first { and last }
     const start = raw.indexOf('{');
     const end = raw.lastIndexOf('}');
-    if (start === -1 || end === -1) throw new Error('No JSON in Gemini response');
+    
+    if (start === -1 || end === -1) {
+      // Return raw response in error so we can see what Gemini said
+      throw new Error('Gemini returned: ' + raw.slice(0, 200));
+    }
+    
     raw = raw.slice(start, end + 1);
-
     const result = JSON.parse(raw);
 
     res.status(200).json({
