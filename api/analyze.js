@@ -1,7 +1,7 @@
 // TrueAI v4 — Secure Gemini API Proxy
-// GEMINI_KEY stored in Vercel Environment Variables only — never in code
+// GEMINI_KEY stored in Vercel Environment Variables only
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
