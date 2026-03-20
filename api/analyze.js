@@ -19,14 +19,28 @@ module.exports = async function handler(req, res) {
     const { text } = req.body;
     if (!text) { res.status(400).json({ error: 'No text provided' }); return; }
 
+    // Use a shorter, focused prompt to avoid JSON truncation
+    const prompt = `Analyze if this text is AI-generated or human-written.
+
+Text: """${text.slice(0, 2000)}"""
+
+Reply ONLY with this exact JSON (no extra text, no markdown):
+{"overall_score":85,"verdict":"Likely AI-generated","confidence":"High","ai_percent":85,"mixed_percent":10,"human_percent":5,"signals":{"text_patterns":{"score":80,"note":"observation here"},"structural":{"score":75,"note":"observation here"},"vocabulary":{"score":70,"note":"observation here"},"style_consistency":{"score":80,"note":"observation here"}},"reasoning":"2-3 sentence explanation here.","ai_sentences":[0,1,2]}
+
+Replace the example values with real analysis. Keep all notes under 50 characters.`;
+
     const geminiRes = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          contents: [{ parts: [{ text }] }],
-          generationConfig: { temperature: 0.1, maxOutputTokens: 1200 }
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { 
+            temperature: 0.1, 
+            maxOutputTokens: 600,
+            responseMimeType: "application/json"
+          }
         })
       }
     );
@@ -43,7 +57,7 @@ module.exports = async function handler(req, res) {
     const result = JSON.parse(raw);
 
     res.status(200).json({
-      overall: result.overall_score ?? result.overall ?? 50,
+      overall: result.overall_score ?? 50,
       verdict: result.verdict ?? 'Analysis complete',
       confidence: result.confidence ?? 'Medium',
       signals: result.signals ?? {},
