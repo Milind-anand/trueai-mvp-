@@ -1,4 +1,4 @@
-// Verai — Secure Gemini API Proxy
+// VeriAI — Secure Gemini API Proxy
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -81,7 +81,7 @@ Text: ${text.slice(0, 1200)}`;
     });
 
   } catch (err) {
-    console.error('Verai error:', err.message);
+    console.error('VeriAI error:', err.message);
     // User-friendly error messages
     if (err.message.includes('quota') || err.message.includes('RESOURCE_EXHAUSTED') || err.message.includes('exceeded')) {
       res.status(429).json({ error: 'Rate limit reached. Please wait 60 seconds and try again.' });
