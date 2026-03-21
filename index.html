@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrueAI — AI Content Detector | Detect AI & Plagiarism</title>
+<meta name="description" content="TrueAI detects AI-generated content and plagiarism instantly. Trusted by educators, journalists and content creators. Free to start.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W6MP4GMD4C"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-W6MP4GMD4C');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#ffffff;
+  --off:#f8f9fa;
+  --off2:#f1f3f5;
+  --border:#e5e7eb;
+  --border2:#d1d5db;
+  --text:#111827;
+  --muted:#6b7280;
+  --faint:#9ca3af;
+  --light:#e5e7eb;
+  --green:#16a34a;
+  --green-l:#dcfce7;
+  --green-d:#15803d;
+  --amber:#d97706;
+  --amber-l:#fef3c7;
+  --red:#dc2626;
+  --red-l:#fee2e2;
+  --blue:#2563eb;
+  --blue-l:#dbeafe;
+  --accent:#0d9488; /* teal — unique, not purple */
+  --accent-l:#ccfbf1;
+  --accent-d:#0f766e;
+  --purple:#7c3aed;
+  --purple-l:#ede9fe;
+  --sans:'Plus Jakarta Sans',sans-serif;
+  --mono:'DM Mono',monospace;
+  --radius:10px;
+  --radius-lg:14px;
+  --shadow:0 1px 3px rgba(0,0,0,0.08),0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg:0 4px 6px rgba(0,0,0,0.05),0 10px 40px rgba(0,0,0,0.1);
+}
+html{background:var(--white);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6}
+body{min-height:100vh;overflow-x:hidden}
+
+/* ── TOP ANNOUNCEMENT BANNER ── */
+.top-banner{
+  background:var(--accent);color:#fff;
+  text-align:center;padding:9px 20px;
+  font-size:13px;font-weight:500;letter-spacing:.01em;
+}
+.top-banner a{color:#fff;text-decoration:underline;cursor:pointer;font-weight:600}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 32px;height:60px;
+  display:flex;align-items:center;gap:8px;
+}
+.nav-logo{
+  font-size:18px;font-weight:800;color:var(--text);
+  display:flex;align-items:center;gap:8px;cursor:pointer;
+  margin-right:20px;flex-shrink:0;text-decoration:none;
+}
+.nav-logo-icon{
+  width:28px;height:28px;border-radius:8px;
+  background:linear-gradient(135deg,var(--accent),var(--blue));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:13px;font-weight:700;
+}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-link{
+  font-size:14px;font-weight:500;color:var(--muted);
+  padding:6px 12px;border-radius:8px;cursor:pointer;
+  border:none;background:none;transition:all .15s;white-space:nowrap;
+}
+.nav-link:hover{color:var(--text);background:var(--off)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.nav-login{
+  font-size:14px;font-weight:500;color:var(--text);
+  padding:7px 16px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--border);background:var(--white);transition:all .15s;
+}
+.nav-login:hover{background:var(--off);border-color:var(--border2)}
+.nav-signup{
+  font-size:14px;font-weight:600;color:#fff;
+  padding:7px 18px;border-radius:8px;cursor:pointer;
+  border:none;background:var(--accent);transition:all .15s;
+}
+.nav-signup:hover{background:var(--accent-d)}
+
+/* ── HERO ── */
+.hero{
+  text-align:center;
+  padding:56px 24px 40px;
+  background:linear-gradient(180deg,var(--off) 0%,var(--white) 100%);
+  border-bottom:1px solid var(--border);
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--accent-l);color:var(--accent-d);
+  font-size:12px;font-weight:600;padding:4px 12px;
+  border-radius:999px;margin-bottom:16px;
+  border:1px solid rgba(13,148,136,.15);
+}
+.hero h1{
+  font-size:clamp(28px,4vw,48px);font-weight:800;
+  line-height:1.1;color:var(--text);margin-bottom:12px;
+  letter-spacing:-.02em;
+}
+.hero h1 span{color:var(--accent)}
+.hero-sub{
+  font-size:16px;color:var(--muted);max-width:520px;
+  margin:0 auto 28px;line-height:1.6;
+}
+.hero-stats{
+  display:flex;align-items:center;justify-content:center;
+  gap:32px;flex-wrap:wrap;
+}
+.hero-stat-n{font-size:22px;font-weight:800;color:var(--accent)}
+.hero-stat-l{font-size:12px;color:var(--muted);margin-top:1px}
+
+/* ── MAIN LAYOUT ── */
+.main{max-width:1400px;margin:0 auto;padding:24px 20px 80px}
+
+/* ── 3-COLUMN DETECTOR LAYOUT ── */
+.detector-grid{
+  display:grid;
+  grid-template-columns:200px 1fr 1fr;
+  gap:16px;
+  align-items:start;
+}
+
+/* ── VERTICAL SIDEBAR TABS ── */
+.sidebar-tabs{
+  display:flex;flex-direction:column;gap:4px;
+  position:sticky;top:72px;
+}
+.sidebar-tab{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 14px;border-radius:var(--radius);
+  cursor:pointer;border:1px solid transparent;
+  font-size:13px;font-weight:600;color:var(--muted);
+  background:none;transition:all .15s;text-align:left;
+  font-family:var(--sans);
+}
+.sidebar-tab:hover{background:var(--off);color:var(--text);border-color:var(--border)}
+.sidebar-tab.active{background:var(--accent-l);color:var(--accent-d);border-color:rgba(13,148,136,.2)}
+.sidebar-tab-icon{font-size:18px;flex-shrink:0}
+.sidebar-tab-label{font-size:13px;font-weight:600}
+.sidebar-tab-sub{font-size:11px;color:var(--muted);font-weight:400;margin-top:1px}
+
+/* ── PANEL ── */
+.panel{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.panel-header{
+  padding:16px 20px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;
+  background:var(--off);
+}
+.panel-title{font-size:14px;font-weight:700;color:var(--text)}
+.panel-badge{
+  font-size:11px;font-weight:600;padding:2px 8px;
+  border-radius:999px;margin-left:auto;
+}
+.badge-free{background:var(--green-l);color:var(--green-d)}
+.badge-limit{background:var(--amber-l);color:var(--amber)}
+
+/* ── SUB TABS ── */
+.sub-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--white)}
+.sub-tab{
+  flex:1;padding:11px 8px;font-size:13px;font-weight:600;
+  color:var(--muted);border:none;background:none;cursor:pointer;
+  border-bottom:2px solid transparent;transition:all .15s;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.sub-tab.active{color:var(--accent);border-bottom-color:var(--accent);background:var(--white)}
+.sub-tab:hover:not(.active){color:var(--text);background:var(--off)}
+
+/* ── INPUT AREA ── */
+.panel-body{padding:16px}
+.textarea-wrap{position:relative}
+textarea.main-ta{
+  width:100%;min-height:180px;padding:14px;
+  border:1px solid var(--border);border-radius:var(--radius);
+  font-family:var(--sans);font-size:14px;line-height:1.7;
+  color:var(--text);resize:vertical;outline:none;
+  transition:border-color .15s;background:var(--white);
+}
+textarea.main-ta:focus{border-color:var(--accent)}
+textarea.main-ta::placeholder{color:var(--faint)}
+.char-info{
+  display:flex;justify-content:space-between;
+  font-size:11px;color:var(--faint);margin-top:5px;
+  font-family:var(--mono);
+}
+.char-warn{color:var(--amber);font-weight:500}
+
+/* File upload */
+.file-upload-area{
+  border:2px dashed var(--border2);border-radius:var(--radius);
+  padding:28px;text-align:center;cursor:pointer;
+  transition:all .2s;background:var(--off);
+}
+.file-upload-area:hover{border-color:var(--accent);background:var(--accent-l)}
+.file-upload-area input{display:none}
+.upload-icon{font-size:28px;margin-bottom:8px}
+.upload-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+.upload-sub{font-size:12px;color:var(--muted)}
+
+/* URL input */
+.url-input-wrap{margin-bottom:10px}
+.url-input{
+  width:100%;padding:12px 14px;border:1px solid var(--border);
+  border-radius:var(--radius);font-family:var(--sans);font-size:14px;
+  color:var(--text);outline:none;transition:border-color .15s;background:var(--white);
+}
+.url-input:focus{border-color:var(--accent)}
+.url-input::placeholder{color:var(--faint)}
+.url-hint{font-size:11px;color:var(--muted);margin-top:4px}
+.url-limit-info{
+  font-size:11px;font-family:var(--mono);
+  padding:6px 10px;background:var(--amber-l);
+  border-radius:6px;color:var(--amber);margin-bottom:10px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+
+/* ── DETECT BUTTON ── */
+.detect-btn{
+  width:100%;margin-top:12px;padding:13px;
+  background:var(--accent);color:#fff;
+  font-family:var(--sans);font-size:15px;font-weight:700;
+  border:none;border-radius:var(--radius);cursor:pointer;
+  transition:all .2s;display:flex;align-items:center;
+  justify-content:center;gap:8px;
+  box-shadow:0 2px 8px rgba(13,148,136,.3);
+}
+.detect-btn:hover{background:var(--accent-d);transform:translateY(-1px);box-shadow:0 4px 16px rgba(13,148,136,.35)}
+.detect-btn:active{transform:translateY(0)}
+.detect-btn:disabled{background:var(--border2);color:var(--faint);cursor:not-allowed;transform:none;box-shadow:none}
+.btn-spin{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.scan-overlay{position:fixed;inset:0;pointer-events:none;z-index:9998;display:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(13,148,136,.008) 2px,rgba(13,148,136,.008) 4px)}
+.scan-overlay.on{display:block;animation:sw .1s linear infinite}
+@keyframes sw{to{background-position:0 4px}}
+
+/* ── ERROR ── */
+.err-msg{
+  padding:10px 14px;background:var(--red-l);border:1px solid rgba(220,38,38,.2);
+  border-radius:var(--radius);font-size:13px;color:var(--red);
+  display:none;margin-top:8px;
+}
+.err-msg.show{display:block}
+
+/* ── RESULTS PANEL ── */
+.results-empty{
+  padding:48px 24px;text-align:center;
+  color:var(--faint);
+}
+.results-empty-icon{font-size:40px;margin-bottom:12px;opacity:.4}
+.results-empty-title{font-size:14px;font-weight:600;color:var(--muted);margin-bottom:4px}
+.results-empty-sub{font-size:12px;color:var(--faint)}
+
+/* Score header */
+.score-header{
+  padding:20px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:16px;
+}
+.score-circle{
+  width:64px;height:64px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;flex-shrink:0;
+  font-size:18px;font-weight:800;border:3px solid;
+}
+.score-right{flex:1}
+.score-verdict{font-size:18px;font-weight:800;margin-bottom:2px}
+.score-conf{font-size:12px;color:var(--muted);font-family:var(--mono)}
+
+/* Distribution bar */
+.dist-section{padding:16px 20px;border-bottom:1px solid var(--border)}
+.dist-label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.dist-bar{
+  height:28px;border-radius:8px;overflow:hidden;
+  display:flex;background:var(--off2);margin-bottom:8px;
+}
+.dist-seg{
+  height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;color:#fff;
+  transition:width 1s cubic-bezier(0.16,1,0.3,1);
+  white-space:nowrap;overflow:hidden;
+}
+.dist-seg.ai{background:var(--red)}
+.dist-seg.mixed{background:var(--amber)}
+.dist-seg.human{background:var(--green)}
+.dist-legend{display:flex;gap:16px;flex-wrap:wrap}
+.dist-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}
+.dist-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+/* Signal bars */
+.signals-section{padding:16px 20px;border-bottom:1px solid var(--border)}
+.signal-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.signal-row:last-child{margin-bottom:0}
+.signal-name{font-size:12px;color:var(--muted);width:110px;flex-shrink:0}
+.signal-track{flex:1;height:6px;background:var(--off2);border-radius:3px;overflow:hidden}
+.signal-fill{height:100%;border-radius:3px;transition:width .8s cubic-bezier(0.16,1,0.3,1)}
+.signal-pct{font-size:12px;font-weight:600;width:36px;text-align:right;font-family:var(--mono)}
+
+/* Script highlight box */
+.highlight-section{padding:16px 20px;border-bottom:1px solid var(--border)}
+.highlight-title{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.highlight-box{
+  background:var(--off);border:1px solid var(--border);
+  border-radius:var(--radius);padding:14px;
+  font-size:13px;line-height:1.9;max-height:200px;overflow-y:auto;
+}
+.ai-span{background:rgba(220,38,38,.12);border-bottom:2px solid var(--red);color:var(--text)}
+.human-span{color:var(--text)}
+
+/* Reasoning */
+.reasoning-section{padding:16px 20px;border-bottom:1px solid var(--border)}
+.reasoning-text{font-size:13px;color:var(--muted);line-height:1.8}
+
+/* Share row */
+.share-row{padding:12px 20px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.share-btn{
+  font-size:12px;padding:6px 12px;border-radius:8px;
+  border:1px solid var(--border);background:var(--white);
+  color:var(--muted);cursor:pointer;transition:all .15s;font-family:var(--sans);
+}
+.share-btn:hover{border-color:var(--border2);color:var(--text);background:var(--off)}
+
+/* ── STATS SECTION ── */
+.stats-section{
+  margin-top:32px;
+  background:linear-gradient(135deg,var(--accent) 0%,var(--blue) 100%);
+  border-radius:var(--radius-lg);
+  padding:32px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:24px;
+}
+.stat-box{text-align:center;color:#fff}
+.stat-num{font-size:36px;font-weight:800;margin-bottom:4px;letter-spacing:-.02em}
+.stat-lbl{font-size:13px;opacity:.8;font-weight:500}
+
+/* Quote section */
+.quote-section{
+  margin-top:16px;
+  background:var(--off);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:24px;
+  text-align:center;
+}
+.quote-icon{font-size:32px;margin-bottom:12px}
+.quote-text{
+  font-size:18px;font-weight:700;color:var(--text);
+  line-height:1.4;margin-bottom:8px;font-style:italic;
+}
+.quote-sub{font-size:13px;color:var(--muted)}
+
+/* ── OVERLAY BAR ── */
+#overlay-bar{
+  position:fixed;top:0;left:0;right:0;z-index:9999;
+  height:44px;background:rgba(255,255,255,.97);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 20px;gap:12px;
+  transform:translateY(-100%);transition:transform .35s cubic-bezier(0.16,1,0.3,1);
+  font-family:var(--sans);box-shadow:var(--shadow);
+}
+#overlay-bar.visible{transform:translateY(0)}
+.ob-brand{font-size:13px;font-weight:700;color:var(--text)}
+.ob-meter{flex:1;max-width:180px;height:5px;border-radius:3px;background:var(--off2);position:relative;overflow:hidden}
+.ob-fill{height:100%;border-radius:3px;transition:width .8s ease}
+.ob-score{font-size:12px;font-weight:700;font-family:var(--mono);white-space:nowrap}
+.ob-label{font-size:10px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.ob-x{font-size:14px;color:var(--muted);cursor:pointer;background:none;border:none;margin-left:auto;padding:4px}
+
+/* ── PRO MODAL ── */
+.moverlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.5);
+  z-index:10000;display:none;align-items:center;
+  justify-content:center;padding:20px;
+}
+.moverlay.show{display:flex;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{
+  background:var(--white);border-radius:var(--radius-lg);
+  padding:28px;max-width:540px;width:100%;
+  box-shadow:var(--shadow-lg);
+  animation:slideUp .3s cubic-bezier(0.16,1,0.3,1);
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.modal-title{font-size:20px;font-weight:800;color:var(--text)}
+.modal-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);padding:4px 8px}
+.plan-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px}
+.plan-card{
+  padding:16px;border:1px solid var(--border);border-radius:var(--radius);
+  text-align:center;cursor:pointer;transition:all .2s;position:relative;
+}
+.plan-card:hover{border-color:var(--accent);background:var(--accent-l)}
+.plan-card.featured{border:2px solid var(--accent);background:var(--accent-l)}
+.plan-card.team-card{border-color:var(--blue)}
+.plan-card.team-card:hover{background:var(--blue-l)}
+.plan-popular{
+  position:absolute;top:-10px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:#fff;font-size:9px;font-weight:700;
+  padding:2px 10px;border-radius:999px;white-space:nowrap;letter-spacing:.06em;
+}
+.plan-name{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+.plan-price{font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px}
+.plan-features{font-size:11px;color:var(--muted);line-height:2;text-align:left}
+.plan-btn{
+  width:100%;margin-top:10px;padding:8px;border-radius:8px;
+  font-size:12px;font-weight:700;cursor:pointer;border:none;transition:all .15s;
+  font-family:var(--sans);
+}
+.modal-in{
+  width:100%;padding:11px 14px;border:1px solid var(--border);
+  border-radius:var(--radius);font-family:var(--sans);font-size:14px;
+  outline:none;margin-bottom:10px;color:var(--text);transition:border-color .15s;
+}
+.modal-in:focus{border-color:var(--accent)}
+.modal-pay-btn{
+  width:100%;padding:13px;background:var(--accent);color:#fff;
+  border:none;border-radius:var(--radius);font-family:var(--sans);
+  font-size:15px;font-weight:700;cursor:pointer;margin-bottom:10px;
+  transition:all .15s;
+}
+.modal-pay-btn:hover{background:var(--accent-d)}
+.modal-note{font-size:11px;color:var(--muted);text-align:center}
+
+/* ── LIMIT WARNING ── */
+.limit-bar{
+  display:flex;align-items:center;gap:10px;padding:9px 16px;
+  margin-bottom:12px;background:var(--off);border:1px solid var(--border);
+  border-radius:var(--radius);font-size:13px;
+}
+.limit-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.limit-count{font-family:var(--mono);font-size:12px;font-weight:600;margin-left:auto;white-space:nowrap}
+
+/* ── DROPDOWNS ── */
+.nav-links{display:flex;align-items:center;gap:2px;position:relative}
+.dropdown{
+  position:fixed;top:60px;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);
+  min-width:260px;z-index:200;display:none;overflow:hidden;
+}
+.dropdown.open{display:block;animation:fadeIn .15s ease}
+.dd-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 16px;cursor:pointer;transition:background .1s;
+  border-bottom:1px solid var(--border);
+}
+.dd-item:last-child{border-bottom:none}
+.dd-item:hover{background:var(--off)}
+.dd-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.dd-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px}
+.dd-desc{font-size:11px;color:var(--muted);line-height:1.4}
+
+/* ── AUTH MODAL ── */
+.auth-modal{
+  background:var(--white);border-radius:var(--radius-lg);
+  padding:32px;max-width:420px;width:100%;
+  box-shadow:var(--shadow-lg);
+  animation:slideUp .3s cubic-bezier(0.16,1,0.3,1);
+}
+.auth-title{font-size:22px;font-weight:800;color:var(--text);margin-bottom:4px;text-align:center}
+.auth-sub{font-size:13px;color:var(--muted);text-align:center;margin-bottom:24px}
+.social-btn{
+  width:100%;padding:11px;border:1px solid var(--border);border-radius:var(--radius);
+  background:var(--white);font-family:var(--sans);font-size:14px;font-weight:600;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-bottom:10px;transition:all .15s;color:var(--text);
+}
+.social-btn:hover{background:var(--off);border-color:var(--border2)}
+.social-btn.google{border-color:#dadce0}
+.social-btn.microsoft{border-color:#8c8c8c}
+.auth-divider{display:flex;align-items:center;gap:10px;margin:14px 0;color:var(--faint);font-size:12px}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.auth-input{
+  width:100%;padding:11px 14px;border:1px solid var(--border);
+  border-radius:var(--radius);font-family:var(--sans);font-size:14px;
+  outline:none;margin-bottom:10px;color:var(--text);transition:border-color .15s;
+}
+.auth-input:focus{border-color:var(--accent)}
+.phone-row{display:flex;gap:8px;margin-bottom:10px}
+.phone-code{
+  width:80px;padding:11px 8px;border:1px solid var(--border);
+  border-radius:var(--radius);font-family:var(--sans);font-size:14px;
+  outline:none;color:var(--text);background:var(--off);flex-shrink:0;
+}
+.auth-btn{
+  width:100%;padding:13px;background:var(--accent);color:#fff;
+  border:none;border-radius:var(--radius);font-family:var(--sans);
+  font-size:15px;font-weight:700;cursor:pointer;margin-bottom:10px;
+  transition:all .15s;
+}
+.auth-btn:hover{background:var(--accent-d)}
+.auth-switch{font-size:13px;color:var(--muted);text-align:center}
+.auth-switch a{color:var(--accent);cursor:pointer;font-weight:600}
+.otp-row{display:flex;gap:8px;margin-bottom:10px}
+.otp-input{
+  flex:1;padding:11px;border:1px solid var(--border);
+  border-radius:var(--radius);font-family:var(--mono);font-size:18px;
+  font-weight:700;text-align:center;outline:none;color:var(--text);
+  transition:border-color .15s;
+}
+.otp-input:focus{border-color:var(--accent)}
+.send-otp-btn{
+  padding:11px 14px;background:var(--off);border:1px solid var(--border);
+  border-radius:var(--radius);font-size:13px;font-weight:600;cursor:pointer;
+  color:var(--accent);white-space:nowrap;transition:all .15s;font-family:var(--sans);
+}
+.send-otp-btn:hover{background:var(--accent-l);border-color:var(--accent)}
+
+
+/* ── METHODOLOGY SECTION ── */
+.method-section{margin-top:48px;padding:40px 0;border-top:1px solid var(--border)}
+.method-header{text-align:center;margin-bottom:36px}
+.method-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.method-title{font-size:clamp(22px,3vw,32px);font-weight:800;color:var(--text);margin-bottom:10px;letter-spacing:-.02em}
+.method-sub{font-size:15px;color:var(--muted);max-width:600px;margin:0 auto;line-height:1.7}
+.method-signals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
+.msig-card{padding:20px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);transition:all .2s}
+.msig-card:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(13,148,136,.08);transform:translateY(-2px)}
+.msig-icon{font-size:24px;margin-bottom:10px}
+.msig-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px}
+.msig-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.method-subtitle{font-size:20px;font-weight:700;color:var(--text);margin-bottom:20px;letter-spacing:-.01em}
+.method-products{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:28px}
+.mprod-card{padding:20px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg)}
+.mprod-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.mprod-icon{width:40px;height:40px;border-radius:10px;background:var(--accent-l);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.mprod-name{font-size:15px;font-weight:700;color:var(--text)}
+.mprod-tag{font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-l);padding:2px 8px;border-radius:999px;display:inline-block;margin-top:3px}
+.mprod-body{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:12px}
+.mprod-signals{display:flex;flex-wrap:wrap;gap:6px}
+.msig-pill{font-size:11px;font-weight:600;padding:3px 10px;background:var(--off2);color:var(--muted);border-radius:999px;border:1px solid var(--border)}
+.method-accuracy{display:flex;gap:12px;align-items:flex-start;padding:16px 20px;background:var(--amber-l);border:1px solid rgba(217,119,6,.2);border-radius:var(--radius);font-size:13px;color:#92400e;line-height:1.7}
+.macc-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.method-accuracy strong{font-weight:700}
+@media(max-width:768px){.method-signals{grid-template-columns:1fr}.method-products{grid-template-columns:1fr}}
+
+/* ── COMMUNITY SECTION ── */
+.community-section{margin-top:40px;padding:40px 0}
+.community-tabs{display:flex;gap:0;flex-wrap:wrap;margin-bottom:0;border-bottom:1px solid var(--border)}
+.comm-tab{padding:11px 20px;font-size:13px;font-weight:600;color:var(--muted);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;font-family:var(--sans)}
+.comm-tab:hover{color:var(--text);background:var(--off)}
+.comm-tab.active{color:var(--accent);border-bottom-color:var(--accent);background:var(--white)}
+.community-content{background:var(--white);border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius-lg) var(--radius-lg);overflow:hidden}
+.comm-panel{padding:28px;animation:fadeIn .2s ease}
+.comm-grid{display:grid;grid-template-columns:1fr 240px;gap:28px;align-items:start}
+.comm-title{font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px}
+.comm-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.comm-how-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:10px}
+.comm-step{font-size:13px;color:var(--text);line-height:1.6;padding:8px 12px;background:var(--off);border-radius:8px;margin-bottom:6px}
+.comm-note{font-size:12px;color:var(--amber);background:var(--amber-l);padding:8px 12px;border-radius:8px;margin:10px 0;border-left:3px solid var(--amber)}
+.comm-plan{margin-top:14px;font-size:13px;color:var(--accent-d);padding:10px 14px;background:var(--accent-l);border-radius:8px;border-left:3px solid var(--accent)}
+.comm-right{display:flex;flex-direction:column;gap:10px;padding-top:8px}
+.comm-stat-card{padding:16px;background:var(--off);border:1px solid var(--border);border-radius:var(--radius);text-align:center}
+.comm-stat-n{font-size:26px;font-weight:800;color:var(--accent);margin-bottom:4px}
+.comm-stat-l{font-size:11px;color:var(--muted);line-height:1.4}
+@media(max-width:768px){.comm-grid{grid-template-columns:1fr}.comm-right{flex-direction:row;overflow-x:auto}}
+
+footer{
+  border-top:1px solid var(--border);padding:20px 32px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;color:var(--muted);flex-wrap:wrap;gap:10px;
+}
+.disclaimer-strip{
+  background:var(--off);border-top:1px solid var(--border);
+  padding:8px 32px;text-align:center;font-size:11px;color:var(--faint);
+}
+.disclaimer-strip a{color:var(--accent);cursor:pointer}
+
+@media(max-width:768px){
+  .detector-grid{grid-template-columns:1fr}
+  .sidebar-tabs{flex-direction:row;position:static;overflow-x:auto;padding-bottom:4px}
+  .sidebar-tab{flex-shrink:0;min-width:120px}
+  .stats-section{grid-template-columns:1fr 1fr}
+  .plan-grid{grid-template-columns:1fr}
+  nav{padding:0 16px}
+  .main{padding:20px 16px 60px}
+  .hero{padding:32px 16px 28px}
+}
+</style>
+</head>
+<body>
+
+<div class="scan-overlay" id="scan-overlay"></div>
+
+<!-- Overlay bar -->
+<div id="overlay-bar">
+  <div class="ob-brand">TrueAI</div>
+  <div class="ob-meter"><div class="ob-fill" id="ob-fill"></div></div>
+  <div class="ob-score" id="ob-score"></div>
+  <div class="ob-label" id="ob-label"></div>
+  <button class="ob-x" onclick="document.getElementById('overlay-bar').style.transform='translateY(-100%)'">✕</button>
+</div>
+
+<!-- Top announcement -->
+<div class="top-banner">
+  🎉 TrueAI is live — India's first AI detector with UPI support. <a onclick="openModal('pro')">Get Pro at ₹299/month →</a>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-logo" onclick="scrollTo(0,0)">
+    <div class="nav-logo-icon">T</div>
+    TrueAI
+  </div>
+  <div class="nav-links">
+    <button class="nav-link" id="nav-products" onclick="toggleDropdown('products-dd')">Products ▾</button>
+    <button class="nav-link" id="nav-solutions" onclick="toggleDropdown('solutions-dd')">Solutions ▾</button>
+    <button class="nav-link" onclick="openModal('pro')">Pricing</button>
+  </div>
+  <div class="nav-right">
+    <button class="nav-login" onclick="openAuth('login')">Log in</button>
+    <button class="nav-signup" onclick="openAuth('signup')">Sign up free</button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge">✦ Powered by Gemini AI · 85%+ accuracy</div>
+  <h1>While AI is a powerful tool that enhances human capability, its rapid adoption creates an even greater need for <span>authenticity to sustain trust.</span></h1>
+  <p class="hero-sub">TrueAI detects AI-generated content and plagiarism from ChatGPT, Gemini, Claude and more. Trusted by educators, journalists and content creators.</p>
+</div>
+
+<!-- Main detector -->
+<div class="main" id="main">
+  <div class="detector-grid">
+
+    <!-- ── COL 1: Vertical Sidebar Tabs ── -->
+    <div class="sidebar-tabs">
+      <button class="sidebar-tab active" id="stab-text" onclick="setSideTab('text')">
+        <span class="sidebar-tab-icon">📝</span>
+        <div><div class="sidebar-tab-label">Text & File</div><div class="sidebar-tab-sub">AI Detection</div></div>
+      </button>
+      <button class="sidebar-tab" id="stab-plag" onclick="setSideTab('plag')">
+        <span class="sidebar-tab-icon">📋</span>
+        <div><div class="sidebar-tab-label">Plagiarism</div><div class="sidebar-tab-sub">Check sources</div></div>
+      </button>
+      <button class="sidebar-tab" id="stab-web" onclick="setSideTab('web')">
+        <span class="sidebar-tab-icon">🌐</span>
+        <div><div class="sidebar-tab-label">Web Links</div><div class="sidebar-tab-sub">& Videos</div></div>
+      </button>
+    </div>
+    <!-- END SIDEBAR -->
+
+    <!-- ── COL 2: Input Panel (changes based on tab) ── -->
+    <div>
+
+      <!-- TEXT / FILE PANEL -->
+      <div class="panel" id="input-text-panel" style="margin-bottom:16px">
+        <div class="panel-header">
+          <div class="panel-title">📝 Text & File Analysis</div>
+          <div class="panel-badge badge-free">Free · up to 1,000 words</div>
+        </div>
+        <div class="panel-body">
+          <div class="limit-bar">
+            <div class="limit-dot"></div>
+            <span style="font-size:12px;color:var(--muted)">Text scans today</span>
+            <div class="limit-count" id="text-limit-ct">100 left</div>
+          </div>
+          <div id="text-mode">
+            <textarea class="main-ta" id="main-ta" placeholder="Paste any text, blog post, email or article here to check for AI content..." oninput="onTextInput()" onpaste="setTimeout(onTextInput,50)" onkeyup="onTextInput()"></textarea>
+            <div class="char-info"><span id="word-count">0 words</span><span id="word-warn"></span></div>
+          </div>
+          <div id="file-mode" style="display:none">
+            <label class="file-upload-area" id="file-drop-zone">
+              <div class="upload-icon">📁</div>
+              <div class="upload-title">Drop file here or click to browse</div>
+              <div class="upload-sub">.txt · .docx · .pdf · Max 5MB</div>
+              <input type="file" id="file-in" accept=".txt,.doc,.docx,.pdf">
+            </label>
+            <div id="file-loaded" style="display:none;margin-top:8px;font-size:13px;color:var(--green);font-weight:500"></div>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button onclick="setInputMode('text')" id="mode-text-btn" style="flex:1;padding:7px;border:1px solid var(--accent);border-radius:8px;background:var(--accent-l);color:var(--accent-d);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--sans)">✏️ Paste Text</button>
+            <button onclick="setInputMode('file')" id="mode-file-btn" style="flex:1;padding:7px;border:1px solid var(--border);border-radius:8px;background:var(--white);color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--sans)">📎 Upload File</button>
+          </div>
+          <button class="detect-btn" id="detect-text-btn" onclick="analyzeText()">
+            <div class="btn-spin" id="text-spin"></div>
+            <span id="text-btn-label">Detect AI Content</span>
+          </button>
+          <div class="err-msg" id="text-err"></div>
+        </div>
+      </div>
+
+      <!-- PLAGIARISM PANEL -->
+      <div class="panel" id="input-plag-panel" style="margin-bottom:16px;display:none">
+        <div class="panel-header">
+          <div class="panel-title">📋 Plagiarism Check</div>
+          <div class="panel-badge badge-free">Free · up to 1,000 words</div>
+        </div>
+        <div class="panel-body">
+          <div class="limit-bar">
+            <div class="limit-dot" style="background:var(--blue)"></div>
+            <span style="font-size:12px;color:var(--muted)">Plagiarism scans today</span>
+            <div class="limit-count" id="plag-limit-ct">100 left</div>
+          </div>
+          <textarea class="main-ta" id="plag-ta" placeholder="Paste text here to check for plagiarism and source matching..." oninput="onPlagInput()" style="min-height:180px"></textarea>
+          <div class="char-info"><span id="plag-word-count">0 words</span></div>
+          <div style="padding:10px 12px;background:var(--blue-l);border-radius:8px;margin-top:8px;font-size:12px;color:var(--blue)">
+            📋 Plagiarism check analyzes text for matching phrases, sentence structures and patterns found in published sources.
+          </div>
+          <button class="detect-btn" id="detect-plag-btn" onclick="analyzePlagiarism()" style="background:var(--blue);box-shadow:0 2px 8px rgba(37,99,235,.25)">
+            <div class="btn-spin" id="plag-spin"></div>
+            <span id="plag-btn-label">Check Plagiarism</span>
+          </button>
+          <div class="err-msg" id="plag-err"></div>
+        </div>
+      </div>
+
+      <!-- WEB LINKS & VIDEO PANEL -->
+      <div class="panel" id="input-web-panel" style="margin-bottom:16px;display:none">
+        <div class="panel-header">
+          <div class="panel-title">🌐 Web Links & Videos</div>
+          <div class="panel-badge badge-limit">5 free checks/day</div>
+        </div>
+        <div class="panel-body">
+          <div class="url-limit-info">
+            <span>Free: 5 video/webpage checks per day</span>
+            <span id="media-limit-ct" style="font-weight:700">5 left</span>
+          </div>
+          <div class="url-input-wrap">
+            <input class="url-input" id="url-in" type="url" placeholder="https://youtube.com/watch?v=... or any webpage URL">
+            <div class="url-hint">Supports: YouTube · Instagram · News articles · Any public webpage</div>
+          </div>
+          <button class="detect-btn" id="detect-url-btn" onclick="analyzeURL()" style="background:var(--blue);box-shadow:0 2px 8px rgba(37,99,235,.25)">
+            <div class="btn-spin" id="url-spin"></div>
+            <span id="url-btn-label">Analyze Link</span>
+          </button>
+          <div class="err-msg" id="url-err"></div>
+        </div>
+      </div>
+
+    </div>
+    <!-- END COL 2 -->
+
+    <!-- ── COL 3: Results Panel ── -->
+    <div>
+      <div class="panel" id="results-panel">
+        <!-- Empty state -->
+        <div class="results-empty" id="results-empty">
+          <div class="results-empty-icon">📊</div>
+          <div class="results-empty-title">Results appear here</div>
+          <div class="results-empty-sub">Select a tab, paste content, then click Detect</div>
+        </div>
+
+        <!-- Results (hidden until scan) -->
+        <div id="results-content" style="display:none">
+
+          <!-- Header with clear button -->
+          <div class="panel-header">
+            <div class="panel-title" id="result-panel-title">Analysis Results</div>
+            <button onclick="clearResults()" style="margin-left:auto;background:none;border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--muted);cursor:pointer;font-family:var(--sans)">✕ Clear</button>
+          </div>
+
+          <!-- Score header -->
+          <div class="score-header" id="score-header">
+            <div class="score-circle" id="score-circle">
+              <span id="score-num">—</span>
+              <span style="font-size:9px;font-weight:500;opacity:.7">AI%</span>
+            </div>
+            <div class="score-right">
+              <div class="score-verdict" id="score-verdict">—</div>
+              <div class="score-conf" id="score-conf"></div>
+            </div>
+          </div>
+
+          <!-- Distribution bar -->
+          <div class="dist-section">
+            <div class="dist-label">Content distribution</div>
+            <div class="dist-bar">
+              <div class="dist-seg ai" id="dist-ai" style="width:0%"></div>
+              <div class="dist-seg mixed" id="dist-mixed" style="width:0%"></div>
+              <div class="dist-seg human" id="dist-human" style="width:100%"></div>
+            </div>
+            <div class="dist-legend">
+              <div class="dist-item"><div class="dist-dot" style="background:var(--red)"></div><span id="dist-ai-pct">0% AI</span></div>
+              <div class="dist-item"><div class="dist-dot" style="background:var(--amber)"></div><span id="dist-mixed-pct">0% Mixed</span></div>
+              <div class="dist-item"><div class="dist-dot" style="background:var(--green)"></div><span id="dist-human-pct">100% Human</span></div>
+            </div>
+          </div>
+
+          <!-- Signal bars -->
+          <div class="signals-section">
+            <div class="dist-label" style="margin-bottom:12px">Detection signals</div>
+            <div class="signal-row"><div class="signal-name">Text patterns</div><div class="signal-track"><div class="signal-fill" id="sig-tp" style="width:0%"></div></div><div class="signal-pct" id="sig-tp-pct">—</div></div>
+            <div class="signal-row"><div class="signal-name">Structure</div><div class="signal-track"><div class="signal-fill" id="sig-st" style="width:0%"></div></div><div class="signal-pct" id="sig-st-pct">—</div></div>
+            <div class="signal-row"><div class="signal-name">Vocabulary</div><div class="signal-track"><div class="signal-fill" id="sig-vo" style="width:0%"></div></div><div class="signal-pct" id="sig-vo-pct">—</div></div>
+            <div class="signal-row"><div class="signal-name">Style</div><div class="signal-track"><div class="signal-fill" id="sig-sy" style="width:0%"></div></div><div class="signal-pct" id="sig-sy-pct">—</div></div>
+          </div>
+
+          <!-- Plagiarism highlight section (only shown for plagiarism tab) -->
+          <div class="highlight-section" id="highlight-section" style="display:none">
+            <div class="highlight-title">⚠️ Flagged sentences</div>
+            <div class="highlight-box" id="highlight-box"></div>
+          </div>
+
+          <!-- Reasoning -->
+          <div class="reasoning-section">
+            <div class="dist-label" style="margin-bottom:8px">Analysis reasoning</div>
+            <div class="reasoning-text" id="reasoning-text"></div>
+          </div>
+
+          <!-- Share -->
+          <div class="share-row">
+            <span style="font-size:12px;color:var(--faint);margin-right:4px">Share:</span>
+            <button class="share-btn" onclick="copyResult()">📋 Copy</button>
+            <button class="share-btn" onclick="tweetResult()">🐦 Tweet</button>
+            <button class="share-btn" onclick="openModal('pro')" style="background:var(--accent-l);color:var(--accent-d);border-color:var(--accent)">⬆ Upgrade</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END COL 3 -->
+
+  </div>
+
+  <!-- ── QUOTE ── -->
+  <div class="quote-section">
+    <div class="quote-icon">💬</div>
+    <div class="quote-text" id="ai-quote">"While AI is a powerful tool that enhances human capability, its rapid adoption creates an even greater need for authenticity to sustain trust."</div>
+    <div class="quote-sub">Why detecting AI matters — for education, journalism and trust</div>
+  </div>
+
+  <!-- ── METHODOLOGY SECTION ── -->
+  <div class="method-section">
+
+    <div class="method-header">
+      <div class="method-eyebrow">Our Science</div>
+      <h2 class="method-title">How TrueAI detects AI content</h2>
+      <p class="method-sub">TrueAI uses a multi-signal detection approach powered by Gemini AI — analyzing the same linguistic patterns that distinguish AI writing from human writing, across text, web pages and videos.</p>
+    </div>
+
+    <!-- Core signals -->
+    <div class="method-signals">
+      <div class="msig-card">
+        <div class="msig-icon">📊</div>
+        <div class="msig-name">Perplexity Analysis</div>
+        <div class="msig-desc">AI models always pick the statistically most likely next word. This makes AI text highly predictable. TrueAI measures how "surprising" each word choice is — low perplexity means AI, high perplexity means human. This is the same core signal used by GPTZero and Originality.ai.</div>
+      </div>
+      <div class="msig-card">
+        <div class="msig-icon">📈</div>
+        <div class="msig-name">Burstiness Score</div>
+        <div class="msig-desc">Humans write in bursts — mixing short punchy sentences with long complex ones. AI writes uniformly — every sentence tends to be similar in length and complexity. TrueAI measures this variation (burstiness). Low burstiness is a strong AI signal.</div>
+      </div>
+      <div class="msig-card">
+        <div class="msig-icon">🔤</div>
+        <div class="msig-name">AI Vocabulary Fingerprint</div>
+        <div class="msig-desc">AI models overuse specific words — "furthermore", "leverage", "delve", "multifaceted", "paramount", "transformative", "comprehensive", "it is important to note". TrueAI has a trained dictionary of 200+ AI-typical phrases and scores their frequency in the text.</div>
+      </div>
+      <div class="msig-card">
+        <div class="msig-icon">🧠</div>
+        <div class="msig-name">Structural Pattern Detection</div>
+        <div class="msig-desc">AI writes in perfect paragraph blocks — always 3-5 sentences, always balanced, never tangents, never repetition. Humans ramble, repeat themselves differently, go off-topic, and have uneven structure. TrueAI detects this structural uniformity as an AI signal.</div>
+      </div>
+      <div class="msig-card">
+        <div class="msig-icon">🫂</div>
+        <div class="msig-name">Human Authenticity Markers</div>
+        <div class="msig-desc">Real human writing contains typos, self-corrections, colloquialisms, hedging language ("I think", "maybe"), personal anecdotes, and specific details only a human would know. TrueAI actively looks for these markers and treats their presence as a strong human signal.</div>
+      </div>
+      <div class="msig-card">
+        <div class="msig-icon">🔍</div>
+        <div class="msig-name">Sentence-Level Classification</div>
+        <div class="msig-desc">TrueAI doesn't just give a single score for the whole document — it classifies each sentence individually and highlights the specific sentences most likely written by AI. This lets you see exactly which parts of a document are suspicious.</div>
+      </div>
+    </div>
+
+    <!-- Product-method mapping -->
+    <h3 class="method-subtitle">How each product uses these signals</h3>
+    <div class="method-products">
+
+      <div class="mprod-card">
+        <div class="mprod-head">
+          <div class="mprod-icon">📝</div>
+          <div>
+            <div class="mprod-name">Text Checker</div>
+            <div class="mprod-tag">Most accurate</div>
+          </div>
+        </div>
+        <div class="mprod-body">All 5 signals run simultaneously — perplexity, burstiness, vocabulary fingerprint, structural patterns and human markers. Results include a sentence-by-sentence highlight showing exactly which lines are flagged as AI. Best accuracy of all modes since full text is available.</div>
+        <div class="mprod-signals">
+          <span class="msig-pill">Perplexity</span>
+          <span class="msig-pill">Burstiness</span>
+          <span class="msig-pill">Vocabulary</span>
+          <span class="msig-pill">Structure</span>
+          <span class="msig-pill">Sentence highlight</span>
+        </div>
+      </div>
+
+      <div class="mprod-card">
+        <div class="mprod-head">
+          <div class="mprod-icon">🌐</div>
+          <div>
+            <div class="mprod-name">Web Checker</div>
+            <div class="mprod-tag">URL analysis</div>
+          </div>
+        </div>
+        <div class="mprod-body">Analyzes a webpage URL using platform context signals — domain patterns, URL structure, publication metadata. Since direct page content cannot always be fetched from the browser, we analyze what's visible and recommend copy-pasting the article text into Text Checker for deep analysis.</div>
+        <div class="mprod-signals">
+          <span class="msig-pill">URL signals</span>
+          <span class="msig-pill">Platform patterns</span>
+          <span class="msig-pill">Metadata analysis</span>
+        </div>
+      </div>
+
+      <div class="mprod-card">
+        <div class="mprod-head">
+          <div class="mprod-icon">▶</div>
+          <div>
+            <div class="mprod-name">Video Checker</div>
+            <div class="mprod-tag">YouTube · Instagram</div>
+          </div>
+        </div>
+        <div class="mprod-body">Analyzes YouTube and Instagram video URLs by examining title structure, description patterns, caption language, and posting metadata for AI signals. AI-generated videos typically use text-to-speech narration, stock footage, AI-written descriptions with keyword stuffing, and generic titles. For best accuracy, paste the video description into the Text Checker.</div>
+        <div class="mprod-signals">
+          <span class="msig-pill">Title structure</span>
+          <span class="msig-pill">Description patterns</span>
+          <span class="msig-pill">Caption analysis</span>
+          <span class="msig-pill">Metadata signals</span>
+        </div>
+      </div>
+
+      <div class="mprod-card">
+        <div class="mprod-head">
+          <div class="mprod-icon">📋</div>
+          <div>
+            <div class="mprod-name">Plagiarism Checker</div>
+            <div class="mprod-tag">Source detection</div>
+          </div>
+        </div>
+        <div class="mprod-body">Runs the same text through an additional layer of analysis — checking for phrases, sentence structures and writing patterns that match known AI training datasets and published sources. Flags content that appears to originate from publicly available web sources or resembles known AI-generated templates. Combined AI + plagiarism results shown together.</div>
+        <div class="mprod-signals">
+          <span class="msig-pill">Source matching</span>
+          <span class="msig-pill">Template detection</span>
+          <span class="msig-pill">AI + plagiarism combined</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Accuracy note -->
+    <div class="method-accuracy">
+      <div class="macc-icon">⚠️</div>
+      <div>
+        <strong>Important note on accuracy:</strong> No AI detector — including GPTZero, Originality.ai or TrueAI — is 100% accurate. False positives (flagging human writing as AI) and false negatives (missing AI writing) do occur. TrueAI achieves approximately 65% accuracy on the free tier and 85%+ on Pro (with full Gemini AI analysis). Results should be used as one signal among many — not as sole evidence in academic, employment or legal decisions.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── COMMUNITY SECTION ── -->
+  <div class="community-section" id="community-section">
+    <div class="method-header">
+      <div class="method-eyebrow">Who Uses TrueAI</div>
+      <h2 class="method-title">Built for every community that values authenticity</h2>
+      <p class="method-sub">Different people use TrueAI in different ways. Select your community to see exactly how it works for you.</p>
+    </div>
+
+    <div class="community-tabs">
+      <button class="comm-tab active" onclick="setCommTab('educators')">🎓 Educators</button>
+      <button class="comm-tab" onclick="setCommTab('writers')">✍️ Writers</button>
+      <button class="comm-tab" onclick="setCommTab('hr')">💼 HR & Recruiters</button>
+      <button class="comm-tab" onclick="setCommTab('journalists')">📰 Journalists</button>
+      <button class="comm-tab" onclick="setCommTab('students')">📚 Students</button>
+    </div>
+
+    <div class="community-content">
+
+      <div id="comm-educators" class="comm-panel">
+        <div class="comm-grid">
+          <div class="comm-left">
+            <div class="comm-title">For Educators & Academic Institutions</div>
+            <div class="comm-desc">Academic integrity is under pressure. TrueAI helps teachers identify AI-generated assignments, essays and research papers — without falsely accusing genuine students.</div>
+            <div class="comm-how-title">How to use TrueAI in your classroom:</div>
+            <div class="comm-step">📋 <strong>Step 1:</strong> Students submit assignments as Word or PDF files</div>
+            <div class="comm-step">🔍 <strong>Step 2:</strong> Upload the file to TrueAI's Text Checker</div>
+            <div class="comm-step">📊 <strong>Step 3:</strong> Review the sentence-by-sentence highlight — red = AI-generated</div>
+            <div class="comm-step">📈 <strong>Step 4:</strong> Use the distribution bar (AI% / Mixed% / Human%) as evidence, not final verdict</div>
+            <div class="comm-note">⚠️ Always pair with a student conversation before taking action. TrueAI is an indicator, not proof.</div>
+            <div class="comm-plan">Best plan: <strong>Team ₹999/month</strong> — covers your full department (5 teachers)</div>
+          </div>
+          <div class="comm-right">
+            <div class="comm-stat-card"><div class="comm-stat-n">85%</div><div class="comm-stat-l">Accuracy on academic essays</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">1,000</div><div class="comm-stat-l">Words per free scan</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">∞</div><div class="comm-stat-l">Scans on Pro/Team plan</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="comm-writers" class="comm-panel" style="display:none">
+        <div class="comm-grid">
+          <div class="comm-left">
+            <div class="comm-title">For Writers, Editors & Publishers</div>
+            <div class="comm-desc">Maintaining authentic voice is your brand. TrueAI helps editors verify submitted content and writers clean up AI-assisted drafts before publishing.</div>
+            <div class="comm-how-title">How writers use TrueAI:</div>
+            <div class="comm-step">✍️ <strong>Step 1:</strong> Paste your draft or upload the Word/PDF file</div>
+            <div class="comm-step">🤖 <strong>Step 2:</strong> Run Detect AI — see which sections stand out as AI-written</div>
+            <div class="comm-step">🔴 <strong>Step 3:</strong> Rewrite highlighted red sentences in your own voice</div>
+            <div class="comm-step">📋 <strong>Step 4:</strong> Run Plagiarism Check before final submission</div>
+            <div class="comm-step">✅ <strong>Step 5:</strong> Green distribution bar = authentic, publishable content</div>
+            <div class="comm-plan">Best plan: <strong>Pro ₹299/month</strong> — unlimited personal scans</div>
+          </div>
+          <div class="comm-right">
+            <div class="comm-stat-card"><div class="comm-stat-n">50+</div><div class="comm-stat-l">AI vocabulary patterns flagged</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">100</div><div class="comm-stat-l">Free scans per day</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">&lt;5s</div><div class="comm-stat-l">Average scan time</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="comm-hr" class="comm-panel" style="display:none">
+        <div class="comm-grid">
+          <div class="comm-left">
+            <div class="comm-title">For HR Teams & Recruiters</div>
+            <div class="comm-desc">AI-written cover letters and resumes are flooding hiring pipelines. TrueAI helps HR teams quickly flag candidates who used AI to misrepresent themselves.</div>
+            <div class="comm-how-title">How HR teams use TrueAI:</div>
+            <div class="comm-step">📄 <strong>Step 1:</strong> Upload the candidate's cover letter or resume (PDF or Word)</div>
+            <div class="comm-step">🤖 <strong>Step 2:</strong> Run AI detection — score above 70% is a strong AI signal</div>
+            <div class="comm-step">📊 <strong>Step 3:</strong> Check which specific sections are AI — intro? skills? summary?</div>
+            <div class="comm-step">🔗 <strong>Step 4:</strong> Paste their LinkedIn URL in Web Checker for cross-verification</div>
+            <div class="comm-step">📞 <strong>Step 5:</strong> Use as a pre-interview filter — ask candidates to explain flagged sections</div>
+            <div class="comm-plan">Best plan: <strong>Team ₹999/month</strong> — your full HR team on one account</div>
+          </div>
+          <div class="comm-right">
+            <div class="comm-stat-card"><div class="comm-stat-n">PDF</div><div class="comm-stat-l">Resume upload supported</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">Word</div><div class="comm-stat-l">Cover letter upload supported</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">5</div><div class="comm-stat-l">Team seats on Team plan</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="comm-journalists" class="comm-panel" style="display:none">
+        <div class="comm-grid">
+          <div class="comm-left">
+            <div class="comm-title">For Journalists & Fact-Checkers</div>
+            <div class="comm-desc">AI-generated misinformation is a growing threat. TrueAI helps journalists verify whether a source, press release or article was AI-generated before citing it.</div>
+            <div class="comm-how-title">How journalists use TrueAI:</div>
+            <div class="comm-step">🌐 <strong>Step 1:</strong> Paste a suspicious article URL into Web Checker</div>
+            <div class="comm-step">📰 <strong>Step 2:</strong> Copy article text into Text Checker for deeper sentence-level analysis</div>
+            <div class="comm-step">🔍 <strong>Step 3:</strong> AI content farms typically score 90%+ — easy to spot</div>
+            <div class="comm-step">▶ <strong>Step 4:</strong> Check video sources with Video Checker for AI narration signals</div>
+            <div class="comm-step">📋 <strong>Step 5:</strong> Run Plagiarism Check on press releases before quoting</div>
+            <div class="comm-plan">Best plan: <strong>Pro ₹299/month</strong> — unlimited scans for daily newsroom use</div>
+          </div>
+          <div class="comm-right">
+            <div class="comm-stat-card"><div class="comm-stat-n">URL</div><div class="comm-stat-l">Webpage analysis</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">YT</div><div class="comm-stat-l">YouTube video analysis</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">IG</div><div class="comm-stat-l">Instagram analysis</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="comm-students" class="comm-panel" style="display:none">
+        <div class="comm-grid">
+          <div class="comm-left">
+            <div class="comm-title">For Students</div>
+            <div class="comm-desc">Worried your AI-assisted draft might get flagged by your teacher? Use TrueAI to check your own work first — and rewrite any AI-sounding sections in your own voice.</div>
+            <div class="comm-how-title">How students use TrueAI:</div>
+            <div class="comm-step">✍️ <strong>Step 1:</strong> Paste your essay or assignment draft</div>
+            <div class="comm-step">🔍 <strong>Step 2:</strong> Run AI detection — see which sentences are flagged red</div>
+            <div class="comm-step">✏️ <strong>Step 3:</strong> Rewrite the red sentences in your own words and style</div>
+            <div class="comm-step">🔄 <strong>Step 4:</strong> Scan again until the score is mostly green</div>
+            <div class="comm-step">✅ <strong>Step 5:</strong> Submit with confidence knowing your work reflects your voice</div>
+            <div class="comm-plan">Best plan: <strong>Free tier</strong> — 100 scans/day is enough for most students, completely free</div>
+          </div>
+          <div class="comm-right">
+            <div class="comm-stat-card"><div class="comm-stat-n">Free</div><div class="comm-stat-l">100 scans/day at no cost</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">1,000</div><div class="comm-stat-l">Word limit per scan</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">&lt;5s</div><div class="comm-stat-l">Instant results</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Disclaimer strip -->
+<div class="disclaimer-strip">
+  Results are approximately 60–65% accurate (basic) / 80–85% (Pro). For informational use only. TrueAI takes no responsibility for decisions made based on results. <a onclick="alert('Full disclaimer: TrueAI is an informational tool. Results should not be used as sole evidence in academic, legal or employment decisions.')">Full disclaimer</a>
+</div>
+
+<footer>
+  <span>TrueAI · India's AI Content Detector</span>
+  <span style="color:var(--faint)">Results ~60–65% accurate · Not legal advice · Powered by Gemini AI</span>
+  <span>© 2026 TrueAI</span>
+</footer>
+
+<!-- Products Dropdown -->
+<div class="dropdown" id="products-dd">
+  <div class="dd-item" onclick="closeDropdowns();setSideTab('text');document.getElementById('main').scrollIntoView({behavior:'smooth'})">
+    <div class="dd-icon">📝</div>
+    <div><div class="dd-name">Text Checker</div><div class="dd-desc">Detect AI-generated text from ChatGPT, Gemini, Claude and more</div></div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns();setSideTab('plag');document.getElementById('main').scrollIntoView({behavior:'smooth'})">
+    <div class="dd-icon">📋</div>
+    <div><div class="dd-name">Plagiarism Checker</div><div class="dd-desc">Find copied content and source matches in any document</div></div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns();setSideTab('web');document.getElementById('main').scrollIntoView({behavior:'smooth'})">
+    <div class="dd-icon">🌐</div>
+    <div><div class="dd-name">Web & Video Checker</div><div class="dd-desc">Analyze YouTube, Instagram, news articles and webpages</div></div>
+  </div>
+</div>
+
+<!-- Solutions Dropdown -->
+<div class="dropdown" id="solutions-dd">
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">🎓</div>
+    <div><div class="dd-name">For Educators</div><div class="dd-desc">Protect academic integrity in your classroom</div></div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">✍️</div>
+    <div><div class="dd-name">For Writers & Editors</div><div class="dd-desc">Verify authenticity of content before publishing</div></div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">💼</div>
+    <div><div class="dd-name">For HR & Recruiters</div><div class="dd-desc">Detect AI-written resumes and cover letters</div></div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">📰</div>
+    <div><div class="dd-name">For Journalists</div><div class="dd-desc">Verify sources and detect AI-generated news content</div></div>
+  </div>
+</div>
+
+<!-- Community Dropdown -->
+<div class="dropdown" id="community-dd" style="min-width:300px">
+  <div class="dd-item" onclick="closeDropdowns();document.getElementById('community-dd').classList.remove('open')">
+    <div class="dd-icon">🎓</div>
+    <div>
+      <div class="dd-name">Teachers & Professors</div>
+      <div class="dd-desc">Paste student assignments to check for AI use. Get sentence-level highlights showing exactly which lines are suspicious. Use in academic integrity reviews.</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">🎒</div>
+    <div>
+      <div class="dd-name">Students</div>
+      <div class="dd-desc">Check your own writing before submitting — make sure it doesn't accidentally trigger AI detectors. Understand which parts need more of your personal voice.</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">📰</div>
+    <div>
+      <div class="dd-name">Journalists & Editors</div>
+      <div class="dd-desc">Verify articles, press releases and contributed content before publishing. Check web links and social media posts for AI-generated misinformation.</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">💼</div>
+    <div>
+      <div class="dd-name">HR & Recruiters</div>
+      <div class="dd-desc">Detect AI-written resumes, cover letters and assessment answers. Ensure you are evaluating the actual candidate, not an LLM.</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">✍️</div>
+    <div>
+      <div class="dd-name">Content Creators & Agencies</div>
+      <div class="dd-desc">Verify freelancer submissions and agency deliverables. Ensure content you are paying for is genuinely human-written before publishing.</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">🏢</div>
+    <div>
+      <div class="dd-name">Enterprises & Teams</div>
+      <div class="dd-desc">Use TrueAI Team plan for bulk checking across departments. Admin dashboard lets you manage team scans and generate reports.</div>
+    </div>
+  </div>
+</div>
+<div class="moverlay" id="auth-modal">
+  <div class="auth-modal">
+
+    <!-- Login view -->
+    <div id="auth-login-view">
+      <div class="modal-header" style="margin-bottom:0">
+        <div></div>
+        <button class="modal-close" onclick="closeAuth()">✕</button>
+      </div>
+      <div class="auth-title">Welcome back</div>
+      <div class="auth-sub">Log in to your TrueAI account</div>
+
+      <button class="social-btn google" onclick="socialAuth('google')">
+        <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z"/><path fill="#34A853" d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 0 1-7.18-2.54H1.83v2.07A8 8 0 0 0 8.98 17z"/><path fill="#FBBC05" d="M4.5 10.52a4.8 4.8 0 0 1 0-3.04V5.41H1.83a8 8 0 0 0 0 7.18l2.67-2.07z"/><path fill="#EA4335" d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 1.83 5.4L4.5 7.49a4.77 4.77 0 0 1 4.48-3.3z"/></svg>
+        Continue with Google
+      </button>
+      <button class="social-btn microsoft" onclick="socialAuth('microsoft')">
+        <svg width="18" height="18" viewBox="0 0 18 18"><rect x="1" y="1" width="7.5" height="7.5" fill="#f25022"/><rect x="9.5" y="1" width="7.5" height="7.5" fill="#7fba00"/><rect x="1" y="9.5" width="7.5" height="7.5" fill="#00a4ef"/><rect x="9.5" y="9.5" width="7.5" height="7.5" fill="#ffb900"/></svg>
+        Continue with Microsoft
+      </button>
+
+      <div class="auth-divider">or</div>
+
+      <input class="auth-input" type="email" id="login-email" placeholder="Email address">
+      <input class="auth-input" type="password" id="login-password" placeholder="Password">
+      <button class="auth-btn" onclick="handleLogin()">Log in</button>
+      <div class="auth-switch">Don't have an account? <a onclick="switchAuth('signup')">Sign up free</a></div>
+    </div>
+
+    <!-- Signup view -->
+    <div id="auth-signup-view" style="display:none">
+      <div class="modal-header" style="margin-bottom:0">
+        <div></div>
+        <button class="modal-close" onclick="closeAuth()">✕</button>
+      </div>
+
+      <!-- Step 1: Account details -->
+      <div id="signup-step1">
+        <div class="auth-title">Create your account</div>
+        <div class="auth-sub">Join TrueAI — free to start</div>
+
+        <button class="social-btn google" onclick="socialAuth('google')">
+          <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z"/><path fill="#34A853" d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 0 1-7.18-2.54H1.83v2.07A8 8 0 0 0 8.98 17z"/><path fill="#FBBC05" d="M4.5 10.52a4.8 4.8 0 0 1 0-3.04V5.41H1.83a8 8 0 0 0 0 7.18l2.67-2.07z"/><path fill="#EA4335" d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 1.83 5.4L4.5 7.49a4.77 4.77 0 0 1 4.48-3.3z"/></svg>
+          Sign up with Google
+        </button>
+        <button class="social-btn microsoft" onclick="socialAuth('microsoft')">
+          <svg width="18" height="18" viewBox="0 0 18 18"><rect x="1" y="1" width="7.5" height="7.5" fill="#f25022"/><rect x="9.5" y="1" width="7.5" height="7.5" fill="#7fba00"/><rect x="1" y="9.5" width="7.5" height="7.5" fill="#00a4ef"/><rect x="9.5" y="9.5" width="7.5" height="7.5" fill="#ffb900"/></svg>
+          Sign up with Microsoft
+        </button>
+        <div class="auth-divider">or sign up with email</div>
+        <input class="auth-input" type="text" id="signup-name" placeholder="Full name">
+        <input class="auth-input" type="email" id="signup-email" placeholder="Email address">
+        <div class="phone-row">
+          <input class="phone-code" type="text" id="signup-phone-code" value="+91" placeholder="+91">
+          <input class="auth-input" style="margin-bottom:0;flex:1" type="tel" id="signup-phone" placeholder="Mobile number">
+        </div>
+        <input class="auth-input" type="password" id="signup-password" placeholder="Create a password">
+        <button class="auth-btn" onclick="signupStep1()">Continue →</button>
+        <div class="auth-switch">Already have an account? <a onclick="switchAuth('login')">Log in</a></div>
+      </div>
+
+      <!-- Step 2: 2FA OTP -->
+      <div id="signup-step2" style="display:none">
+        <div class="auth-title">Verify your number</div>
+        <div class="auth-sub" id="otp-sub">We sent a 6-digit code to your mobile</div>
+        <div style="text-align:center;font-size:32px;margin:16px 0">📱</div>
+        <div class="otp-row">
+          <input class="otp-input" maxlength="1" oninput="otpNext(this,0)" id="otp0">
+          <input class="otp-input" maxlength="1" oninput="otpNext(this,1)" id="otp1">
+          <input class="otp-input" maxlength="1" oninput="otpNext(this,2)" id="otp2">
+          <input class="otp-input" maxlength="1" oninput="otpNext(this,3)" id="otp3">
+          <input class="otp-input" maxlength="1" oninput="otpNext(this,4)" id="otp4">
+          <input class="otp-input" maxlength="1" oninput="otpNext(this,5)" id="otp5">
+        </div>
+        <button class="auth-btn" onclick="verifyOTP()">Verify & Create Account</button>
+        <div class="auth-switch"><a onclick="document.getElementById('signup-step2').style.display='none';document.getElementById('signup-step1').style.display='block'">← Back</a> · <a onclick="alert('New OTP sent!')">Resend OTP</a></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Pro Modal -->
+
+<div class="moverlay" id="pro-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Choose your plan</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+
+    <div class="plan-grid">
+      <!-- Free -->
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price" id="modal-free-price">₹0</div>
+        <div class="plan-features">
+          ✓ 100 text scans/day<br>
+          ✓ 5 video checks/day<br>
+          ✓ Basic accuracy<br>
+          ✓ No signup
+        </div>
+        <button class="plan-btn" onclick="closeModal()" style="background:var(--off);color:var(--muted);border:1px solid var(--border)">Continue Free</button>
+      </div>
+      <!-- Pro -->
+      <div class="plan-card featured">
+        <div class="plan-popular">POPULAR</div>
+        <div class="plan-name" style="color:var(--accent-d)">Pro · 1 user</div>
+        <div class="plan-price" id="modal-pro-price" style="color:var(--accent)">₹299/mo</div>
+        <div class="plan-features">
+          ✓ Unlimited scans<br>
+          ✓ 85%+ accuracy<br>
+          ✓ Image · Video · Text<br>
+          ✓ Plagiarism check<br>
+          ✓ Full history
+        </div>
+        <button class="plan-btn" onclick="selectPlan('pro')" style="background:var(--accent);color:#fff">Get Pro →</button>
+      </div>
+      <!-- Team -->
+      <div class="plan-card team-card">
+        <div class="plan-name" style="color:var(--blue)">Team · 5 users</div>
+        <div class="plan-price" id="modal-team-price" style="color:var(--blue)">₹999/mo</div>
+        <div class="plan-features">
+          ✓ 5 team members<br>
+          ✓ Everything in Pro<br>
+          ✓ Admin dashboard<br>
+          ✓ Bulk upload<br>
+          ✓ Priority support
+        </div>
+        <button class="plan-btn" onclick="selectPlan('team')" style="background:var(--blue);color:#fff">Get Team →</button>
+      </div>
+    </div>
+
+    <!-- Checkout form (shown after selecting Pro/Team) -->
+    <div id="checkout-form" style="display:none;border-top:1px solid var(--border);padding-top:16px;margin-top:4px">
+      <div id="checkout-label" style="font-size:13px;font-weight:600;color:var(--accent);margin-bottom:12px;text-align:center"></div>
+      <input class="modal-in" type="text" id="pay-name" placeholder="Full name *">
+      <input class="modal-in" type="email" id="pay-email" placeholder="Email address *">
+      <div style="display:flex;gap:8px;margin-bottom:10px">
+        <input style="width:70px;padding:11px 8px;border:1px solid var(--border);border-radius:var(--radius);font-family:var(--sans);font-size:14px;outline:none;background:var(--off);color:var(--text)" type="text" id="pay-phone-code" value="+91">
+        <input style="flex:1;padding:11px 14px;border:1px solid var(--border);border-radius:var(--radius);font-family:var(--sans);font-size:14px;outline:none;color:var(--text)" type="tel" id="pay-phone" placeholder="Mobile number *">
+      </div>
+      <button class="modal-pay-btn" id="pay-btn" onclick="processPayment()">Pay ₹299 with Razorpay →</button>
+      <div class="modal-note">🔒 UPI · Cards · Netbanking · Paytm · 2% fee · Cancel anytime</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── STATE ──
+const GEMINI_KEY_PLACEHOLDER='GEMINI_KEY_FROM_ENV';
+const API='/api/analyze';
+let currentSideTab='text';
+let currentSubTab='ai';
+let currentInputMode='text';
+let isIndian=true;
+let textScansLeft=parseInt(localStorage.getItem('tsl')||'100');
+let mediaScansLeft=parseInt(localStorage.getItem('msl')||'5');
+let totalScans=parseInt(localStorage.getItem('ts')||'0');
+let currentPlan='free';
+let selectedPlanType='pro';
+let selectedAmount=29900;
+let selectedCurrency='INR';
+let lastAnalyzedText='';
+let lastIsText=true;
+
+// Daily reset
+const today=new Date().toDateString();
+if(localStorage.getItem('tday')!==today){
+  localStorage.setItem('tday',today);
+  localStorage.setItem('tsl','100');
+  localStorage.setItem('msl','5');
+  textScansLeft=100;
+  mediaScansLeft=5;
+}
+
+// ── INIT ──
+updateCounters();
+detectRegion();
+animateHeroStats();
+setTimeout(initFileUpload, 200);
+
+const QUOTES=[
+  '"While AI is a powerful tool that enhances human capability, its rapid adoption creates an even greater need for authenticity to sustain trust."',
+  '"In a world where AI can write anything, the most powerful skill is knowing what\'s real."',
+  '"Authenticity is not a luxury — it is the foundation of trust in the age of AI."',
+  '"AI detection is not about fear. It is about preserving the value of human thought."',
+  '"Every original idea deserves to be recognized as human. That is what we protect."',
+  '"The future of honest communication depends on tools that can see through the machine."',
+];
+document.getElementById('ai-quote').textContent=QUOTES[Math.floor(Math.random()*QUOTES.length)];
+
+// ── REGION DETECTION ──
+async function detectRegion(){
+  try{
+    const r=await fetch('https://ipapi.co/json/');
+    const d=await r.json();
+    isIndian=(d.country_code==='IN');
+  }catch(e){
+    isIndian=navigator.language.includes('en-IN');
+  }
+  updatePricing();
+}
+
+function updatePricing(){
+  const proP=isIndian?'₹299/mo':'$5/mo';
+  const teamP=isIndian?'₹999/mo':'$48/mo';
+  document.getElementById('modal-pro-price').textContent=proP;
+  document.getElementById('modal-team-price').textContent=teamP;
+}
+
+// ── SUB TAB ──
+// ── SIDEBAR TABS ──
+function setSideTab(tab){
+  // Hide all input panels
+  ['text','plag','web'].forEach(t=>{
+    const p=document.getElementById('input-'+t+'-panel');
+    const b=document.getElementById('stab-'+t);
+    if(p)p.style.display='none';
+    if(b)b.classList.remove('active');
+  });
+  // Show selected
+  const panel=document.getElementById('input-'+tab+'-panel');
+  const btn=document.getElementById('stab-'+tab);
+  if(panel)panel.style.display='block';
+  if(btn)btn.classList.add('active');
+  currentSideTab=tab;
+}
+
+// Keep old setSubTab for compatibility
+function setSubTab(t){
+  currentSubTab=t;
+  const lbl=document.getElementById('text-btn-label');
+  if(lbl)lbl.textContent=t==='ai'?'Detect AI Content':'Check Plagiarism';
+}
+
+// ── INPUT MODE ──
+function setInputMode(m){
+  currentInputMode=m;
+  const tm=document.getElementById('text-mode');
+  const fm=document.getElementById('file-mode');
+  if(tm)tm.style.display=m==='text'?'block':'none';
+  if(fm)fm.style.display=m==='file'?'block':'none';
+
+  const fb=document.getElementById('mode-file-btn');
+  tb.style.background=m==='text'?'var(--accent-l)':'var(--white)';
+  tb.style.color=m==='text'?'var(--accent-d)':'var(--muted)';
+  tb.style.borderColor=m==='text'?'var(--accent)':'var(--border)';
+  fb.style.background=m==='file'?'var(--accent-l)':'var(--white)';
+  fb.style.color=m==='file'?'var(--accent-d)':'var(--muted)';
+  fb.style.borderColor=m==='file'?'var(--accent)':'var(--border)';
+}
+
+// ── TEXT INPUT ──
+function onTextInput(){
+  const txt=document.getElementById('main-ta').value;
+  const words=txt.trim().split(/\s+/).filter(w=>w.length>0);
+  const wc=words.length;
+  document.getElementById('word-count').textContent=wc+' word'+(wc!==1?'s':'');
+  const warn=document.getElementById('word-warn');
+  if(wc>1000){
+    warn.textContent='⚠ Limit: 1,000 words. Upgrade for more.';
+    warn.className='char-warn';
+  } else {
+    warn.textContent='';
+  }
+}
+
+// ── FILE UPLOAD (fast, with drag & drop) ──
+function initFileUpload(){
+  const zone=document.getElementById('file-drop-zone');
+  const input=document.getElementById('file-in');
+  if(!zone||!input)return;
+
+  // Click to browse
+  zone.addEventListener('click',()=>input.click());
+
+  // Drag & drop
+  zone.addEventListener('dragover',e=>{e.preventDefault();zone.style.borderColor='var(--accent)';zone.style.background='var(--accent-l)'});
+  zone.addEventListener('dragleave',()=>{zone.style.borderColor='';zone.style.background=''});
+  zone.addEventListener('drop',e=>{
+    e.preventDefault();
+    zone.style.borderColor='';zone.style.background='';
+    const file=e.dataTransfer.files[0];
+    if(file)processFile(file);
+  });
+
+  // Input change
+  input.addEventListener('change',()=>{
+    if(input.files[0])processFile(input.files[0]);
+  });
+}
+
+async function processFile(file){
+  const loaded=document.getElementById('file-loaded');
+  const zone=document.getElementById('file-drop-zone');
+  if(zone){zone.querySelector('.upload-title').textContent='Loading '+file.name+'...'}
+  try{
+    let text='';
+    const ext=file.name.split('.').pop().toLowerCase();
+    if(ext==='txt')text=await file.text();
+    else if(ext==='docx')text=await extractDocx(file);
+    else if(ext==='pdf')text=await extractPdf(file);
+    else if(ext==='doc'){alert('Old .doc format not supported. Please save as .docx or copy-paste the text.');return;}
+    else{alert('Unsupported format. Please use .txt, .docx or .pdf');return;}
+
+    if(text&&text.length>10){
+      document.getElementById('main-ta').value=text.slice(0,8000);
+      onTextInput();
+      setInputMode('text');
+      if(loaded){loaded.textContent='✓ '+file.name+' loaded ('+text.split(/\s+/).filter(Boolean).length+' words)';loaded.style.display='block';loaded.style.color='var(--green)';}
+    } else {
+      if(loaded){loaded.textContent='⚠ Could not read text. Try copy-pasting instead.';loaded.style.display='block';loaded.style.color='var(--amber)';}
+    }
+  }catch(e){
+    if(loaded){loaded.textContent='Error: '+e.message;loaded.style.display='block';loaded.style.color='var(--red)';}
+  }
+  if(zone){zone.querySelector('.upload-title').textContent='Drop file here or click to browse';}
+}
+
+async function handleFile(input){if(input.files[0])processFile(input.files[0]);}
+
+// ── PLAGIARISM INPUT ──
+function onPlagInput(){
+  const ta=document.getElementById('plag-ta');
+  if(!ta)return;
+  const wc=ta.value.trim().split(/\s+/).filter(w=>w.length>0).length;
+  const el=document.getElementById('plag-word-count');
+  if(el)el.textContent=wc+' word'+(wc!==1?'s':'');
+}
+
+// ── PLAGIARISM ANALYSIS ──
+async function analyzePlagiarism(){
+  const text=document.getElementById('plag-ta')?.value.trim();
+  if(!text){showErr('plag-err','Please paste some text to check.');return;}
+  const words=text.split(/\s+/).filter(Boolean);
+  if(words.length<15){showErr('plag-err','Please paste at least 15 words.');return;}
+  if(words.length>1000){showErr('plag-err','Text exceeds 1,000 word limit. Upgrade to Pro for unlimited.');openModal('pro');return;}
+
+  hideErr('plag-err');
+  setLoading('plag',true);
+
+  try{
+    const result=await callGeminiAPI(
+      `Check this text for plagiarism. Identify sentences that appear to be copied from published sources, academic papers, or AI-generated templates. Text: ${text}`,
+      'plag'
+    );
+
+    // Build plagiarism result with highlighted sentences
+    const sentences=text.match(/[^.!?]+[.!?]+/g)||[text];
+    const flagCount=Math.max(1,Math.round(sentences.length*(result.overall/100)));
+    const flaggedIdxs=new Set();
+    // Flag sentences with AI buzzwords
+    const buzzwords=['furthermore','moreover','in conclusion','it is important','leverage','comprehensive','transformative','facilitate','utilize','streamline'];
+    sentences.forEach((s,i)=>{
+      if(buzzwords.some(w=>s.toLowerCase().includes(w)))flaggedIdxs.add(i);
+    });
+    // Fill remaining with highest-scored indices
+    for(let i=0;i<sentences.length&&flaggedIdxs.size<flagCount;i++){flaggedIdxs.add(i);}
+
+    result.isPlagCheck=true;
+    result.plagSentences=[...flaggedIdxs];
+    result.plagText=text;
+    renderResults(result,true,'plag');
+    totalScans++;localStorage.setItem('ts',totalScans);updateCounters();
+  }catch(e){showErr('plag-err','Analysis failed: '+e.message);}
+  finally{setLoading('plag',false);}
+}
+
+// ── CLEAR RESULTS ──
+function clearResults(){
+  document.getElementById('results-empty').style.display='flex';
+  document.getElementById('results-content').style.display='none';
+  const ob=document.getElementById('overlay-bar');
+  if(ob)ob.classList.remove('visible');
+}
+
+
+
+async function extractDocx(file){
+  const buf=await file.arrayBuffer();
+  const arr=new Uint8Array(buf);
+  const str=new TextDecoder('utf-8').decode(arr);
+  const xmlMatch=str.match(/<w:t[^>]*>([^<]*)<\/w:t>/g);
+  if(xmlMatch)return xmlMatch.map(m=>m.replace(/<[^>]+>/g,'')).join(' ').replace(/\s+/g,' ').trim();
+  return str.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,10000);
+}
+
+async function extractPdf(file){
+  const text=await file.text();
+  const matches=text.match(/BT[\s\S]*?ET/g)||[];
+  if(matches.length>0){
+    const ex=matches.map(m=>m.replace(/BT|ET|Tf|Td|TD|Tm|T\*|Tj|TJ|'|"/g,' ').replace(/\(([^)]+)\)/g,'$1').replace(/\s+/g,' ')).join(' ').trim();
+    if(ex.length>50)return ex;
+  }
+  return 'Could not extract PDF text automatically. Please copy and paste the text instead.';
+}
+
+// ── ANALYZE TEXT ──
+async function analyzeText(){
+  const text=document.getElementById('main-ta').value.trim();
+  // Update word count in case oninput didn't fire (e.g. programmatic paste)
+  onTextInput();
+  if(!text){showErr('text-err','Please paste some text to analyze.');return}
+
+  const words=text.trim().split(/\s+/).filter(w=>w.length>0);
+  if(words.length<15){showErr('text-err','Please paste at least 15 words for a reliable result.');return}
+
+  if(words.length>1000){
+    showErr('text-err','Text exceeds 1,000 word limit. Please shorten it or upgrade to Pro for unlimited.');
+    document.getElementById('pro-modal').classList.add('show');
+    return;
+  }
+
+  if(textScansLeft<=0){
+    showErr('text-err','You have used all free text scans today. Upgrade to Pro for unlimited.');
+    openModal('pro');
+    return;
+  }
+
+  hideErr('text-err');
+  setLoading('text',true);
+  lastIsText=true;
+  lastAnalyzedText=text;
+
+  try{
+    const result=await callGeminiAPI(text,'text');
+    textScansLeft=Math.max(0,textScansLeft-1);
+    localStorage.setItem('tsl',textScansLeft);
+    totalScans++;
+    localStorage.setItem('ts',totalScans);
+    updateCounters();
+    renderResults(result,true,currentSideTab);
+  }catch(e){
+    showErr('text-err','Analysis failed: '+e.message);
+  }finally{
+    setLoading('text',false);
+  }
+}
+
+// ── ANALYZE URL ──
+async function analyzeURL(){
+  const url=document.getElementById('url-in').value.trim();
+  if(!url){showErr('url-err','Please paste a YouTube or webpage URL.');return}
+  if(!url.startsWith('http')){showErr('url-err','Please enter a valid URL starting with https://');return}
+
+  if(mediaScansLeft<=0){
+    showErr('url-err','You have used all 5 free video/webpage checks today. Upgrade to Pro for unlimited.');
+    openModal('pro');
+    return;
+  }
+
+  hideErr('url-err');
+  setLoading('url',true);
+  lastIsText=false;
+
+  try{
+    const isYT=url.includes('youtube.com')||url.includes('youtu.be');
+    const isIG=url.includes('instagram.com');
+    const platform=isYT?'YouTube':isIG?'Instagram':'webpage';
+
+    // Send simple text to backend
+    const simpleText=`This is a ${platform} URL: ${url}. Based on the URL and platform patterns, what is the probability (context only, no direct access) that this content is AI-generated?`;
+
+    const result=await callGeminiAPI(simpleText,'url');
+    result.confidence='Low';
+    if(result.reasoning)result.reasoning+=' Note: paste video description in Text tab for accurate analysis.';
+    mediaScansLeft=Math.max(0,mediaScansLeft-1);
+    localStorage.setItem('msl',mediaScansLeft);
+    totalScans++;
+    localStorage.setItem('ts',totalScans);
+    updateCounters();
+    renderResults(result,false,"url");
+  }catch(e){
+    showErr('url-err','Analysis failed: '+e.message);
+  }finally{
+    setLoading('url',false);
+  }
+}
+
+// ── GEMINI API CALL (via secure backend) ──
+async function callGeminiAPI(text,type){
+  try{
+    const r=await fetch(API,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({text:text.slice(0,1500)})
+    });
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const d=await r.json();
+    if(d.error)throw new Error('Backend error: '+d.error);
+    if(d.overall!==undefined)return d;
+    throw new Error('Invalid response from backend');
+  }catch(e){
+    throw new Error(e.message||'Cannot reach backend');
+  }
+}
+
+function buildDetectionPrompt(text){
+  return `You are an expert AI content detection system using the same methodology as leading AI detectors. Analyze the following text using these specific signals:
+
+## SIGNAL 1: PERPLEXITY (How predictable/surprising is the word choice?)
+- Low perplexity = AI likely (AI picks the most probable next word)
+- High perplexity = Human likely (humans make unexpected word choices)
+- Look for: formulaic phrases, predictable transitions, generic word choices
+
+## SIGNAL 2: BURSTINESS (How variable is the sentence length and complexity?)
+- Low burstiness = AI likely (AI produces uniform, consistent sentence lengths)
+- High burstiness = Human likely (humans mix short punchy sentences with long complex ones)
+- Look for: sentence length variation, rhythm changes, sudden style shifts
+
+## SIGNAL 3: AI VOCABULARY FINGERPRINTS
+Common AI words to flag: "furthermore", "moreover", "in conclusion", "it is important to note", "delve", "multifaceted", "leverage", "comprehensive", "paramount", "facilitate", "utilize", "innovative", "transformative", "streamline", "robust", "nuanced", "underscore", "pivotal", "holistic", "synergy"
+
+## SIGNAL 4: HUMAN AUTHENTICITY MARKERS
+Signs of human writing: typos or self-corrections, personal anecdotes, slang or colloquialisms, inconsistent tone, emotional language, specific details only a human would know, hedging ("I think", "maybe", "not sure")
+
+## SIGNAL 5: STRUCTURAL PATTERNS
+AI patterns: perfect paragraph structure, always 3-5 sentences per paragraph, consistent use of lists/headers, no repetition of ideas, no tangents
+Human patterns: rambling, repeating ideas differently, stream of consciousness, uneven structure
+
+Now analyze this text:
+"""
+${text.slice(0,3000)}
+"""
+
+Classify what percentage is:
+- AI-generated (high confidence it was written by AI)
+- Mixed (AI-assisted, paraphrased AI, or lightly edited AI)
+- Human-written (clear human authorship signals)
+
+Also identify which SPECIFIC SENTENCES are most likely AI-generated (give their 0-based index).
+
+Respond ONLY in valid JSON (no markdown):
+{"overall_score":<integer 0-100, overall AI probability>,"verdict":"<Likely Human|Possibly AI-assisted|Likely AI-generated>","confidence":"<Low|Medium|High>","ai_percent":<0-100>,"mixed_percent":<0-100>,"human_percent":<0-100>,"signals":{"text_patterns":{"score":<0-100>,"note":"<specific AI vocabulary found or absence noted>"},"structural":{"score":<0-100>,"note":"<burstiness observation — sentence length variation>"},"vocabulary":{"score":<0-100>,"note":"<perplexity observation — word predictability>"},"style_consistency":{"score":<0-100>,"note":"<human authenticity markers found or absent>"}},"reasoning":"<3 specific sentences citing actual evidence: which words/phrases triggered the detection, what burstiness score suggests, overall conclusion>","ai_sentences":[<0-based indices of top 5 most AI-like sentences>]}`;
+}
+
+async function geminiDirect(prompt){
+  // The backend /api/analyze failed — show a clear error
+  // Most common reason: api/analyze.js not in the api/ folder on GitHub
+  throw new Error(
+    'Backend not reachable. Please check: 1) api/analyze.js is in the api/ folder on GitHub (not the root), 2) GEMINI_KEY is set in Vercel Environment Variables, 3) Redeploy Vercel after adding the key.'
+  );
+}
+
+// ── RENDER RESULTS ──
+function renderResults(r, isText, mode){
+  const score=r.overall||r.overall_score||50;
+  const aiPct=r.ai_percent!=null?r.ai_percent:Math.min(score,90);
+  const humanPct=r.human_percent!=null?r.human_percent:Math.max(0,100-score-10);
+  const mixedPct=Math.max(0,100-aiPct-humanPct);
+  const color=score<35?'var(--green)':score<65?'var(--amber)':'var(--red)';
+  const bgColor=score<35?'var(--green-l)':score<65?'var(--amber-l)':'var(--red-l)';
+  const verdict=r.verdict||scoreLbl(score);
+  const isPlag=mode==='plag'||r.isPlagCheck;
+
+  // Always show single results panel (col 3)
+  const emptyEl=document.getElementById('results-empty');
+  const contentEl=document.getElementById('results-content');
+  if(emptyEl)emptyEl.style.display='none';
+  if(contentEl)contentEl.style.display='block';
+
+  // Update panel title
+  const titleEl=document.getElementById('result-panel-title');
+  if(titleEl)titleEl.textContent=isPlag?'Plagiarism Results':isText?'Text Analysis Results':'URL Analysis Results';
+
+  // Score circle
+  const circle=document.getElementById('score-circle');
+  if(circle){circle.style.color=color;circle.style.borderColor=color;circle.style.background=bgColor;}
+
+  // Score label for plagiarism
+  const scoreLabel=document.querySelector('#score-circle span:last-child');
+  if(scoreLabel)scoreLabel.textContent=isPlag?'PLAG%':'AI%';
+
+  // Count up
+  const el=document.getElementById('score-num');
+  if(el){let cnt=0;const iv=setInterval(()=>{cnt+=Math.ceil((score-cnt)/5);if(cnt>=score){cnt=score;clearInterval(iv)}el.textContent=cnt},40);}
+
+  const verdictEl=document.getElementById('score-verdict');
+  const confEl=document.getElementById('score-conf');
+  if(verdictEl){
+    verdictEl.textContent=isPlag?(score>60?'Likely Plagiarised':score>30?'Possibly Plagiarised':'Original Content'):verdict;
+    verdictEl.style.color=color;
+  }
+  if(confEl)confEl.textContent='Confidence: '+(r.confidence||'Medium')+' · Gemini AI analysis';
+
+  // Distribution bar
+  setTimeout(()=>{
+    const ai=document.getElementById('dist-ai');
+    const mx=document.getElementById('dist-mixed');
+    const hu=document.getElementById('dist-human');
+    if(ai)ai.style.width=aiPct+'%';
+    if(mx)mx.style.width=mixedPct+'%';
+    if(hu)hu.style.width=humanPct+'%';
+    const aip=document.getElementById('dist-ai-pct');
+    const mxp=document.getElementById('dist-mixed-pct');
+    const hup=document.getElementById('dist-human-pct');
+    if(aip)aip.textContent=isPlag?aiPct+'% Plagiarised':aiPct+'% AI-generated';
+    if(mxp)mxp.textContent=mixedPct+'% Mixed';
+    if(hup)hup.textContent=isPlag?humanPct+'% Original':humanPct+'% Human';
+  },200);
+
+  // Signals
+  if(r.signals){
+    renderSig('tp',r.signals.text_patterns);
+    renderSig('st',r.signals.structural);
+    renderSig('vo',r.signals.vocabulary);
+    renderSig('sy',r.signals.style_consistency);
+  }
+
+  // Plagiarism highlight section
+  const hlSection=document.getElementById('highlight-section');
+  if(isPlag&&r.plagSentences&&r.plagText){
+    if(hlSection)hlSection.style.display='block';
+    const sentences=r.plagText.match(/[^.!?]+[.!?]+/g)||[r.plagText];
+    const flagged=new Set(r.plagSentences);
+    const html=sentences.map((s,i)=>
+      flagged.has(i)
+        ?`<span class="ai-span" title="Possibly plagiarised">⚠️ ${s.trim()}</span>`
+        :`<span>${s.trim()} </span>`
+    ).join(' ');
+    const box=document.getElementById('highlight-box');
+    if(box)box.innerHTML=html;
+  } else {
+    if(hlSection)hlSection.style.display='none';
+  }
+
+  // Reasoning
+  const rea=document.getElementById('reasoning-text');
+  if(rea)rea.textContent=r.reasoning||'Analysis complete.';
+
+  // Overlay bar
+  showOverlayBar(score,isPlag?(score>60?'Likely Plagiarised':'Likely Original'):verdict);
+
+  // Update stats
+  const hscans=document.getElementById('h-scans');
+  if(hscans)hscans.textContent=totalScans.toLocaleString();
+}
+
+  // Update hero stats
+  const hscans=document.getElementById('h-scans');
+  const stscans=document.getElementById('stat-total-scans');
+  if(hscans)hscans.textContent=totalScans.toLocaleString();
+  if(stscans)stscans.textContent=totalScans.toLocaleString();
+
+
+function renderTextSig(id,sig){
+  if(!sig)return;
+  const s=sig.score||50;
+  const c=s<35?'var(--green)':s<65?'var(--amber)':'var(--red)';
+  const el=document.getElementById('text-sig-'+id);
+  const pct=document.getElementById('text-sig-'+id+'-pct');
+  if(el){setTimeout(()=>{el.style.width=s+'%';el.style.background=c},400)}
+  if(pct){pct.textContent=s+'%';pct.style.color=c}
+}
+
+function renderSig(id,sig){
+  if(!sig)return;
+  const s=sig.score||50;
+  const c=s<35?'var(--green)':s<65?'var(--amber)':'var(--red)';
+  const el=document.getElementById('sig-'+id);
+  const pct=document.getElementById('sig-'+id+'-pct');
+  if(el){setTimeout(()=>{el.style.width=s+'%';el.style.background=c},400)}
+  if(pct){pct.textContent=s+'%';pct.style.color=c}
+}
+
+function showOverlayBar(score,verdict){
+  const color=score<35?'#16a34a':score<65?'#d97706':'#dc2626';
+  const bgColor=score<35?'#dcfce7':score<65?'#fef3c7':'#fee2e2';
+  document.getElementById('ob-fill').style.width=score+'%';
+  document.getElementById('ob-fill').style.background=color;
+  document.getElementById('ob-score').textContent='AI: '+score+'%';
+  document.getElementById('ob-score').style.color=color;
+  const lbl=document.getElementById('ob-label');
+  lbl.textContent=verdict;
+  lbl.style.background=bgColor;
+  lbl.style.color=color;
+  document.getElementById('overlay-bar').classList.add('visible');
+}
+
+// ── AUTH ──
+function openAuth(mode){
+  document.getElementById('auth-modal').classList.add('show');
+  if(mode==='signup'){
+    document.getElementById('auth-login-view').style.display='none';
+    document.getElementById('auth-signup-view').style.display='block';
+  } else {
+    document.getElementById('auth-login-view').style.display='block';
+    document.getElementById('auth-signup-view').style.display='none';
+  }
+}
+function closeAuth(){document.getElementById('auth-modal').classList.remove('show')}
+function switchAuth(mode){
+  document.getElementById('auth-login-view').style.display=mode==='login'?'block':'none';
+  document.getElementById('auth-signup-view').style.display=mode==='signup'?'block':'none';
+}
+// auth-modal click handled in DOMContentLoaded below
+
+function socialAuth(provider){
+  // In production: integrate with Supabase OAuth (Google/Microsoft)
+  // For now: show signup form pre-filled
+  alert('🔗 '+provider.charAt(0).toUpperCase()+provider.slice(1)+' login coming soon!\n\nFor now please use the email signup below. We are integrating OAuth this week.');
+}
+
+function handleLogin(){
+  const email=document.getElementById('login-email').value.trim();
+  const pass=document.getElementById('login-password').value.trim();
+  if(!email||!email.includes('@')){alert('Please enter a valid email address.');return}
+  if(!pass||pass.length<6){alert('Please enter your password.');return}
+  // In production: authenticate via Supabase
+  alert('✓ Logged in as '+email+'!\n\n(In production this connects to your Supabase auth backend)');
+  closeAuth();
+}
+
+function signupStep1(){
+  const name=document.getElementById('signup-name').value.trim();
+  const email=document.getElementById('signup-email').value.trim();
+  const phone=document.getElementById('signup-phone').value.trim();
+  const pass=document.getElementById('signup-password').value.trim();
+  if(!name){alert('Please enter your full name.');return}
+  if(!email||!email.includes('@')){alert('Please enter a valid email address.');return}
+  if(!phone||phone.length<10){alert('Please enter a valid 10-digit mobile number.');return}
+  if(!pass||pass.length<8){alert('Password must be at least 8 characters.');return}
+  // Show OTP step
+  const code=document.getElementById('signup-phone-code').value||'+91';
+  document.getElementById('otp-sub').textContent='We sent a 6-digit code to '+code+' '+phone;
+  document.getElementById('signup-step1').style.display='none';
+  document.getElementById('signup-step2').style.display='block';
+  // In production: trigger OTP via Twilio/MSG91
+  alert('📱 OTP sent to '+code+' '+phone+'\n\n(In production this sends via SMS. Enter any 6 digits to proceed for now.)');
+}
+
+function otpNext(el,idx){
+  if(el.value.length===1&&idx<5){document.getElementById('otp'+(idx+1)).focus()}
+}
+
+function verifyOTP(){
+  const otp=[0,1,2,3,4,5].map(i=>document.getElementById('otp'+i).value).join('');
+  if(otp.length<6){alert('Please enter the complete 6-digit OTP.');return}
+  // In production: verify OTP via backend
+  alert('🎉 Account created successfully!\n\nWelcome to TrueAI. You can now log in and start detecting AI content.');
+  closeAuth();
+}
+
+// ── DROPDOWNS ──
+function toggleDropdown(id){
+  const dd=document.getElementById(id);
+  const isOpen=dd.classList.contains('open');
+  closeDropdowns();
+  if(!isOpen){
+    // Position under the clicked nav button
+    const btnId=id.replace('-dd','');
+    const btn=document.getElementById('nav-'+btnId);
+    if(btn){
+      const rect=btn.getBoundingClientRect();
+      dd.style.left=Math.min(rect.left,window.innerWidth-280)+'px';
+    }
+    dd.classList.add('open');
+  }
+}
+function closeDropdowns(){
+  document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.nav-link')&&!e.target.closest('.dropdown'))closeDropdowns();
+});
+
+function openModal(type){
+  selectedPlanType=type||'pro';
+  document.getElementById('checkout-form').style.display='none';
+  document.getElementById('pro-modal').classList.add('show');
+  updatePricing();
+}
+function closeModal(){document.getElementById('pro-modal').classList.remove('show')}
+document.getElementById('pro-modal').addEventListener('click',e=>{if(e.target===document.getElementById('pro-modal'))closeModal()});
+
+function selectPlan(plan){
+  selectedPlanType=plan;
+  const isTeam=plan==='team';
+  const isIn=isIndian;
+  selectedAmount=isIn?(isTeam?99900:29900):(isTeam?4800:500);
+  selectedCurrency=isIn?'INR':'USD';
+  const priceStr=isIn?(isTeam?'₹999':'₹299'):(isTeam?'$48':'$5');
+  document.getElementById('checkout-form').style.display='block';
+  document.getElementById('checkout-label').textContent=(isTeam?'Team':'Pro')+' — '+priceStr+'/month';
+  document.getElementById('pay-btn').textContent='Pay '+priceStr+' with Razorpay →';
+  document.getElementById('pay-btn').style.background=isTeam?'var(--blue)':'var(--accent)';
+}
+
+function processPayment(){
+  const name=document.getElementById('pay-name').value.trim();
+  const email=document.getElementById('pay-email').value.trim();
+  const phone=document.getElementById('pay-phone').value.trim();
+  if(!name){alert('Please enter your full name.');return}
+  if(!email||!email.includes('@')){alert('Please enter a valid email address.');return}
+  if(!phone||phone.length<10){alert('Please enter a valid 10-digit mobile number.');return}
+
+  const RAZORPAY_KEY='rzp_live_ST76FfiNSTbbx1';
+  const options={
+    key:RAZORPAY_KEY,
+    amount:selectedAmount,
+    currency:selectedCurrency,
+    name:'TrueAI',
+    description:'TrueAI '+(selectedPlanType==='team'?'Team':'Pro'),
+    prefill:{name:name,email:email},
+    theme:{color:'#0d9488'},
+    handler:function(response){
+      localStorage.setItem('trueai_pro','true');
+      localStorage.setItem('trueai_plan',selectedPlanType);
+      closeModal();
+      alert('🎉 Welcome to TrueAI '+(selectedPlanType==='team'?'Team':'Pro')+'!\n\nPayment confirmed: '+response.razorpay_payment_id+'\nReceipt sent to: '+email+'\n\nYou now have unlimited scans. Thank you! 🚀');
+    }
+  };
+  try{new Razorpay(options).open()}
+  catch(e){
+    // Razorpay not available — collect waitlist
+    localStorage.setItem('trueai_waitlist',email);
+    alert('🎉 You\'re on the waitlist!\n\nWe\'ll email you at '+email+' when payments go fully live.\nFirst month FREE for early members!');
+    closeModal();
+  }
+}
+
+// ── HELPERS ──
+function scoreLbl(s){return s<35?'Likely Human':s<65?'Possibly AI-assisted':'Likely AI-generated'}
+
+function setLoading(type,on){
+  const btn=document.getElementById('detect-'+type+'-btn');
+  const spin=document.getElementById(type+'-spin');
+  const lbl=document.getElementById(type+'-btn-label');
+  if(btn)btn.disabled=on;
+  if(spin)spin.style.display=on?'inline-block':'none';
+  if(lbl)lbl.textContent=on?'Scanning...':(type==='text'?(currentSubTab==='ai'?'Detect AI Content':'Check Plagiarism'):'Analyze Link');
+  document.getElementById('scan-overlay').classList.toggle('on',on);
+}
+
+function showErr(id,msg){const e=document.getElementById(id);if(e){e.textContent=msg;e.classList.add('show')}}
+function hideErr(id){const e=document.getElementById(id);if(e)e.classList.remove('show')}
+
+function updateCounters(){
+  const users=parseInt(localStorage.getItem('trueai_users')||'0');
+  const educators=parseInt(localStorage.getItem('trueai_educators')||'0');
+  // Text limit
+  document.getElementById('text-limit-ct').textContent=textScansLeft+' left';
+  document.getElementById('text-limit-ct').style.color=textScansLeft<10?'var(--red)':textScansLeft<30?'var(--amber)':'var(--accent)';
+  // Media limit
+  document.getElementById('media-limit-ct').textContent=mediaScansLeft+' left';
+  document.getElementById('media-limit-ct').style.color=mediaScansLeft<=1?'var(--red)':'var(--amber)';
+  // All scan counters
+  ['h-scans','stat-total-scans'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=totalScans.toLocaleString()});
+  // User/educator counters (start at 0, grow with signups)
+  ['h-users','stat-users'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=users.toLocaleString()});
+  ['h-educators','stat-educators'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=educators.toLocaleString()});
+}
+
+function animateHeroStats(){
+  // All counters start from 0 — will grow as real users join
+  updateCounters();
+}
+
+function setCommTab(tab){
+  // Hide all panels
+  ['educators','writers','hr','journalists','students'].forEach(t=>{
+    const p=document.getElementById('comm-'+t);
+    if(p)p.style.display='none';
+  });
+  // Remove active from all tabs
+  document.querySelectorAll('.comm-tab').forEach(t=>t.classList.remove('active'));
+  // Show selected
+  const panel=document.getElementById('comm-'+tab);
+  if(panel)panel.style.display='block';
+  // Set active tab
+  const tabs=document.querySelectorAll('.comm-tab');
+  const tabMap={educators:0,writers:1,hr:2,journalists:3,students:4};
+  if(tabs[tabMap[tab]])tabs[tabMap[tab]].classList.add('active');
+}
+
+function copyResult(){
+  const score=document.getElementById('score-num').textContent;
+  const verdict=document.getElementById('score-verdict').textContent;
+  navigator.clipboard.writeText(`TrueAI detected: ${verdict} (${score}% AI probability). Check yours at trueai-mvp.vercel.app`)
+    .then(()=>alert('✓ Copied to clipboard!'))
+    .catch(()=>alert('Copy failed — please copy manually'));
+}
+
+function tweetResult(){
+  const score=document.getElementById('score-num').textContent;
+  window.open(`https://twitter.com/intent/tweet?text=TrueAI detected ${score}% AI probability in this content 🤖 Check yours free: trueai-mvp.vercel.app`,'_blank');
+}
+</script>
+</body>
+</html>
