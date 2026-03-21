@@ -1,4 +1,6 @@
-// VeriAI — Multi-key Gemini Proxy with rotation
+// VeriAI — Multi-key Gemini Proxy + Local Fallback Detector
+import { localAnalyze } from './fallback-detector.js';
+
 const KEYS = [
   process.env.GEMINI_KEY,
   process.env.GEMINI_KEY_2,
@@ -24,16 +26,25 @@ export default async function handler(req, res) {
 
   try {
     const body = req.body;
-    const text = typeof body === 'string' ? JSON.parse(body).text : body?.text;
+    const parsed = typeof body === 'string' ? JSON.parse(body) : body;
+    const text = parsed?.text;
+    const forceFallback = parsed?.forceFallback === true;
+
     if (!text) { res.status(400).json({ error: 'No text provided' }); return; }
+
+    // ── User explicitly chose local engine ───────────────────
+    if (forceFallback) {
+      const result = localAnalyze(text);
+      if (result.error) return res.status(400).json({ error: result.error });
+      return res.status(200).json(result);
+    }
 
     const prompt = `Analyze this text for AI generation. Reply with EXACTLY this format:
 SCORE:[number 0-100]|REASON:[one sentence reason under 80 chars]
 
 Text: ${text.slice(0, 1200)}`;
 
-    // Try each key until one works
-    let lastError = null;
+    // ── Try each Gemini key ──────────────────────────────────
     for (let attempt = 0; attempt < KEYS.length; attempt++) {
       const apiKey = getNextKey();
 
@@ -49,19 +60,12 @@ Text: ${text.slice(0, 1200)}`;
         }
       );
 
-      // If rate limited, try next key
-      if (geminiRes.status === 429) {
-        lastError = 'rate_limit';
-        continue;
-      }
+      if (geminiRes.status === 429) continue;
 
       if (!geminiRes.ok) {
         const err = await geminiRes.json();
         const msg = err.error?.message || 'Gemini error ' + geminiRes.status;
-        if (msg.includes('quota') || msg.includes('RESOURCE_EXHAUSTED')) {
-          lastError = 'rate_limit';
-          continue; // try next key
-        }
+        if (msg.includes('quota') || msg.includes('RESOURCE_EXHAUSTED')) continue;
         throw new Error(msg);
       }
 
@@ -90,21 +94,24 @@ Text: ${text.slice(0, 1200)}`;
           vocabulary:        { score: Math.min(100, Math.round(score * 0.90)), note: 'Word choice predictability' },
           style_consistency: { score: Math.min(100, Math.round(score * 1.00)), note: 'Tone and formality level' }
         },
-        reasoning, ai_percent: aiPct, mixed_percent: mixedPct, human_percent: humanPct, ai_sentences: []
+        reasoning, ai_percent: aiPct, mixed_percent: mixedPct, human_percent: humanPct,
+        ai_sentences: [], fallback: false
       });
     }
 
-    // All 3 keys exhausted
-    res.status(429).json({
-      error: 'Rate limit reached. Please wait 60 seconds and try again. (Free tier: 30 scans/minute)'
+    // ── All keys rate-limited → signal client to show choice UI
+    return res.status(429).json({
+      error: 'RATE_LIMIT',
+      message: 'Our AI servers are currently busy. Please wait or use local engine.'
     });
 
   } catch (err) {
     console.error('VeriAI error:', err.message);
-    if (err.message.includes('quota') || err.message.includes('RESOURCE_EXHAUSTED')) {
-      res.status(429).json({ error: 'Rate limit reached. Please wait 60 seconds and try again.' });
-    } else {
-      res.status(500).json({ error: err.message });
-    }
+    try {
+      const body = req.body;
+      const text = typeof body === 'string' ? JSON.parse(body).text : body?.text;
+      if (text) return res.status(200).json(localAnalyze(text));
+    } catch (_) {}
+    res.status(500).json({ error: err.message });
   }
 }
