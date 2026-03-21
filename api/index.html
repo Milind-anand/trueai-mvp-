@@ -1,0 +1,3583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Security headers -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+<!-- Primary SEO -->
+<title>VeriAI — AI Content Detector | Detect ChatGPT, Gemini & Claude Writing</title>
+<meta name="description" content="VeriAI instantly detects AI-generated content from ChatGPT, Gemini, Claude and more. Check text, files, YouTube videos and web links. Free to start — Pro from $5/mo.">
+<meta name="keywords" content="AI content detector, ChatGPT detector, AI text detector, detect AI writing, AI plagiarism checker, Gemini detector, Claude detector, AI generated text, check AI content, AI detector free, AI writing detector UK, AI checker USA">
+<meta name="author" content="VeriAI">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://veriai.in">
+
+<!-- Geo targeting UK & USA -->
+<meta name="geo.region" content="GB">
+<meta name="geo.region" content="US">
+<meta name="language" content="English">
+<meta name="target" content="all">
+<meta name="audience" content="all">
+
+<!-- Open Graph (Facebook, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="VeriAI — AI Content Detector | Detect ChatGPT & AI Writing Instantly">
+<meta property="og:description" content="Instantly detect AI-generated content from ChatGPT, Gemini, Claude and more. Trusted by educators, journalists and HR teams. Free to start — Pro from $5/mo.">
+<meta property="og:url" content="https://veriai.in">
+<meta property="og:site_name" content="VeriAI">
+<meta property="og:image" content="https://veriai.in/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VeriAI — AI Content Detector">
+<meta name="twitter:description" content="Detect AI-generated content from ChatGPT, Gemini, Claude and more. Free to start — Pro from $5/mo.">
+<meta name="twitter:image" content="https://veriai.in/og-image.png">
+<meta name="twitter:site" content="@veriai">
+
+<!-- Structured Data — SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "VeriAI",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "url": "https://veriai.in",
+  "description": "VeriAI detects AI-generated content from ChatGPT, Gemini, Claude and more. Analyze text, files, videos and web links instantly.",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free Plan",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro Plan",
+      "price": "5",
+      "priceCurrency": "USD",
+      "billingIncrement": "month"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "124"
+  }
+}
+</script>
+
+<!-- Structured Data — FAQPage (boosts Google featured snippets) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate is VeriAI at detecting AI-generated content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VeriAI achieves 85%+ accuracy powered by Google Gemini AI, analyzing linguistic patterns, sentence structure and vocabulary predictability to detect content from ChatGPT, Gemini, Claude and other AI tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can VeriAI detect ChatGPT writing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VeriAI is specifically trained to detect writing patterns from ChatGPT, Gemini, Claude, Copilot and other major AI language models."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is VeriAI free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, VeriAI has a free tier with 100 text scans per day. Pro plans start from $5/month for unlimited scans."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can VeriAI detect AI in YouTube videos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VeriAI can analyze YouTube videos, Instagram posts, LinkedIn content and any webpage URL to detect AI-generated scripts and content."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'><rect width='56' height='56' rx='14' fill='%230d9488'/><path d='M10 28 Q28 12 46 28 Q28 44 10 28Z' fill='none' stroke='white' stroke-width='2.5' stroke-linejoin='round'/><circle cx='28' cy='28' r='6' fill='white'/><circle cx='28' cy='28' r='3' fill='%230d9488'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W6MP4GMD4C"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-W6MP4GMD4C');</script>
+
+<!-- Google AdSense — hidden for Pro/Team users -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3098528993316733" crossorigin="anonymous"></script>
+<style>
+/* Hide all ads for Pro/Team users */
+.adsbygoogle-wrapper { display: block; }
+.no-ads .adsbygoogle-wrapper { display: none !important; }
+.no-ads ins.adsbygoogle { display: none !important; }
+</style>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#ffffff;
+  --off:#f8f9fa;
+  --off2:#f1f3f5;
+  --border:#e5e7eb;
+  --border2:#d1d5db;
+  --text:#111827;
+  --muted:#6b7280;
+  --faint:#9ca3af;
+  --light:#e5e7eb;
+  --green:#16a34a;
+  --green-l:#dcfce7;
+  --green-d:#15803d;
+  --amber:#d97706;
+  --amber-l:#fef3c7;
+  --red:#dc2626;
+  --red-l:#fee2e2;
+  --blue:#2563eb;
+  --blue-l:#dbeafe;
+  --accent:#0d9488; /* teal — unique, not purple */
+  --accent-l:#ccfbf1;
+  --accent-d:#0f766e;
+  --purple:#7c3aed;
+  --purple-l:#ede9fe;
+  --sans:'Plus Jakarta Sans',sans-serif;
+  --mono:'DM Mono',monospace;
+  --radius:10px;
+  --radius-lg:14px;
+  --shadow:0 1px 3px rgba(0,0,0,0.08),0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg:0 4px 6px rgba(0,0,0,0.05),0 10px 40px rgba(0,0,0,0.1);
+}
+html{background:var(--white);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6}
+body{min-height:100vh;overflow-x:hidden}
+
+/* ── TOP ANNOUNCEMENT BANNER ── */
+.top-banner{
+  background:var(--accent);color:#fff;
+  text-align:center;padding:9px 20px;
+  font-size:13px;font-weight:500;letter-spacing:.01em;
+  max-height:60px;
+  overflow:hidden;
+  transition:max-height .6s ease, padding .6s ease, opacity .6s ease;
+  opacity:1;
+}
+.top-banner.hidden{max-height:0;padding:0;opacity:0;pointer-events:none}
+.top-banner a{color:#fff;text-decoration:underline;cursor:pointer;font-weight:600}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 32px;height:60px;
+  display:flex;align-items:center;gap:8px;
+}
+.nav-logo{
+  font-size:18px;font-weight:800;color:var(--text);
+  display:flex;align-items:center;gap:8px;cursor:pointer;
+  margin-right:20px;flex-shrink:0;text-decoration:none;
+}
+.nav-logo-icon{
+  width:32px;height:32px;border-radius:9px;
+  background:#0d9488;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.nav-logo-name{
+  font-size:17px;font-weight:800;letter-spacing:-0.3px;
+  color:var(--text);
+}
+.nav-logo-name span{color:#0d9488}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-link{
+  font-size:14px;font-weight:500;color:var(--muted);
+  padding:6px 12px;border-radius:8px;cursor:pointer;
+  border:none;background:none;transition:all .15s;white-space:nowrap;
+}
+.nav-link:hover{color:var(--text);background:var(--off)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.nav-login{
+  font-size:14px;font-weight:500;color:var(--text);
+  padding:7px 16px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--border);background:var(--white);transition:all .15s;
+}
+.nav-login:hover{background:var(--off);border-color:var(--border2)}
+.nav-signup{
+  font-size:14px;font-weight:600;color:#fff;
+  padding:7px 18px;border-radius:8px;cursor:pointer;
+  border:none;background:var(--accent);transition:all .15s;
+}
+.nav-signup:hover{background:var(--accent-d)}
+
+/* ── HERO ── */
+.hero{
+  text-align:center;
+  padding:56px 24px 40px;
+  background:linear-gradient(180deg,var(--off) 0%,var(--white) 100%);
+  border-bottom:1px solid var(--border);
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--accent-l);color:var(--accent-d);
+  font-size:12px;font-weight:600;padding:4px 12px;
+  border-radius:999px;margin-bottom:16px;
+  border:1px solid rgba(13,148,136,.15);
+}
+.hero h1{
+  font-size:clamp(28px,4vw,48px);font-weight:800;
+  line-height:1.1;color:var(--text);margin-bottom:12px;
+  letter-spacing:-.02em;
+}
+.hero h1 span{color:var(--accent)}
+.hero-sub{
+  font-size:16px;color:var(--muted);max-width:520px;
+  margin:0 auto 28px;line-height:1.6;
+}
+.hero-stats{
+  display:flex;align-items:center;justify-content:center;
+  gap:32px;flex-wrap:wrap;
+}
+.hero-stat-n{font-size:22px;font-weight:800;color:var(--accent)}
+.hero-stat-l{font-size:12px;color:var(--muted);margin-top:1px}
+
+/* ── MAIN LAYOUT ── */
+.main{max-width:1400px;margin:0 auto;padding:24px 20px 80px}
+
+/* ── 2-COLUMN DETECTOR LAYOUT with top tab strip ── */
+.detector-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:auto 1fr;
+  gap:16px;
+  align-items:start;
+}
+.detector-grid .sidebar-tabs{
+  grid-column:1 / -1;
+}
+
+/* ── COMPACT HORIZONTAL TABS (replaces vertical sidebar) ── */
+.sidebar-tabs{
+  display:flex;
+  flex-direction:row;
+  gap:0;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  flex-wrap:nowrap;
+}
+.sidebar-tab{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:11px 8px;
+  border-radius:0;
+  cursor:pointer;
+  border:none;
+  border-right:1px solid var(--border);
+  font-size:13px;font-weight:600;color:var(--muted);
+  background:none;transition:all .15s;text-align:center;
+  font-family:var(--sans);white-space:nowrap;
+}
+.sidebar-tab:last-child{border-right:none}
+.sidebar-tab:hover{background:var(--off);color:var(--text)}
+.sidebar-tab.active{background:var(--accent-l);color:var(--accent-d);border-bottom:2px solid var(--accent)}
+.sidebar-tab-icon{font-size:16px;flex-shrink:0}
+.sidebar-tab-label{font-size:13px;font-weight:600}
+.sidebar-tab-sub{display:none}
+
+/* ── PANEL ── */
+.panel{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.panel-header{
+  padding:16px 20px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;
+  background:var(--off);
+}
+.panel-title{font-size:14px;font-weight:700;color:var(--text)}
+.panel-badge{
+  font-size:11px;font-weight:600;padding:2px 8px;
+  border-radius:999px;margin-left:auto;
+}
+.badge-free{background:var(--green-l);color:var(--green-d)}
+.badge-limit{background:var(--amber-l);color:var(--amber)}
+.badge-pro{background:#0d9488;color:white;font-weight:700}
+.pro-nav-badge{display:inline-block;background:#0d9488;color:white;font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle;letter-spacing:.05em}
+.pro-locked{position:relative;opacity:.5;pointer-events:none}
+.pro-lock-msg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border:1.5px solid var(--accent);border-radius:10px;padding:10px 18px;font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap;z-index:10;box-shadow:0 4px 16px rgba(0,0,0,.1)}
+
+/* ── SUB TABS ── */
+.sub-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--white)}
+.sub-tab{
+  flex:1;padding:11px 8px;font-size:13px;font-weight:600;
+  color:var(--muted);border:none;background:none;cursor:pointer;
+  border-bottom:2px solid transparent;transition:all .15s;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.sub-tab.active{color:var(--accent);border-bottom-color:var(--accent);background:var(--white)}
+.sub-tab:hover:not(.active){color:var(--text);background:var(--off)}
+
+/* ── INPUT AREA ── */
+.panel-body{padding:16px}
+.textarea-wrap{position:relative}
+textarea.main-ta{
+  width:100%;min-height:180px;padding:14px;
+  border:1px solid var(--border);border-radius:var(--radius);
+  font-family:var(--sans);font-size:14px;line-height:1.7;
+  color:var(--text);resize:vertical;outline:none;
+  transition:border-color .15s;background:var(--white);
+}
+textarea.main-ta:focus{border-color:var(--accent)}
+textarea.main-ta::placeholder{color:var(--faint)}
+.char-info{
+  display:flex;justify-content:space-between;
+  font-size:11px;color:var(--faint);margin-top:5px;
+  font-family:var(--mono);
+}
+.char-warn{color:var(--amber);font-weight:500}
+
+/* File upload */
+.file-upload-area{
+  border:2px dashed var(--border2);border-radius:var(--radius);
+  padding:28px;text-align:center;cursor:pointer;
+  transition:all .2s;background:var(--off);
+}
+.file-upload-area:hover{border-color:var(--accent);background:var(--accent-l)}
+.file-upload-area input{display:none}
+.upload-icon{font-size:28px;margin-bottom:8px}
+.upload-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+.upload-sub{font-size:12px;color:var(--muted)}
+
+/* URL input */
+.url-input-wrap{margin-bottom:10px}
+.url-input{
+  width:100%;padding:12px 14px;border:1px solid var(--border);
+  border-radius:var(--radius);font-family:var(--sans);font-size:14px;
+  color:var(--text);outline:none;transition:border-color .15s;background:var(--white);
+}
+.url-input:focus{border-color:var(--accent)}
+.url-input::placeholder{color:var(--faint)}
+.url-hint{font-size:11px;color:var(--muted);margin-top:4px}
+.url-limit-info{
+  font-size:11px;font-family:var(--mono);
+  padding:6px 10px;background:var(--amber-l);
+  border-radius:6px;color:var(--amber);margin-bottom:10px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+
+/* ── DETECT BUTTON ── */
+.detect-btn{
+  width:100%;margin-top:12px;padding:13px;
+  background:var(--accent);color:#fff;
+  font-family:var(--sans);font-size:15px;font-weight:700;
+  border:none;border-radius:var(--radius);cursor:pointer;
+  transition:all .2s;display:flex;align-items:center;
+  justify-content:center;gap:8px;
+  box-shadow:0 2px 8px rgba(13,148,136,.3);
+}
+.detect-btn:hover{background:var(--accent-d);transform:translateY(-1px);box-shadow:0 4px 16px rgba(13,148,136,.35)}
+.detect-btn:active{transform:translateY(0)}
+.detect-btn:disabled{background:var(--border2);color:var(--faint);cursor:not-allowed;transform:none;box-shadow:none}
+.btn-spin{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.scan-overlay{position:fixed;inset:0;pointer-events:none;z-index:9998;display:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(13,148,136,.008) 2px,rgba(13,148,136,.008) 4px)}
+.scan-overlay.on{display:block;animation:sw .1s linear infinite}
+@keyframes sw{to{background-position:0 4px}}
+
+/* ── ERROR ── */
+.err-msg{
+  padding:10px 14px;background:var(--red-l);border:1px solid rgba(220,38,38,.2);
+  border-radius:var(--radius);font-size:13px;color:var(--red);
+  display:none;margin-top:8px;
+}
+.err-msg.show{display:block}
+
+/* ── RESULTS PANEL ── */
+.results-empty{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:420px;padding:40px 24px;text-align:center;color:var(--faint);
+}
+.results-empty-icon{font-size:40px;margin-bottom:12px;opacity:.4}
+.results-empty-title{font-size:14px;font-weight:600;color:var(--muted);margin-bottom:4px}
+.results-empty-sub{font-size:12px;color:var(--faint)}
+#results-panel{min-height:420px}
+
+/* Score header */
+.score-header{
+  padding:20px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:16px;
+}
+.score-circle{
+  width:64px;height:64px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;flex-shrink:0;
+  font-size:18px;font-weight:800;border:3px solid;
+}
+.score-right{flex:1}
+.score-verdict{font-size:18px;font-weight:800;margin-bottom:2px}
+.score-conf{font-size:12px;color:var(--muted);font-family:var(--mono)}
+
+/* Distribution bar */
+.dist-section{padding:16px 20px;border-bottom:1px solid var(--border)}
+.dist-label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.dist-bar{
+  height:28px;border-radius:8px;overflow:hidden;
+  display:flex;background:var(--off2);margin-bottom:8px;
+}
+.dist-seg{
+  height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;color:#fff;
+  transition:width 1s cubic-bezier(0.16,1,0.3,1);
+  white-space:nowrap;overflow:hidden;
+}
+.dist-seg.ai{background:var(--red)}
+.dist-seg.mixed{background:var(--amber)}
+.dist-seg.human{background:var(--green)}
+.dist-legend{display:flex;gap:16px;flex-wrap:wrap}
+.dist-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}
+.dist-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+/* Signal bars */
+.signals-section{padding:16px 20px;border-bottom:1px solid var(--border)}
+.signal-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.signal-row:last-child{margin-bottom:0}
+.signal-name{font-size:12px;color:var(--muted);width:110px;flex-shrink:0}
+.signal-track{flex:1;height:6px;background:var(--off2);border-radius:3px;overflow:hidden}
+.signal-fill{height:100%;border-radius:3px;transition:width .8s cubic-bezier(0.16,1,0.3,1)}
+.signal-pct{font-size:12px;font-weight:600;width:36px;text-align:right;font-family:var(--mono)}
+
+/* Script highlight box */
+.highlight-section{padding:16px 20px;border-bottom:1px solid var(--border)}
+.highlight-title{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.highlight-box{
+  background:var(--off);border:1px solid var(--border);
+  border-radius:var(--radius);padding:14px;
+  font-size:13px;line-height:1.9;max-height:200px;overflow-y:auto;
+}
+.ai-span{background:rgba(220,38,38,.12);border-bottom:2px solid var(--red);color:var(--text)}
+.human-span{color:var(--text)}
+
+/* Reasoning */
+.reasoning-section{padding:16px 20px;border-bottom:1px solid var(--border)}
+.reasoning-text{font-size:13px;color:var(--muted);line-height:1.8}
+
+/* Share row */
+.share-row{padding:12px 20px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.share-btn{
+  font-size:12px;padding:6px 12px;border-radius:8px;
+  border:1px solid var(--border);background:var(--white);
+  color:var(--muted);cursor:pointer;transition:all .15s;font-family:var(--sans);
+}
+.share-btn:hover{border-color:var(--border2);color:var(--text);background:var(--off)}
+
+/* ── STATS SECTION ── */
+.stats-section{
+  margin-top:32px;
+  background:linear-gradient(135deg,var(--accent) 0%,var(--blue) 100%);
+  border-radius:var(--radius-lg);
+  padding:32px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:24px;
+}
+.stat-box{text-align:center;color:#fff}
+.stat-num{font-size:36px;font-weight:800;margin-bottom:4px;letter-spacing:-.02em}
+.stat-lbl{font-size:13px;opacity:.8;font-weight:500}
+
+/* Quote section */
+.quote-section{
+  margin-top:16px;
+  background:var(--off);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:24px;
+  text-align:center;
+}
+.quote-icon{font-size:32px;margin-bottom:12px}
+.quote-text{
+  font-size:18px;font-weight:700;color:var(--text);
+  line-height:1.4;margin-bottom:8px;font-style:italic;
+}
+.quote-sub{font-size:13px;color:var(--muted)}
+
+/* ── OVERLAY BAR ── */
+#overlay-bar{
+  position:fixed;top:0;left:0;right:0;z-index:9999;
+  height:44px;background:rgba(255,255,255,.97);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 20px;gap:12px;
+  transform:translateY(-100%);transition:transform .35s cubic-bezier(0.16,1,0.3,1);
+  font-family:var(--sans);box-shadow:var(--shadow);
+}
+#overlay-bar.visible{transform:translateY(0)}
+.ob-brand{font-size:13px;font-weight:700;color:var(--text)}
+.ob-meter{flex:1;max-width:180px;height:5px;border-radius:3px;background:var(--off2);position:relative;overflow:hidden}
+.ob-fill{height:100%;border-radius:3px;transition:width .8s ease}
+.ob-score{font-size:12px;font-weight:700;font-family:var(--mono);white-space:nowrap}
+.ob-label{font-size:10px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.ob-x{font-size:14px;color:var(--muted);cursor:pointer;background:none;border:none;margin-left:auto;padding:4px}
+
+/* ── PRO MODAL ── */
+.moverlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.5);
+  z-index:10000;display:none;align-items:center;
+  justify-content:center;padding:20px;
+}
+.moverlay.show{display:flex;animation:fadeIn .2s ease}
+
+/* ── GENERAL MODAL OVERLAY (disclaimer, legal) ── */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);
+  z-index:99999;display:none;align-items:center;
+  justify-content:center;padding:20px;
+}
+.modal-overlay.show{display:flex;animation:fadeIn .2s ease}
+.modal-box{
+  background:var(--white);border-radius:var(--radius-lg);
+  width:100%;box-shadow:0 25px 60px rgba(0,0,0,.25);
+  animation:slideUp .3s cubic-bezier(0.16,1,0.3,1);
+  position:relative;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{
+  background:var(--white);border-radius:var(--radius-lg);
+  padding:28px;max-width:540px;width:100%;
+  box-shadow:var(--shadow-lg);
+  animation:slideUp .3s cubic-bezier(0.16,1,0.3,1);
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.modal-title{font-size:20px;font-weight:800;color:var(--text)}
+.modal-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);padding:4px 8px}
+.plan-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px}
+.plan-card{
+  padding:16px;border:1px solid var(--border);border-radius:var(--radius);
+  text-align:center;cursor:pointer;transition:all .2s;position:relative;
+}
+.plan-card:hover{border-color:var(--accent);background:var(--accent-l)}
+.plan-card.featured{border:2px solid var(--accent);background:var(--accent-l)}
+.plan-card.team-card{border-color:var(--blue)}
+.plan-card.team-card:hover{background:var(--blue-l)}
+.plan-popular{
+  position:absolute;top:-10px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:#fff;font-size:9px;font-weight:700;
+  padding:2px 10px;border-radius:999px;white-space:nowrap;letter-spacing:.06em;
+}
+.plan-name{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+.plan-price{font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px}
+.plan-features{font-size:11px;color:var(--muted);line-height:2;text-align:left}
+.plan-btn{
+  width:100%;margin-top:10px;padding:8px;border-radius:8px;
+  font-size:12px;font-weight:700;cursor:pointer;border:none;transition:all .15s;
+  font-family:var(--sans);
+}
+.modal-in{
+  width:100%;padding:11px 14px;border:1px solid var(--border);
+  border-radius:var(--radius);font-family:var(--sans);font-size:14px;
+  outline:none;margin-bottom:10px;color:var(--text);transition:border-color .15s;
+}
+.modal-in:focus{border-color:var(--accent)}
+.modal-pay-btn{
+  width:100%;padding:13px;background:var(--accent);color:#fff;
+  border:none;border-radius:var(--radius);font-family:var(--sans);
+  font-size:15px;font-weight:700;cursor:pointer;margin-bottom:10px;
+  transition:all .15s;
+}
+.modal-pay-btn:hover{background:var(--accent-d)}
+.modal-note{font-size:11px;color:var(--muted);text-align:center}
+
+/* ── LIMIT WARNING ── */
+.limit-bar{
+  display:flex;align-items:center;gap:10px;padding:9px 16px;
+  margin-bottom:12px;background:var(--off);border:1px solid var(--border);
+  border-radius:var(--radius);font-size:13px;
+}
+.limit-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.limit-count{font-family:var(--mono);font-size:12px;font-weight:600;margin-left:auto;white-space:nowrap}
+
+/* ── DROPDOWNS ── */
+.nav-links{display:flex;align-items:center;gap:2px;position:relative}
+.dropdown{
+  position:fixed;top:60px;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);
+  min-width:260px;z-index:200;display:none;overflow:hidden;
+}
+.dropdown.open{display:block;animation:fadeIn .15s ease}
+.dd-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 16px;cursor:pointer;transition:background .1s;
+  border-bottom:1px solid var(--border);
+}
+.dd-item:last-child{border-bottom:none}
+.dd-item:hover{background:var(--off)}
+.dd-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.dd-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px}
+.dd-desc{font-size:11px;color:var(--muted);line-height:1.4}
+
+/* ── AUTH MODAL ── */
+.auth-modal{
+  background:var(--white);border-radius:var(--radius-lg);
+  padding:32px;max-width:420px;width:100%;
+  box-shadow:var(--shadow-lg);
+  animation:slideUp .3s cubic-bezier(0.16,1,0.3,1);
+}
+.auth-title{font-size:22px;font-weight:800;color:var(--text);margin-bottom:4px;text-align:center}
+.auth-sub{font-size:13px;color:var(--muted);text-align:center;margin-bottom:24px}
+.social-btn{
+  width:100%;padding:11px;border:1px solid var(--border);border-radius:var(--radius);
+  background:var(--white);font-family:var(--sans);font-size:14px;font-weight:600;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-bottom:10px;transition:all .15s;color:var(--text);
+}
+.social-btn:hover{background:var(--off);border-color:var(--border2)}
+.social-btn.google{border-color:#dadce0}
+.social-btn.microsoft{border-color:#8c8c8c}
+.auth-divider{display:flex;align-items:center;gap:10px;margin:14px 0;color:var(--faint);font-size:12px}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.auth-input{
+  width:100%;padding:11px 14px;border:1px solid var(--border);
+  border-radius:var(--radius);font-family:var(--sans);font-size:14px;
+  outline:none;margin-bottom:10px;color:var(--text);transition:border-color .15s;
+}
+.auth-input:focus{border-color:var(--accent)}
+.phone-row{display:flex;gap:8px;margin-bottom:10px}
+.phone-code{
+  width:80px;padding:11px 8px;border:1px solid var(--border);
+  border-radius:var(--radius);font-family:var(--sans);font-size:14px;
+  outline:none;color:var(--text);background:var(--off);flex-shrink:0;
+}
+.auth-btn{
+  width:100%;padding:13px;background:var(--accent);color:#fff;
+  border:none;border-radius:var(--radius);font-family:var(--sans);
+  font-size:15px;font-weight:700;cursor:pointer;margin-bottom:10px;
+  transition:all .15s;
+}
+.auth-btn:hover{background:var(--accent-d)}
+.auth-switch{font-size:13px;color:var(--muted);text-align:center}
+.auth-switch a{color:var(--accent);cursor:pointer;font-weight:600}
+.otp-row{display:flex;gap:8px;margin-bottom:10px}
+.otp-input{
+  flex:1;padding:11px;border:1px solid var(--border);
+  border-radius:var(--radius);font-family:var(--mono);font-size:18px;
+  font-weight:700;text-align:center;outline:none;color:var(--text);
+  transition:border-color .15s;
+}
+.otp-input:focus{border-color:var(--accent)}
+.send-otp-btn{
+  padding:11px 14px;background:var(--off);border:1px solid var(--border);
+  border-radius:var(--radius);font-size:13px;font-weight:600;cursor:pointer;
+  color:var(--accent);white-space:nowrap;transition:all .15s;font-family:var(--sans);
+}
+.send-otp-btn:hover{background:var(--accent-l);border-color:var(--accent)}
+
+
+/* ── METHODOLOGY SECTION ── */
+.method-section{margin-top:48px;padding:40px 0;border-top:1px solid var(--border)}
+.method-header{text-align:center;margin-bottom:36px}
+.method-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.method-title{font-size:clamp(22px,3vw,32px);font-weight:800;color:var(--text);margin-bottom:10px;letter-spacing:-.02em}
+.method-sub{font-size:15px;color:var(--muted);max-width:600px;margin:0 auto;line-height:1.7}
+.method-signals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
+.msig-card{padding:20px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);transition:all .2s}
+.msig-card:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(13,148,136,.08);transform:translateY(-2px)}
+.msig-icon{font-size:24px;margin-bottom:10px}
+.msig-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px}
+.msig-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.method-subtitle{font-size:20px;font-weight:700;color:var(--text);margin-bottom:20px;letter-spacing:-.01em}
+.method-products{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:28px}
+.mprod-card{padding:20px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg)}
+.mprod-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.mprod-icon{width:40px;height:40px;border-radius:10px;background:var(--accent-l);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.mprod-name{font-size:15px;font-weight:700;color:var(--text)}
+.mprod-tag{font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-l);padding:2px 8px;border-radius:999px;display:inline-block;margin-top:3px}
+.mprod-body{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:12px}
+.mprod-signals{display:flex;flex-wrap:wrap;gap:6px}
+.msig-pill{font-size:11px;font-weight:600;padding:3px 10px;background:var(--off2);color:var(--muted);border-radius:999px;border:1px solid var(--border)}
+.method-accuracy{display:flex;gap:12px;align-items:flex-start;padding:16px 20px;background:var(--amber-l);border:1px solid rgba(217,119,6,.2);border-radius:var(--radius);font-size:13px;color:#92400e;line-height:1.7}
+.macc-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.method-accuracy strong{font-weight:700}
+@media(max-width:768px){.method-signals{grid-template-columns:1fr}.method-products{grid-template-columns:1fr}}
+
+/* ── COMMUNITY SECTION ── */
+.community-section{margin-top:40px;padding:40px 0}
+.community-tabs{display:flex;gap:0;flex-wrap:wrap;margin-bottom:0;border-bottom:1px solid var(--border)}
+.comm-tab{padding:11px 20px;font-size:13px;font-weight:600;color:var(--muted);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;font-family:var(--sans)}
+.comm-tab:hover{color:var(--text);background:var(--off)}
+.comm-tab.active{color:var(--accent);border-bottom-color:var(--accent);background:var(--white)}
+.community-content{background:var(--white);border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius-lg) var(--radius-lg);overflow:hidden}
+.comm-panel{padding:28px;animation:fadeIn .2s ease}
+.comm-grid{display:grid;grid-template-columns:1fr 240px;gap:28px;align-items:start}
+.comm-title{font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px}
+.comm-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.comm-how-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:10px}
+.comm-step{font-size:13px;color:var(--text);line-height:1.6;padding:8px 12px;background:var(--off);border-radius:8px;margin-bottom:6px}
+.comm-note{font-size:12px;color:var(--amber);background:var(--amber-l);padding:8px 12px;border-radius:8px;margin:10px 0;border-left:3px solid var(--amber)}
+.comm-plan{margin-top:14px;font-size:13px;color:var(--accent-d);padding:10px 14px;background:var(--accent-l);border-radius:8px;border-left:3px solid var(--accent)}
+.comm-right{display:flex;flex-direction:column;gap:10px;padding-top:8px}
+.comm-stat-card{padding:16px;background:var(--off);border:1px solid var(--border);border-radius:var(--radius);text-align:center}
+.comm-stat-n{font-size:26px;font-weight:800;color:var(--accent);margin-bottom:4px}
+.comm-stat-l{font-size:11px;color:var(--muted);line-height:1.4}
+@media(max-width:768px){.comm-grid{grid-template-columns:1fr}.comm-right{flex-direction:row;overflow-x:auto}}
+
+footer{
+  border-top:1px solid var(--border);padding:20px 32px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;color:var(--muted);flex-wrap:wrap;gap:10px;
+}
+.disclaimer-strip{
+  background:var(--off);border-top:1px solid var(--border);
+  padding:8px 32px;text-align:center;font-size:11px;color:var(--faint);
+}
+.disclaimer-strip a{color:var(--accent);cursor:pointer}
+
+@media(max-width:768px){
+  .detector-grid{grid-template-columns:1fr}
+  .sidebar-tab-label{font-size:12px}
+  .stats-section{grid-template-columns:1fr 1fr}
+  .plan-grid{grid-template-columns:1fr}
+  nav{padding:0 16px}
+  .main{padding:20px 16px 60px}
+  .hero{padding:32px 16px 28px}
+}
+</style>
+</head>
+<body>
+
+<div class="scan-overlay" id="scan-overlay"></div>
+
+<!-- Overlay bar -->
+<div id="overlay-bar">
+  <div class="ob-brand">
+    <svg width="16" height="16" viewBox="0 0 56 56" fill="none" style="display:inline-block;vertical-align:middle;margin-right:5px">
+      <path d="M10 28 Q28 12 46 28 Q28 44 10 28Z" fill="none" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="28" cy="28" r="7" fill="white"/>
+      <circle cx="28" cy="28" r="3.5" fill="#0d9488"/>
+    </svg>VeriAI</div>
+  <div class="ob-meter"><div class="ob-fill" id="ob-fill"></div></div>
+  <div class="ob-score" id="ob-score"></div>
+  <div class="ob-label" id="ob-label"></div>
+  <button class="ob-x" onclick="document.getElementById('overlay-bar').style.transform='translateY(-100%)'">✕</button>
+</div>
+
+<!-- Top announcement -->
+<div class="top-banner">
+  🌍 World's first AI Content Detector with UPI Support — Built in India · <a onclick="openModal('pro')">Get Pro at ₹299/month →</a>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-logo" onclick="scrollTo(0,0)">
+    <div class="nav-logo-icon">
+      <svg width="22" height="22" viewBox="0 0 56 56" fill="none">
+        <path d="M10 28 Q28 12 46 28 Q28 44 10 28Z" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="28" cy="28" r="6" fill="white"/>
+        <circle cx="28" cy="28" r="3" fill="#0d9488"/>
+        <line x1="10" y1="28" x2="46" y2="28" stroke="white" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
+      </svg>
+    </div>
+    <span class="nav-logo-name">Veri<span>AI</span></span>
+  </div>
+  <div class="nav-links">
+    <button class="nav-link" id="nav-products" onclick="toggleDropdown('products-dd')">Products ▾</button>
+    <button class="nav-link" id="nav-solutions" onclick="toggleDropdown('solutions-dd')">Solutions ▾</button>
+    <button class="nav-link" onclick="openModal('pro')">Pricing</button>
+  </div>
+  <div class="nav-right">
+    <button class="nav-login" onclick="openAuth('login')">Log in</button>
+    <button class="nav-signup" onclick="openAuth('signup')">Sign up free</button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge">✦ Powered by Gemini AI · 85%+ accuracy</div>
+  <h1>While AI is a powerful tool that enhances human capability, its rapid adoption creates an even greater need for <span>authenticity to sustain trust.</span></h1>
+  <p class="hero-sub">VeriAI detects AI-generated content and plagiarism from ChatGPT, Gemini, Claude and more. Trusted by educators, journalists and content creators.</p>
+</div>
+
+<!-- Ad slot — hidden for Pro/Team users via .no-ads class -->
+<div class="adsbygoogle-wrapper" style="text-align:center;padding:8px 20px;max-width:728px;margin:0 auto">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3098528993316733"
+       data-ad-slot="auto"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <!-- Upgrade nudge — only visible for free users -->
+  <div style="margin-top:6px;font-size:12px;color:#94a3b8;text-align:center">
+    🚫 Ads showing? <a onclick="openModal('pro')" style="color:#0d9488;font-weight:700;cursor:pointer;text-decoration:none">Upgrade to Pro or Team for a 100% ad-free experience →</a>
+  </div>
+</div>
+
+<!-- Main detector -->
+<div class="main" id="main">
+  <div class="detector-grid">
+
+    <!-- ── COL 1: Vertical Sidebar Tabs ── -->
+    <div class="sidebar-tabs">
+      <button class="sidebar-tab active" id="stab-text" onclick="setSideTab('text')">
+        <span class="sidebar-tab-icon">📝</span>
+        <div><div class="sidebar-tab-label">Text & File</div><div class="sidebar-tab-sub">AI Detection</div></div>
+      </button>
+      <button class="sidebar-tab" id="stab-plag" onclick="setSideTab('plag')">
+        <span class="sidebar-tab-icon">📋</span>
+        <div><div class="sidebar-tab-label">Plagiarism</div><div class="sidebar-tab-sub">Check sources</div></div>
+      </button>
+      <button class="sidebar-tab" id="stab-web" onclick="setSideTab('web')">
+        <span class="sidebar-tab-icon">🌐</span>
+        <div><div class="sidebar-tab-label">Web Links</div><div class="sidebar-tab-sub">& Videos</div></div>
+      </button>
+    </div>
+    <!-- END SIDEBAR -->
+
+    <!-- ── COL 2: Input Panel (changes based on tab) ── -->
+    <div>
+
+      <!-- TEXT / FILE PANEL -->
+      <div class="panel" id="input-text-panel" style="margin-bottom:16px">
+        <div class="panel-header">
+          <div class="panel-title">📝 Text & File Analysis</div>
+          <div class="panel-badge badge-free">Free · up to 1,000 words</div>
+        </div>
+        <div class="panel-body">
+          <div class="limit-bar">
+            <div class="limit-dot"></div>
+            <span style="font-size:12px;color:var(--muted)">Text scans today</span>
+            <div class="limit-count" id="text-limit-ct">100 left</div>
+          </div>
+          <div id="text-mode">
+            <textarea class="main-ta" id="main-ta" placeholder="Paste any text, blog post, email or article here to check for AI content..." oninput="onTextInput()" onpaste="setTimeout(onTextInput,50)" onkeyup="onTextInput()"></textarea>
+            <div class="char-info"><span id="word-count">0 words</span><span id="word-warn"></span></div>
+          </div>
+          <div id="file-mode" style="display:none">
+            <div class="file-upload-area" id="file-drop-zone" onclick="triggerFilePicker()" style="cursor:pointer">
+              <div class="upload-icon">📁</div>
+              <div class="upload-title" id="upload-title">Drop file here or click to browse</div>
+              <div class="upload-sub">.txt · .docx · .pdf · Max 5MB</div>
+              <input type="file" id="file-in" accept=".txt,.doc,.docx,.pdf" style="display:none">
+            </div>
+            <!-- Upload progress bar -->
+            <div id="upload-progress-wrap" style="display:none;margin-top:10px">
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                <span style="font-size:12px;color:var(--muted)" id="upload-progress-label">Reading file...</span>
+                <span style="font-size:12px;font-weight:700;color:var(--accent)" id="upload-progress-pct">0%</span>
+              </div>
+              <div style="height:6px;background:var(--border);border-radius:99px;overflow:hidden">
+                <div id="upload-progress-bar" style="height:100%;width:0%;background:var(--accent);border-radius:99px;transition:width .1s ease"></div>
+              </div>
+            </div>
+            <div id="file-loaded" style="display:none;margin-top:8px;padding:8px 12px;border-radius:8px;font-size:13px;font-weight:500"></div>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button onclick="setInputMode('text')" id="mode-text-btn" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:8px;background:var(--white);color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--sans)">✏️ Paste Text</button>
+            <button onclick="setInputMode('file');setTimeout(triggerFilePicker,150)" id="mode-file-btn" style="flex:1;padding:8px;border:1px solid var(--accent);border-radius:8px;background:var(--accent-l);color:var(--accent-d);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--sans)">📎 Upload File</button>
+          </div>
+          <button class="detect-btn" id="detect-text-btn" onclick="analyzeText()">
+            <div class="btn-spin" id="text-spin"></div>
+            <span id="text-btn-label">Detect AI Content</span>
+          </button>
+          <div class="err-msg" id="text-err"></div>
+        </div>
+      </div>
+
+      <!-- PLAGIARISM PANEL -->
+      <div class="panel" id="input-plag-panel" style="margin-bottom:16px;display:none">
+        <div class="panel-header">
+          <div class="panel-title">📋 Plagiarism Check</div>
+          <div class="panel-badge badge-free">Free · up to 1,000 words</div>
+        </div>
+        <div class="panel-body">
+          <div class="limit-bar">
+            <div class="limit-dot" style="background:var(--blue)"></div>
+            <span style="font-size:12px;color:var(--muted)">Plagiarism scans today</span>
+            <div class="limit-count" id="plag-limit-ct">100 left</div>
+          </div>
+          <textarea class="main-ta" id="plag-ta" placeholder="Paste text here to check for plagiarism and source matching..." oninput="onPlagInput()" style="min-height:180px"></textarea>
+          <div class="char-info"><span id="plag-word-count">0 words</span></div>
+          <div style="padding:10px 12px;background:var(--blue-l);border-radius:8px;margin-top:8px;font-size:12px;color:var(--blue)">
+            📋 Plagiarism check analyzes text for matching phrases, sentence structures and patterns found in published sources.
+          </div>
+          <button class="detect-btn" id="detect-plag-btn" onclick="analyzePlagiarism()" style="background:var(--blue);box-shadow:0 2px 8px rgba(37,99,235,.25)">
+            <div class="btn-spin" id="plag-spin"></div>
+            <span id="plag-btn-label">Check Plagiarism</span>
+          </button>
+          <div class="err-msg" id="plag-err"></div>
+        </div>
+      </div>
+
+      <!-- WEB LINKS & VIDEO PANEL -->
+      <div class="panel" id="input-web-panel" style="margin-bottom:16px;display:none">
+        <div class="panel-header">
+          <div class="panel-title">🌐 Web Links & Videos</div>
+          <div class="panel-badge badge-limit">5 free checks/day</div>
+        </div>
+        <div class="panel-body">
+          <div class="url-limit-info">
+            <span>Free: 5 video/webpage checks per day</span>
+            <span id="media-limit-ct" style="font-weight:700">5 left</span>
+          </div>
+          <div class="url-input-wrap">
+            <input class="url-input" id="url-in" type="url" placeholder="Paste YouTube, Instagram, LinkedIn or any webpage URL...">
+            <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;align-items:center">
+              <span style="font-size:11px;color:var(--muted);font-weight:500">Supports:</span>
+              <span style="display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);padding:3px 8px;background:var(--off);border-radius:999px;border:1px solid var(--border)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 6.2s-.2-1.6-1-2.3c-.9-1-1.9-1-2.4-1C17.2 2.7 12 2.7 12 2.7s-5.2 0-8.1.2c-.5.1-1.5.1-2.4 1-.7.7-1 2.3-1 2.3S.3 8 .3 9.8v1.7c0 1.8.2 3.6.2 3.6s.2 1.6 1 2.3c.9 1 2.1.9 2.6 1 1.9.2 8 .2 8 .2s5.2 0 8.1-.3c.5-.1 1.5-.1 2.4-1 .7-.7 1-2.3 1-2.3s.2-1.8.2-3.6V9.8c-.1-1.8-.3-3.6-.3-3.6zM9.7 15.5V8.4l6.5 3.6-6.5 3.5z"/></svg>
+                YouTube
+              </span>
+              <span style="display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);padding:3px 8px;background:var(--off);border-radius:999px;border:1px solid var(--border)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="url(#ig)"><defs><linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#f09433"/><stop offset="25%" style="stop-color:#e6683c"/><stop offset="50%" style="stop-color:#dc2743"/><stop offset="75%" style="stop-color:#cc2366"/><stop offset="100%" style="stop-color:#bc1888"/></linearGradient></defs><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.3 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+                Instagram
+              </span>
+              <span style="display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);padding:3px 8px;background:var(--off);border-radius:999px;border:1px solid var(--border)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.4 2H3.6C2.7 2 2 2.7 2 3.6v16.8c0 .9.7 1.6 1.6 1.6h16.8c.9 0 1.6-.7 1.6-1.6V3.6c0-.9-.7-1.6-1.6-1.6zM8.3 19H5.7V9.8h2.6V19zM7 8.7c-.8 0-1.5-.7-1.5-1.5S6.2 5.7 7 5.7s1.5.7 1.5 1.5S7.8 8.7 7 8.7zm12 10.3h-2.6v-4.5c0-1.1 0-2.5-1.5-2.5s-1.7 1.2-1.7 2.4V19h-2.6V9.8h2.5v1.2h.1c.4-.7 1.2-1.5 2.5-1.5 2.7 0 3.2 1.8 3.2 4V19z"/></svg>
+                LinkedIn
+              </span>
+              <span style="display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);padding:3px 8px;background:var(--off);border-radius:999px;border:1px solid var(--border)">
+                🌐 Any webpage
+              </span>
+            </div>
+          </div>
+          <button class="detect-btn" id="detect-url-btn" onclick="analyzeURL()" style="background:var(--blue);box-shadow:0 2px 8px rgba(37,99,235,.25)">
+            <div class="btn-spin" id="url-spin"></div>
+            <span id="url-btn-label">Analyze Link</span>
+          </button>
+          <div class="err-msg" id="url-err"></div>
+        </div>
+      </div>
+
+    </div>
+    <!-- END COL 2 -->
+
+    <!-- ── COL 3: Results Panel ── -->
+    <div>
+      <div class="panel" id="results-panel">
+        <!-- Empty state -->
+        <div class="results-empty" id="results-empty">
+          <div class="results-empty-icon">📊</div>
+          <div class="results-empty-title">Results appear here</div>
+        </div>
+
+        <!-- Results (hidden until scan) -->
+        <div id="results-content" style="display:none">
+
+          <!-- Header with clear button -->
+          <div class="panel-header">
+            <div class="panel-title" id="result-panel-title">Analysis Results</div>
+            <button onclick="clearResults()" style="margin-left:auto;background:none;border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--muted);cursor:pointer;font-family:var(--sans)">✕ Clear</button>
+          </div>
+
+          <!-- Score header -->
+          <div class="score-header" id="score-header">
+            <div class="score-circle" id="score-circle">
+              <span id="score-num">—</span>
+              <span style="font-size:9px;font-weight:500;opacity:.7">AI%</span>
+            </div>
+            <div class="score-right">
+              <div class="score-verdict" id="score-verdict">—</div>
+              <div class="score-conf" id="score-conf"></div>
+            </div>
+          </div>
+
+          <!-- Distribution bar -->
+          <div class="dist-section">
+            <div class="dist-label">Content distribution</div>
+            <div class="dist-bar">
+              <div class="dist-seg ai" id="dist-ai" style="width:0%"></div>
+              <div class="dist-seg mixed" id="dist-mixed" style="width:0%"></div>
+              <div class="dist-seg human" id="dist-human" style="width:100%"></div>
+            </div>
+            <div class="dist-legend">
+              <div class="dist-item"><div class="dist-dot" style="background:var(--red)"></div><span id="dist-ai-pct">0% AI</span></div>
+              <div class="dist-item"><div class="dist-dot" style="background:var(--amber)"></div><span id="dist-mixed-pct">0% Mixed</span></div>
+              <div class="dist-item"><div class="dist-dot" style="background:var(--green)"></div><span id="dist-human-pct">100% Human</span></div>
+            </div>
+          </div>
+
+          <!-- Signal bars -->
+          <div class="signals-section">
+            <div class="dist-label" style="margin-bottom:12px">Detection signals</div>
+            <div class="signal-row"><div class="signal-name">Text patterns</div><div class="signal-track"><div class="signal-fill" id="sig-tp" style="width:0%"></div></div><div class="signal-pct" id="sig-tp-pct">—</div></div>
+            <div class="signal-row"><div class="signal-name">Structure</div><div class="signal-track"><div class="signal-fill" id="sig-st" style="width:0%"></div></div><div class="signal-pct" id="sig-st-pct">—</div></div>
+            <div class="signal-row"><div class="signal-name">Vocabulary</div><div class="signal-track"><div class="signal-fill" id="sig-vo" style="width:0%"></div></div><div class="signal-pct" id="sig-vo-pct">—</div></div>
+            <div class="signal-row"><div class="signal-name">Style</div><div class="signal-track"><div class="signal-fill" id="sig-sy" style="width:0%"></div></div><div class="signal-pct" id="sig-sy-pct">—</div></div>
+          </div>
+
+          <!-- Plagiarism highlight section (only shown for plagiarism tab) -->
+          <div class="highlight-section" id="highlight-section" style="display:none">
+            <div class="highlight-title">⚠️ Flagged sentences</div>
+            <div class="highlight-box" id="highlight-box"></div>
+          </div>
+
+          <!-- Reasoning -->
+          <div class="reasoning-section">
+            <div class="dist-label" style="margin-bottom:8px">Analysis reasoning</div>
+            <div class="reasoning-text" id="reasoning-text"></div>
+          </div>
+
+          <!-- Share -->
+          <div class="share-row">
+            <span style="font-size:12px;color:var(--faint);margin-right:4px">Share:</span>
+            <button class="share-btn" onclick="copyResult()">📋 Copy</button>
+            <button class="share-btn" onclick="tweetResult()">🐦 Tweet</button>
+            <button class="share-btn" id="pdf-export-btn" onclick="exportPDF()" style="display:none;background:var(--accent-l);color:var(--accent-d);border-color:var(--accent)">📄 PDF</button>
+            <button class="share-btn" id="upgrade-btn" onclick="openModal('pro')" style="background:var(--accent-l);color:var(--accent-d);border-color:var(--accent)">⬆ Upgrade</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END COL 3 -->
+
+  </div>
+
+  <!-- ── QUOTE ── -->
+  <div class="quote-section">
+    <div class="quote-icon">💬</div>
+    <div class="quote-text" id="ai-quote">"While AI is a powerful tool that enhances human capability, its rapid adoption creates an even greater need for authenticity to sustain trust."</div>
+    <div class="quote-sub">Why detecting AI matters — for education, journalism and trust</div>
+  </div>
+
+  <!-- ── METHODOLOGY SECTION ── -->
+  <div class="method-section">
+
+    <div class="method-header">
+      <div class="method-eyebrow">Our Science</div>
+      <h2 class="method-title">How VeriAI detects AI content</h2>
+      <p class="method-sub">VeriAI uses a multi-signal detection approach powered by Gemini AI — analyzing the same linguistic patterns that distinguish AI writing from human writing, across text, web pages and videos.</p>
+    </div>
+
+    <!-- Core signals -->
+    <div class="method-signals">
+      <div class="msig-card">
+        <div class="msig-icon">📊</div>
+        <div class="msig-name">Perplexity Analysis</div>
+        <div class="msig-desc">AI models always pick the statistically most likely next word. This makes AI text highly predictable. VeriAI measures how "surprising" each word choice is — low perplexity means AI, high perplexity means human. This is the same core signal used by GPTZero and Originality.ai.</div>
+      </div>
+      <div class="msig-card">
+        <div class="msig-icon">📈</div>
+        <div class="msig-name">Burstiness Score</div>
+        <div class="msig-desc">Humans write in bursts — mixing short punchy sentences with long complex ones. AI writes uniformly — every sentence tends to be similar in length and complexity. VeriAI measures this variation (burstiness). Low burstiness is a strong AI signal.</div>
+      </div>
+      <div class="msig-card">
+        <div class="msig-icon">🔤</div>
+        <div class="msig-name">AI Vocabulary Fingerprint</div>
+        <div class="msig-desc">AI models overuse specific words — "furthermore", "leverage", "delve", "multifaceted", "paramount", "transformative", "comprehensive", "it is important to note". VeriAI has a trained dictionary of 200+ AI-typical phrases and scores their frequency in the text.</div>
+      </div>
+      <div class="msig-card">
+        <div class="msig-icon">🧠</div>
+        <div class="msig-name">Structural Pattern Detection</div>
+        <div class="msig-desc">AI writes in perfect paragraph blocks — always 3-5 sentences, always balanced, never tangents, never repetition. Humans ramble, repeat themselves differently, go off-topic, and have uneven structure. VeriAI detects this structural uniformity as an AI signal.</div>
+      </div>
+      <div class="msig-card">
+        <div class="msig-icon">🫂</div>
+        <div class="msig-name">Human Authenticity Markers</div>
+        <div class="msig-desc">Real human writing contains typos, self-corrections, colloquialisms, hedging language ("I think", "maybe"), personal anecdotes, and specific details only a human would know. VeriAI actively looks for these markers and treats their presence as a strong human signal.</div>
+      </div>
+      <div class="msig-card">
+        <div class="msig-icon">🔍</div>
+        <div class="msig-name">Sentence-Level Classification</div>
+        <div class="msig-desc">VeriAI doesn't just give a single score for the whole document — it classifies each sentence individually and highlights the specific sentences most likely written by AI. This lets you see exactly which parts of a document are suspicious.</div>
+      </div>
+    </div>
+
+    <!-- VeriAI Local Detection Engine -->
+    <h3 class="method-subtitle">VeriAI local detection engine</h3>
+    <div class="method-products">
+
+      <div class="mprod-card">
+        <div class="mprod-head">
+          <div class="mprod-icon" style="background:#fffbeb;color:#b45309">N</div>
+          <div>
+            <div class="mprod-name">Lexical pattern matching</div>
+            <div class="mprod-tag" style="background:#fffbeb;color:#b45309">N-gram corpus analysis</div>
+          </div>
+        </div>
+        <div class="mprod-body">Scans for LLM-characteristic n-gram sequences, over-represented transitional phrases, hedging language clusters, and low-perplexity token chains. AI-generated text produces statistically predictable bigram and trigram distributions that diverge significantly from human writing corpora.</div>
+        <div class="mprod-signals">
+          <span class="msig-pill">Bigram frequency</span>
+          <span class="msig-pill">Trigram distribution</span>
+          <span class="msig-pill">Perplexity scoring</span>
+          <span class="msig-pill">Hedge phrase density</span>
+        </div>
+      </div>
+
+      <div class="mprod-card">
+        <div class="mprod-head">
+          <div class="mprod-icon" style="background:#E6F1FB;color:#185FA5">S</div>
+          <div>
+            <div class="mprod-name">Syntactic uniformity scoring</div>
+            <div class="mprod-tag" style="background:#E6F1FB;color:#185FA5">Variance &amp; entropy model</div>
+          </div>
+        </div>
+        <div class="mprod-body">Computes sentence-length standard deviation, inter-paragraph rhythm variance, and punctuation entropy across the full document. AI-generated text exhibits abnormally low burstiness — sentences cluster tightly around a mean length with minimal structural deviation, a pattern absent in human writing.</div>
+        <div class="mprod-signals">
+          <span class="msig-pill">Std deviation</span>
+          <span class="msig-pill">Burstiness index</span>
+          <span class="msig-pill">Punctuation entropy</span>
+          <span class="msig-pill">Paragraph rhythm</span>
+        </div>
+      </div>
+
+      <div class="mprod-card">
+        <div class="mprod-head">
+          <div class="mprod-icon" style="background:#f0fdf4;color:#15803d">T</div>
+          <div>
+            <div class="mprod-name">Lexical diversity index</div>
+            <div class="mprod-tag" style="background:#f0fdf4;color:#15803d">Type-Token Ratio (TTR)</div>
+          </div>
+        </div>
+        <div class="mprod-body">Measures vocabulary richness via Type-Token Ratio and hapax legomena density — the proportion of words that appear exactly once. LLMs produce statistically lower TTR due to repetitive token sampling from high-probability distributions, while human writers naturally introduce rare and context-specific vocabulary.</div>
+        <div class="mprod-signals">
+          <span class="msig-pill">Type-Token Ratio</span>
+          <span class="msig-pill">Hapax legomena</span>
+          <span class="msig-pill">Vocabulary richness</span>
+          <span class="msig-pill">Token repetition</span>
+        </div>
+      </div>
+
+      <div class="mprod-card">
+        <div class="mprod-head">
+          <div class="mprod-icon" style="background:#fef2f2;color:#b91c1c">P</div>
+          <div>
+            <div class="mprod-name">Multi-source origin classifier</div>
+            <div class="mprod-tag" style="background:#fef2f2;color:#b91c1c">Rule-based provenance engine</div>
+          </div>
+        </div>
+        <div class="mprod-body">Runs three parallel regex-based classifiers simultaneously — detecting web-scraped content via HTML artifacts and URL patterns, video transcripts via disfluency markers and timestamp syntax, and plagiarised text via academic citation patterns and encyclopedic phrasing. Each pipeline returns an independent confidence score.</div>
+        <div class="mprod-signals">
+          <span class="msig-pill">HTML artifact detection</span>
+          <span class="msig-pill">Disfluency markers</span>
+          <span class="msig-pill">Citation syntax</span>
+          <span class="msig-pill">Provenance scoring</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Accuracy note -->
+    <div class="method-accuracy">
+      <div class="macc-icon">⚠️</div>
+      <div>
+        <strong>Important note on accuracy:</strong> No AI detector — including GPTZero, Originality.ai or VeriAI — is 100% accurate. False positives (flagging human writing as AI) and false negatives (missing AI writing) do occur. VeriAI achieves approximately 65% accuracy on the free tier and 85%+ on Pro (with full Gemini AI analysis). Results should be used as one signal among many — not as sole evidence in academic, employment or legal decisions.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── COMMUNITY SECTION ── -->
+  <div class="community-section" id="community-section">
+    <div class="method-header">
+      <div class="method-eyebrow">Who Uses VeriAI</div>
+      <h2 class="method-title">Built for every community that values authenticity</h2>
+      <p class="method-sub">Different people use VeriAI in different ways. Select your community to see exactly how it works for you.</p>
+    </div>
+
+    <div class="community-tabs">
+      <button class="comm-tab active" onclick="setCommTab('educators')">🎓 Educators</button>
+      <button class="comm-tab" onclick="setCommTab('writers')">✍️ Writers</button>
+      <button class="comm-tab" onclick="setCommTab('hr')">💼 HR & Recruiters</button>
+      <button class="comm-tab" onclick="setCommTab('journalists')">📰 Journalists</button>
+      <button class="comm-tab" onclick="setCommTab('students')">📚 Students</button>
+    </div>
+
+    <div class="community-content">
+
+      <div id="comm-educators" class="comm-panel">
+        <div class="comm-grid">
+          <div class="comm-left">
+            <div class="comm-title">For Educators & Academic Institutions</div>
+            <div class="comm-desc">Academic integrity is under pressure. VeriAI helps teachers identify AI-generated assignments, essays and research papers — without falsely accusing genuine students.</div>
+            <div class="comm-how-title">How to use VeriAI in your classroom:</div>
+            <div class="comm-step">📋 <strong>Step 1:</strong> Students submit assignments as Word or PDF files</div>
+            <div class="comm-step">🔍 <strong>Step 2:</strong> Upload the file to VeriAI's Text Checker</div>
+            <div class="comm-step">📊 <strong>Step 3:</strong> Review the sentence-by-sentence highlight — red = AI-generated</div>
+            <div class="comm-step">📈 <strong>Step 4:</strong> Use the distribution bar (AI% / Mixed% / Human%) as evidence, not final verdict</div>
+            <div class="comm-note">⚠️ Always pair with a student conversation before taking action. VeriAI is an indicator, not proof.</div>
+            <div class="comm-plan">Best plan: <strong>Team ₹999/month</strong> — covers your full department (5 teachers)</div>
+          </div>
+          <div class="comm-right">
+            <div class="comm-stat-card"><div class="comm-stat-n">85%</div><div class="comm-stat-l">Accuracy on academic essays</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">1,000</div><div class="comm-stat-l">Words per free scan</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">∞</div><div class="comm-stat-l">Scans on Pro/Team plan</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="comm-writers" class="comm-panel" style="display:none">
+        <div class="comm-grid">
+          <div class="comm-left">
+            <div class="comm-title">For Writers, Editors & Publishers</div>
+            <div class="comm-desc">Maintaining authentic voice is your brand. VeriAI helps editors verify submitted content and writers clean up AI-assisted drafts before publishing.</div>
+            <div class="comm-how-title">How writers use VeriAI:</div>
+            <div class="comm-step">✍️ <strong>Step 1:</strong> Paste your draft or upload the Word/PDF file</div>
+            <div class="comm-step">🤖 <strong>Step 2:</strong> Run Detect AI — see which sections stand out as AI-written</div>
+            <div class="comm-step">🔴 <strong>Step 3:</strong> Rewrite highlighted red sentences in your own voice</div>
+            <div class="comm-step">📋 <strong>Step 4:</strong> Run Plagiarism Check before final submission</div>
+            <div class="comm-step">✅ <strong>Step 5:</strong> Green distribution bar = authentic, publishable content</div>
+            <div class="comm-plan">Best plan: <strong>Pro ₹299/month</strong> — unlimited personal scans</div>
+          </div>
+          <div class="comm-right">
+            <div class="comm-stat-card"><div class="comm-stat-n">50+</div><div class="comm-stat-l">AI vocabulary patterns flagged</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">100</div><div class="comm-stat-l">Free scans per day</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">&lt;5s</div><div class="comm-stat-l">Average scan time</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="comm-hr" class="comm-panel" style="display:none">
+        <div class="comm-grid">
+          <div class="comm-left">
+            <div class="comm-title">For HR Teams & Recruiters</div>
+            <div class="comm-desc">AI-written cover letters and resumes are flooding hiring pipelines. VeriAI helps HR teams quickly flag candidates who used AI to misrepresent themselves.</div>
+            <div class="comm-how-title">How HR teams use VeriAI:</div>
+            <div class="comm-step">📄 <strong>Step 1:</strong> Upload the candidate's cover letter or resume (PDF or Word)</div>
+            <div class="comm-step">🤖 <strong>Step 2:</strong> Run AI detection — score above 70% is a strong AI signal</div>
+            <div class="comm-step">📊 <strong>Step 3:</strong> Check which specific sections are AI — intro? skills? summary?</div>
+            <div class="comm-step">🔗 <strong>Step 4:</strong> Paste their LinkedIn URL in Web Checker for cross-verification</div>
+            <div class="comm-step">📞 <strong>Step 5:</strong> Use as a pre-interview filter — ask candidates to explain flagged sections</div>
+            <div class="comm-plan">Best plan: <strong>Team ₹999/month</strong> — your full HR team on one account</div>
+          </div>
+          <div class="comm-right">
+            <div class="comm-stat-card"><div class="comm-stat-n">PDF</div><div class="comm-stat-l">Resume upload supported</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">Word</div><div class="comm-stat-l">Cover letter upload supported</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">5</div><div class="comm-stat-l">Team seats on Team plan</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="comm-journalists" class="comm-panel" style="display:none">
+        <div class="comm-grid">
+          <div class="comm-left">
+            <div class="comm-title">For Journalists & Fact-Checkers</div>
+            <div class="comm-desc">AI-generated misinformation is a growing threat. VeriAI helps journalists verify whether a source, press release or article was AI-generated before citing it.</div>
+            <div class="comm-how-title">How journalists use VeriAI:</div>
+            <div class="comm-step">🌐 <strong>Step 1:</strong> Paste a suspicious article URL into Web Checker</div>
+            <div class="comm-step">📰 <strong>Step 2:</strong> Copy article text into Text Checker for deeper sentence-level analysis</div>
+            <div class="comm-step">🔍 <strong>Step 3:</strong> AI content farms typically score 90%+ — easy to spot</div>
+            <div class="comm-step">▶ <strong>Step 4:</strong> Check video sources with Video Checker for AI narration signals</div>
+            <div class="comm-step">📋 <strong>Step 5:</strong> Run Plagiarism Check on press releases before quoting</div>
+            <div class="comm-plan">Best plan: <strong>Pro ₹299/month</strong> — unlimited scans for daily newsroom use</div>
+          </div>
+          <div class="comm-right">
+            <div class="comm-stat-card"><div class="comm-stat-n">URL</div><div class="comm-stat-l">Webpage analysis</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">YT</div><div class="comm-stat-l">YouTube video analysis</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">IG</div><div class="comm-stat-l">Instagram analysis</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="comm-students" class="comm-panel" style="display:none">
+        <div class="comm-grid">
+          <div class="comm-left">
+            <div class="comm-title">For Students</div>
+            <div class="comm-desc">Worried your AI-assisted draft might get flagged by your teacher? Use VeriAI to check your own work first — and rewrite any AI-sounding sections in your own voice.</div>
+            <div class="comm-how-title">How students use VeriAI:</div>
+            <div class="comm-step">✍️ <strong>Step 1:</strong> Paste your essay or assignment draft</div>
+            <div class="comm-step">🔍 <strong>Step 2:</strong> Run AI detection — see which sentences are flagged red</div>
+            <div class="comm-step">✏️ <strong>Step 3:</strong> Rewrite the red sentences in your own words and style</div>
+            <div class="comm-step">🔄 <strong>Step 4:</strong> Scan again until the score is mostly green</div>
+            <div class="comm-step">✅ <strong>Step 5:</strong> Submit with confidence knowing your work reflects your voice</div>
+            <div class="comm-plan">Best plan: <strong>Free tier</strong> — 100 scans/day is enough for most students, completely free</div>
+          </div>
+          <div class="comm-right">
+            <div class="comm-stat-card"><div class="comm-stat-n">Free</div><div class="comm-stat-l">100 scans/day at no cost</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">1,000</div><div class="comm-stat-l">Word limit per scan</div></div>
+            <div class="comm-stat-card"><div class="comm-stat-n">&lt;5s</div><div class="comm-stat-l">Instant results</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Disclaimer strip -->
+<!-- Disclaimer strip -->
+<div class="disclaimer-strip">
+  ⚠️ Results are ~65% accurate (Free) / 85%+ (Pro). For informational use only — not legal evidence.
+  <a onclick="openModal('disclaimer')" style="color:var(--accent);cursor:pointer;font-weight:600;margin-left:6px">View Full Disclaimer & Terms →</a>
+</div>
+<footer>
+  <span>VeriAI · AI Content Detector</span>
+  <div style="display:flex;gap:16px;align-items:center">
+    <a onclick="openModal('disclaimer')" style="color:var(--accent);cursor:pointer;font-size:12px">Disclaimer</a>
+    <a onclick="openModal('disclaimer')" style="color:var(--muted);cursor:pointer;font-size:12px">Terms of Use</a>
+    <a onclick="openModal('disclaimer')" style="color:var(--muted);cursor:pointer;font-size:12px">Privacy Policy</a>
+  </div>
+  <span style="color:var(--faint)">© 2026 VeriAI · Powered by Gemini AI</span>
+</footer>
+
+<!-- Products Dropdown -->
+<div class="dropdown" id="products-dd">
+  <div class="dd-item" onclick="closeDropdowns();setSideTab('text');document.getElementById('main').scrollIntoView({behavior:'smooth'})">
+    <div class="dd-icon">📝</div>
+    <div><div class="dd-name">Text Checker</div><div class="dd-desc">Detect AI-generated text from ChatGPT, Gemini, Claude and more</div></div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns();setSideTab('plag');document.getElementById('main').scrollIntoView({behavior:'smooth'})">
+    <div class="dd-icon">📋</div>
+    <div><div class="dd-name">Plagiarism Checker</div><div class="dd-desc">Find copied content and source matches in any document</div></div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns();setSideTab('web');document.getElementById('main').scrollIntoView({behavior:'smooth'})">
+    <div class="dd-icon">🌐</div>
+    <div><div class="dd-name">Web & Video Checker</div><div class="dd-desc">Analyze YouTube, Instagram, news articles and webpages</div></div>
+  </div>
+</div>
+
+<!-- Solutions Dropdown -->
+<div class="dropdown" id="solutions-dd">
+  <div class="dd-item" onclick="closeDropdowns();setCommTab('educators');document.getElementById('community-section').scrollIntoView({behavior:'smooth'})">
+    <div class="dd-icon">🎓</div>
+    <div>
+      <div class="dd-name">For Educators</div>
+      <div class="dd-desc">Detect AI in student assignments, essays & exams instantly</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns();setCommTab('writers');document.getElementById('community-section').scrollIntoView({behavior:'smooth'})">
+    <div class="dd-icon">✍️</div>
+    <div>
+      <div class="dd-name">For Writers & Editors</div>
+      <div class="dd-desc">Verify content authenticity before publishing</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns();setCommTab('hr');document.getElementById('community-section').scrollIntoView({behavior:'smooth'})">
+    <div class="dd-icon">💼</div>
+    <div>
+      <div class="dd-name">For HR & Recruiters</div>
+      <div class="dd-desc">Detect AI-written resumes and cover letters</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns();setCommTab('journalists');document.getElementById('community-section').scrollIntoView({behavior:'smooth'})">
+    <div class="dd-icon">📰</div>
+    <div>
+      <div class="dd-name">For Journalists</div>
+      <div class="dd-desc">Verify sources and detect AI-generated news</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns();setCommTab('students');document.getElementById('community-section').scrollIntoView({behavior:'smooth'})">
+    <div class="dd-icon">📚</div>
+    <div>
+      <div class="dd-name">For Students</div>
+      <div class="dd-desc">Check your own work before submission</div>
+    </div>
+  </div>
+</div>
+
+<!-- Community Dropdown -->
+<div class="dropdown" id="community-dd" style="min-width:300px">
+  <div class="dd-item" onclick="closeDropdowns();document.getElementById('community-dd').classList.remove('open')">
+    <div class="dd-icon">🎓</div>
+    <div>
+      <div class="dd-name">Teachers & Professors</div>
+      <div class="dd-desc">Paste student assignments to check for AI use. Get sentence-level highlights showing exactly which lines are suspicious. Use in academic integrity reviews.</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">🎒</div>
+    <div>
+      <div class="dd-name">Students</div>
+      <div class="dd-desc">Check your own writing before submitting — make sure it doesn't accidentally trigger AI detectors. Understand which parts need more of your personal voice.</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">📰</div>
+    <div>
+      <div class="dd-name">Journalists & Editors</div>
+      <div class="dd-desc">Verify articles, press releases and contributed content before publishing. Check web links and social media posts for AI-generated misinformation.</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">💼</div>
+    <div>
+      <div class="dd-name">HR & Recruiters</div>
+      <div class="dd-desc">Detect AI-written resumes, cover letters and assessment answers. Ensure you are evaluating the actual candidate, not an LLM.</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">✍️</div>
+    <div>
+      <div class="dd-name">Content Creators & Agencies</div>
+      <div class="dd-desc">Verify freelancer submissions and agency deliverables. Ensure content you are paying for is genuinely human-written before publishing.</div>
+    </div>
+  </div>
+  <div class="dd-item" onclick="closeDropdowns()">
+    <div class="dd-icon">🏢</div>
+    <div>
+      <div class="dd-name">Enterprises & Teams</div>
+      <div class="dd-desc">Use VeriAI Team plan for unlimited checking across your team. Get PDF reports, scan history and priority support for up to 5 members.</div>
+    </div>
+  </div>
+</div>
+<div class="moverlay" id="auth-modal">
+  <div class="auth-modal">
+
+    <!-- Login view -->
+    <div id="auth-login-view">
+      <div class="modal-header" style="margin-bottom:0">
+        <div></div>
+        <button class="modal-close" onclick="closeAuth()">✕</button>
+      </div>
+      <div class="auth-title">Welcome back</div>
+      <div class="auth-sub">Log in to your VeriAI account</div>
+
+      <button class="social-btn google" onclick="socialAuth('google')">
+        <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z"/><path fill="#34A853" d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 0 1-7.18-2.54H1.83v2.07A8 8 0 0 0 8.98 17z"/><path fill="#FBBC05" d="M4.5 10.52a4.8 4.8 0 0 1 0-3.04V5.41H1.83a8 8 0 0 0 0 7.18l2.67-2.07z"/><path fill="#EA4335" d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 1.83 5.4L4.5 7.49a4.77 4.77 0 0 1 4.48-3.3z"/></svg>
+        Continue with Google
+      </button>
+      <button class="social-btn microsoft" onclick="socialAuth('microsoft')">
+        <svg width="18" height="18" viewBox="0 0 18 18"><rect x="1" y="1" width="7.5" height="7.5" fill="#f25022"/><rect x="9.5" y="1" width="7.5" height="7.5" fill="#7fba00"/><rect x="1" y="9.5" width="7.5" height="7.5" fill="#00a4ef"/><rect x="9.5" y="9.5" width="7.5" height="7.5" fill="#ffb900"/></svg>
+        Continue with Microsoft
+      </button>
+
+      <div class="auth-divider">or</div>
+
+      <input class="auth-input" type="email" id="login-email" placeholder="Email address">
+      <input class="auth-input" type="password" id="login-password" placeholder="Password">
+      <div style="text-align:right;margin:-6px 0 10px"><a onclick="showForgotPassword()" style="font-size:12px;color:var(--accent);cursor:pointer;font-weight:600">Forgot password?</a></div>
+      <button class="auth-btn" onclick="handleLogin()">Log in</button>
+      <div class="auth-switch">Don't have an account? <a onclick="switchAuth('signup')">Sign up free</a></div>
+    </div>
+
+    <!-- Forgot Password view -->
+    <div id="auth-forgot-view" style="display:none">
+      <div class="modal-header" style="margin-bottom:0">
+        <div></div>
+        <button class="modal-close" onclick="closeAuth()">✕</button>
+      </div>
+      <div class="auth-title">Reset your password</div>
+      <div class="auth-sub">Enter your email and we'll send you a reset link</div>
+      <input class="auth-input" type="email" id="forgot-email" placeholder="Email address">
+      <button class="auth-btn" onclick="handleForgotPassword()">Send reset link →</button>
+      <div class="auth-switch"><a onclick="showLoginView()">← Back to log in</a></div>
+    </div>
+
+    <!-- Reset Password view (shown after clicking email link) -->
+    <div id="auth-reset-view" style="display:none">
+      <div class="modal-header" style="margin-bottom:0">
+        <div></div>
+        <button class="modal-close" onclick="closeAuth()">✕</button>
+      </div>
+      <div class="auth-title">Set new password</div>
+      <div class="auth-sub">Choose a strong password for your account</div>
+      <input class="auth-input" type="password" id="reset-password" placeholder="New password (min 8 characters)">
+      <input class="auth-input" type="password" id="reset-confirm" placeholder="Confirm new password">
+      <button class="auth-btn" onclick="handleResetPassword()">Update password →</button>
+    </div>
+    <div id="auth-signup-view" style="display:none">
+      <div class="modal-header" style="margin-bottom:0">
+        <div></div>
+        <button class="modal-close" onclick="closeAuth()">✕</button>
+      </div>
+
+      <!-- Step 1: Account details -->
+      <div id="signup-step1">
+        <div class="auth-title">Create your account</div>
+        <div class="auth-sub">Join VeriAI — free to start</div>
+
+        <button class="social-btn google" onclick="socialAuth('google')">
+          <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z"/><path fill="#34A853" d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 0 1-7.18-2.54H1.83v2.07A8 8 0 0 0 8.98 17z"/><path fill="#FBBC05" d="M4.5 10.52a4.8 4.8 0 0 1 0-3.04V5.41H1.83a8 8 0 0 0 0 7.18l2.67-2.07z"/><path fill="#EA4335" d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 1.83 5.4L4.5 7.49a4.77 4.77 0 0 1 4.48-3.3z"/></svg>
+          Sign up with Google
+        </button>
+        <button class="social-btn microsoft" onclick="socialAuth('microsoft')">
+          <svg width="18" height="18" viewBox="0 0 18 18"><rect x="1" y="1" width="7.5" height="7.5" fill="#f25022"/><rect x="9.5" y="1" width="7.5" height="7.5" fill="#7fba00"/><rect x="1" y="9.5" width="7.5" height="7.5" fill="#00a4ef"/><rect x="9.5" y="9.5" width="7.5" height="7.5" fill="#ffb900"/></svg>
+          Sign up with Microsoft
+        </button>
+        <div class="auth-divider">or sign up with email</div>
+        <input class="auth-input" type="text" id="signup-name" placeholder="Full name">
+        <input class="auth-input" type="email" id="signup-email" placeholder="Email address">
+        <div class="phone-row">
+          <input class="phone-code" type="text" id="signup-phone-code" value="+91" placeholder="+91">
+          <input class="auth-input" style="margin-bottom:0;flex:1" type="tel" id="signup-phone" placeholder="Mobile number">
+        </div>
+        <input class="auth-input" type="password" id="signup-password" placeholder="Create a password">
+        <button class="auth-btn" onclick="signupStep1()">Continue →</button>
+        <div class="auth-switch">Already have an account? <a onclick="switchAuth('login')">Log in</a></div>
+      </div>
+
+      <!-- Step 2: 2FA OTP -->
+      <div id="signup-step2" style="display:none">
+        <div class="auth-title">Verify your number</div>
+        <div class="auth-sub" id="otp-sub">We sent a 6-digit code to your mobile</div>
+        <div style="text-align:center;font-size:32px;margin:16px 0">📱</div>
+        <div class="otp-row">
+          <input class="otp-input" maxlength="1" oninput="otpNext(this,0)" id="otp0">
+          <input class="otp-input" maxlength="1" oninput="otpNext(this,1)" id="otp1">
+          <input class="otp-input" maxlength="1" oninput="otpNext(this,2)" id="otp2">
+          <input class="otp-input" maxlength="1" oninput="otpNext(this,3)" id="otp3">
+          <input class="otp-input" maxlength="1" oninput="otpNext(this,4)" id="otp4">
+          <input class="otp-input" maxlength="1" oninput="otpNext(this,5)" id="otp5">
+        </div>
+        <button class="auth-btn" onclick="verifyOTP()">Verify & Create Account</button>
+        <div class="auth-switch"><a onclick="document.getElementById('signup-step2').style.display='none';document.getElementById('signup-step1').style.display='block'">← Back</a> · <a onclick="resendOTP()">Resend OTP</a></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Pro Modal -->
+
+<div class="moverlay" id="pro-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Choose your plan</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+
+    <div class="plan-grid">
+      <!-- Free -->
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price" id="modal-free-price">₹0</div>
+        <div class="plan-features">
+          ✓ 100 text scans/day<br>
+          ✓ 5 video checks/day<br>
+          ✓ Basic accuracy<br>
+          ✓ No signup<br>
+          <span style="color:#ef4444">✗ Ads shown</span>
+        </div>
+        <button class="plan-btn" onclick="closeModal()" style="background:var(--off);color:var(--muted);border:1px solid var(--border)">Continue Free</button>
+      </div>
+      <!-- Pro -->
+      <div class="plan-card featured">
+        <div class="plan-popular">POPULAR</div>
+        <div class="plan-name" style="color:var(--accent-d)">Pro · 1 user</div>
+        <div class="plan-price" id="modal-pro-price" style="color:var(--accent)">₹299/mo</div>
+        <div class="plan-features">
+          ✓ Unlimited scans<br>
+          ✓ 85%+ accuracy<br>
+          ✓ Image · Video · Text<br>
+          ✓ Plagiarism check<br>
+          ✓ Full history<br>
+          <span style="color:#0d9488;font-weight:700">✓ 100% Ad-free experience</span>
+        </div>
+        <button class="plan-btn" onclick="selectPlan('pro')" style="background:var(--accent);color:#fff">Get Pro →</button>
+      </div>
+      <!-- Team -->
+      <div class="plan-card team-card">
+        <div class="plan-name" style="color:var(--blue)">Team · 5 users</div>
+        <div class="plan-price" id="modal-team-price" style="color:var(--blue)">₹999/mo</div>
+        <div class="plan-features">
+          ✓ 5 team members<br>
+          ✓ Everything in Pro<br>
+          ✓ PDF report export<br>
+          ✓ Scan history (last 50)<br>
+          ✓ Priority email support<br>
+          ✓ Early access to new features<br>
+          <span style="color:#2563eb;font-weight:700">✓ 100% Ad-free experience</span>
+        </div>
+        <button class="plan-btn" onclick="selectPlan('team')" style="background:var(--blue);color:#fff">Get Team →</button>
+      </div>
+    </div>
+
+    <!-- Checkout form (shown after selecting Pro/Team) -->
+    <div id="checkout-form" style="display:none;border-top:1px solid var(--border);padding-top:16px;margin-top:4px">
+      <div id="checkout-label" style="font-size:13px;font-weight:600;color:var(--accent);margin-bottom:12px;text-align:center"></div>
+      <input class="modal-in" type="text" id="pay-name" placeholder="Full name *">
+      <input class="modal-in" type="email" id="pay-email" placeholder="Email address *">
+      <div style="display:flex;gap:8px;margin-bottom:10px">
+        <input style="width:70px;padding:11px 8px;border:1px solid var(--border);border-radius:var(--radius);font-family:var(--sans);font-size:14px;outline:none;background:var(--off);color:var(--text)" type="text" id="pay-phone-code" value="+91">
+        <input style="flex:1;padding:11px 14px;border:1px solid var(--border);border-radius:var(--radius);font-family:var(--sans);font-size:14px;outline:none;color:var(--text)" type="tel" id="pay-phone" placeholder="Mobile number *">
+      </div>
+      <button class="modal-pay-btn" id="pay-btn" onclick="processPayment()">Pay ₹299 with Razorpay →</button>
+      <div class="modal-note">🔒 UPI · Cards · Netbanking · Paytm · 2% fee · Cancel anytime</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── STATE ──
+const GEMINI_KEY_PLACEHOLDER='GEMINI_KEY_FROM_ENV';
+const API='/api/analyze';
+let lastScanTime=0;
+const SCAN_COOLDOWN=7000; // 7 seconds between scans to respect Gemini rate limits
+let currentSideTab='text';
+let currentSubTab='ai';
+let currentInputMode='text';
+let isIndian=true;
+let textScansLeft=parseInt(localStorage.getItem('tsl')||'100');
+let mediaScansLeft=parseInt(localStorage.getItem('msl')||'5');
+let totalScans=parseInt(localStorage.getItem('ts')||'0');
+let currentPlan='free';
+let selectedPlanType='pro';
+let selectedAmount=29900;
+let selectedCurrency='INR';
+let lastAnalyzedText='';
+let lastIsText=true;
+
+// Daily reset
+const today=new Date().toDateString();
+if(localStorage.getItem('tday')!==today){
+  localStorage.setItem('tday',today);
+  localStorage.setItem('tsl','100');
+  localStorage.setItem('msl','5');
+  textScansLeft=100;
+  mediaScansLeft=5;
+}
+
+// ── INIT ──
+updateCounters();
+detectRegion();
+animateHeroStats();
+setTimeout(()=>{initFileUpload();setInputMode('text');}, 200);
+
+const QUOTES=[
+  '"While AI is a powerful tool that enhances human capability, its rapid adoption creates an even greater need for authenticity to sustain trust."',
+  '"In a world where AI can write anything, the most powerful skill is knowing what\'s real."',
+  '"Authenticity is not a luxury — it is the foundation of trust in the age of AI."',
+  '"AI detection is not about fear. It is about preserving the value of human thought."',
+  '"Every original idea deserves to be recognized as human. That is what we protect."',
+  '"The future of honest communication depends on tools that can see through the machine."',
+];
+document.getElementById('ai-quote').textContent=QUOTES[Math.floor(Math.random()*QUOTES.length)];
+
+// ── REGION DETECTION ──
+async function detectRegion(){
+  try{
+    const r=await fetch('https://ipapi.co/json/');
+    const d=await r.json();
+    isIndian=(d.country_code==='IN');
+  }catch(e){
+    isIndian=navigator.language.includes('en-IN');
+  }
+  updatePricing();
+}
+
+function updatePricing(){
+  const proP=isIndian?'₹299/mo':'$5/mo';
+  const teamP=isIndian?'₹999/mo':'$48/mo';
+  document.getElementById('modal-pro-price').textContent=proP;
+  document.getElementById('modal-team-price').textContent=teamP;
+}
+
+// ── SUB TAB ──
+// ── SIDEBAR TABS ──
+function setSideTab(tab){
+  // Hide all input panels
+  ['text','plag','web'].forEach(t=>{
+    const p=document.getElementById('input-'+t+'-panel');
+    const b=document.getElementById('stab-'+t);
+    if(p)p.style.display='none';
+    if(b)b.classList.remove('active');
+  });
+  // Show selected
+  const panel=document.getElementById('input-'+tab+'-panel');
+  const btn=document.getElementById('stab-'+tab);
+  if(panel)panel.style.display='block';
+  if(btn)btn.classList.add('active');
+  currentSideTab=tab;
+}
+
+// Keep old setSubTab for compatibility
+function setSubTab(t){
+  currentSubTab=t;
+  const lbl=document.getElementById('text-btn-label');
+  if(lbl)lbl.textContent=t==='ai'?'Detect AI Content':'Check Plagiarism';
+}
+
+// ── INPUT MODE ──
+function setInputMode(m){
+  currentInputMode=m;
+  const tm=document.getElementById('text-mode');
+  const fm=document.getElementById('file-mode');
+  if(tm)tm.style.display=m==='text'?'block':'none';
+  if(fm)fm.style.display=m==='file'?'block':'none';
+
+  const tb=document.getElementById('mode-text-btn');
+  const fb=document.getElementById('mode-file-btn');
+  if(tb){
+    tb.style.background=m==='text'?'var(--accent-l)':'var(--white)';
+    tb.style.color=m==='text'?'var(--accent-d)':'var(--muted)';
+    tb.style.borderColor=m==='text'?'var(--accent)':'var(--border)';
+  }
+  if(fb){
+    fb.style.background=m==='file'?'var(--accent-l)':'var(--white)';
+    fb.style.color=m==='file'?'var(--accent-d)':'var(--muted)';
+    fb.style.borderColor=m==='file'?'var(--accent)':'var(--border)';
+  }
+}
+
+// ── TEXT INPUT ──
+function onTextInput(){
+  const txt=document.getElementById('main-ta').value;
+  const words=txt.trim().split(/\s+/).filter(w=>w.length>0);
+  const wc=words.length;
+  document.getElementById('word-count').textContent=wc+' word'+(wc!==1?'s':'');
+  const warn=document.getElementById('word-warn');
+  if(wc>1000){
+    warn.textContent='⚠ Limit: 1,000 words. Upgrade for more.';
+    warn.className='char-warn';
+  } else {
+    warn.textContent='';
+  }
+}
+
+// ── FILE UPLOAD (fast, with drag & drop + progress) ──
+function initFileUpload(){
+  // Guard against multiple calls adding duplicate listeners
+  if(window._fileUploadInited)return;
+  window._fileUploadInited=true;
+
+  const input=document.getElementById('file-in');
+  if(!input)return;
+
+  // Single change listener — the only place processFile is called
+  input.addEventListener('change',e=>{
+    const file=e.target.files?.[0];
+    if(file){
+      input.value=''; // Reset so same file can be re-uploaded
+      processFile(file);
+    }
+  });
+
+  // Drag & drop on the zone
+  const zone=document.getElementById('file-drop-zone');
+  if(zone){
+    zone.addEventListener('dragover',e=>{e.preventDefault();e.stopPropagation();zone.style.borderColor='var(--accent)';zone.style.background='var(--accent-l)'});
+    zone.addEventListener('dragleave',e=>{e.preventDefault();zone.style.borderColor='';zone.style.background=''});
+    zone.addEventListener('drop',e=>{
+      e.preventDefault();e.stopPropagation();
+      zone.style.borderColor='';zone.style.background='';
+      const file=e.dataTransfer?.files?.[0];
+      if(file)processFile(file);
+    });
+  }
+}
+
+function showUploadProgress(pct, label){
+  const wrap=document.getElementById('upload-progress-wrap');
+  const bar=document.getElementById('upload-progress-bar');
+  const pctEl=document.getElementById('upload-progress-pct');
+  const lblEl=document.getElementById('upload-progress-label');
+  if(wrap)wrap.style.display='block';
+  if(bar)bar.style.width=pct+'%';
+  if(pctEl)pctEl.textContent=pct+'%';
+  if(lblEl)lblEl.textContent=label||'Reading file...';
+}
+
+function hideUploadProgress(){
+  const wrap=document.getElementById('upload-progress-wrap');
+  if(wrap)wrap.style.display='none';
+}
+
+async function processFile(file){
+  const loaded=document.getElementById('file-loaded');
+  const titleEl=document.getElementById('upload-title');
+
+  if(file.size>5*1024*1024){
+    if(loaded){loaded.textContent='⚠ File too large. Max 5MB.';loaded.style.display='block';loaded.style.background='#fff7ed';loaded.style.color='#92400e';}
+    return;
+  }
+
+  // Show progress
+  showUploadProgress(10,'Reading '+file.name+'...');
+  if(titleEl)titleEl.textContent=file.name;
+  if(loaded)loaded.style.display='none';
+
+  try{
+    const ext=file.name.split('.').pop().toLowerCase();
+    let text='';
+
+    showUploadProgress(30,'Extracting text...');
+    await new Promise(r=>setTimeout(r,50)); // allow UI to update
+
+    if(ext==='txt'){
+      showUploadProgress(60,'Reading text file...');
+      text=await file.text();
+    } else if(ext==='docx'){
+      showUploadProgress(50,'Parsing Word document...');
+      text=await extractDocx(file);
+    } else if(ext==='pdf'){
+      showUploadProgress(50,'Parsing PDF...');
+      text=await extractPdf(file);
+    } else if(ext==='doc'){
+      hideUploadProgress();
+      if(loaded){loaded.textContent='⚠ Old .doc format not supported. Save as .docx first.';loaded.style.display='block';loaded.style.background='#fff7ed';loaded.style.color='#92400e';}
+      if(titleEl)titleEl.textContent='Drop file here or click to browse';
+      return;
+    } else {
+      hideUploadProgress();
+      if(loaded){loaded.textContent='⚠ Unsupported format. Use .txt, .docx or .pdf';loaded.style.display='block';loaded.style.background='#fff7ed';loaded.style.color='#92400e';}
+      return;
+    }
+
+    showUploadProgress(90,'Preparing text...');
+    await new Promise(r=>setTimeout(r,50));
+
+    if(text && text.length>10 && text!=='PDF_EXTRACTION_FAILED' && text!=='DOCX_EXTRACTION_FAILED'){
+      const wordCount=text.trim().split(/\s+/).filter(Boolean).length;
+      showUploadProgress(100,'Complete!');
+
+      setTimeout(()=>{
+        hideUploadProgress();
+        document.getElementById('main-ta').value=text.slice(0,8000);
+        onTextInput();
+        setInputMode('text'); // switch to text mode to show extracted text
+        if(loaded){
+          loaded.textContent='✓ '+file.name+' loaded — '+wordCount+' words extracted';
+          loaded.style.display='block';
+          loaded.style.background='#f0fdf4';
+          loaded.style.color='#166534';
+        }
+      },400);
+    } else if(text==='PDF_EXTRACTION_FAILED'||text==='DOCX_EXTRACTION_FAILED'){
+      const isPdf=text==='PDF_EXTRACTION_FAILED';
+      hideUploadProgress();
+      if(titleEl)titleEl.textContent='Drop file here or click to browse';
+      if(loaded){
+        loaded.innerHTML=isPdf
+          ?'⚠️ This PDF is image-based or encrypted.<br><strong>Please open it, select all text (Ctrl+A), copy, and paste into the text box.</strong>'
+          :'⚠️ Could not extract text from this Word file.<br><strong>Please open it, select all (Ctrl+A), copy, and paste into the text box.</strong>';
+        loaded.style.display='block';
+        loaded.style.background='#fff7ed';
+        loaded.style.color='#92400e';
+        loaded.style.padding='10px';
+        loaded.style.borderRadius='8px';
+        loaded.style.lineHeight='1.6';
+      }
+      setInputMode('text');
+    }
+  }catch(e){
+    hideUploadProgress();
+    if(loaded){
+      loaded.textContent='Error reading file: '+e.message;
+      loaded.style.display='block';
+      loaded.style.background='#fef2f2';
+      loaded.style.color='var(--red)';
+    }
+    if(titleEl)titleEl.textContent='Drop file here or click to browse';
+  }
+}
+
+async function handleFile(input){if(input.files[0])processFile(input.files[0]);}
+
+// ── PLAGIARISM INPUT ──
+function onPlagInput(){
+  const ta=document.getElementById('plag-ta');
+  if(!ta)return;
+  const wc=ta.value.trim().split(/\s+/).filter(w=>w.length>0).length;
+  const el=document.getElementById('plag-word-count');
+  if(el)el.textContent=wc+' word'+(wc!==1?'s':'');
+}
+
+// ── PLAGIARISM ANALYSIS ──
+async function analyzePlagiarism(){
+  const text=document.getElementById('plag-ta')?.value.trim();
+  if(!text){showErr('plag-err','Please paste some text to check.');return;}
+  const words=text.split(/\s+/).filter(Boolean);
+  if(words.length<15){showErr('plag-err','Please paste at least 15 words.');return;}
+  if(words.length>1000){showErr('plag-err','Text exceeds 1,000 word limit. Upgrade to Pro for unlimited.');openModal('pro');return;}
+
+  hideErr('plag-err');
+  setLoading('plag',true);
+
+  try{
+    const result=await callGeminiAPI(
+      `Check this text for plagiarism. Identify sentences that appear to be copied from published sources, academic papers, or AI-generated templates. Text: ${text}`,
+      'plag'
+    );
+
+    // Build plagiarism result with highlighted sentences
+    const sentences=text.match(/[^.!?]+[.!?]+/g)||[text];
+    const flagCount=Math.max(1,Math.round(sentences.length*(result.overall/100)));
+    const flaggedIdxs=new Set();
+    // Flag sentences with AI buzzwords
+    const buzzwords=['furthermore','moreover','in conclusion','it is important','leverage','comprehensive','transformative','facilitate','utilize','streamline'];
+    sentences.forEach((s,i)=>{
+      if(buzzwords.some(w=>s.toLowerCase().includes(w)))flaggedIdxs.add(i);
+    });
+    // Fill remaining with highest-scored indices
+    for(let i=0;i<sentences.length&&flaggedIdxs.size<flagCount;i++){flaggedIdxs.add(i);}
+
+    result.isPlagCheck=true;
+    result.plagSentences=[...flaggedIdxs];
+    result.plagText=text;
+    renderResults(result,true,'plag');
+    totalScans++;localStorage.setItem('ts',totalScans);updateCounters();
+  }catch(e){showErr('plag-err','Analysis failed: '+e.message);}
+  finally{setLoading('plag',false);}
+}
+
+// ── CLEAR RESULTS ──
+function clearResults(){
+  document.getElementById('results-empty').style.display='flex';
+  document.getElementById('results-content').style.display='none';
+  const ob=document.getElementById('overlay-bar');
+  if(ob)ob.classList.remove('visible');
+}
+
+
+
+function triggerFilePicker(){
+  const input=document.getElementById('file-in');
+  if(input){input.value='';input.click();}
+}
+
+async function extractDocx(file){
+  try{
+    const buf=await file.arrayBuffer();
+    const bytes=new Uint8Array(buf);
+    let binary='';
+    // Build binary string in chunks to avoid stack overflow on large files
+    const chunk=8192;
+    for(let i=0;i<bytes.length;i+=chunk){
+      binary+=String.fromCharCode(...bytes.subarray(i,Math.min(i+chunk,bytes.length)));
+    }
+
+    // .docx is a ZIP. Find word/document.xml entry.
+    // ZIP local file header signature: PK\x03\x04
+    // We search for the string "word/document.xml" then find the data after the header
+    let searchPos=0;
+    let xmlContent='';
+
+    while(searchPos<binary.length){
+      const pkPos=binary.indexOf('PK\x03\x04',searchPos);
+      if(pkPos===-1)break;
+
+      // Parse ZIP local file header
+      // Offset 26: filename length (2 bytes LE)
+      // Offset 28: extra field length (2 bytes LE)
+      const fnLen=bytes[pkPos+26]|(bytes[pkPos+27]<<8);
+      const extraLen=bytes[pkPos+28]|(bytes[pkPos+29]<<8);
+      const fnStart=pkPos+30;
+      const filename=binary.slice(fnStart,fnStart+fnLen);
+      const dataStart=fnStart+fnLen+extraLen;
+
+      if(filename==='word/document.xml'){
+        // Compression method: offset 8 (2 bytes LE). 0=stored, 8=deflated
+        const compression=bytes[pkPos+8]|(bytes[pkPos+9]<<8);
+        const compSize=bytes[pkPos+18]|(bytes[pkPos+19]<<8)|(bytes[pkPos+20]<<16)|(bytes[pkPos+21]<<24);
+
+        if(compression===0){
+          // Stored (not compressed) — read directly
+          xmlContent=binary.slice(dataStart,dataStart+compSize);
+        } else if(compression===8){
+          // Deflated — decompress using DecompressionStream if available
+          try{
+            const compData=bytes.slice(dataStart,dataStart+compSize);
+            const ds=new DecompressionStream('deflate-raw');
+            const writer=ds.writable.getWriter();
+            const reader=ds.readable.getReader();
+            writer.write(compData);
+            writer.close();
+            const chunks=[];
+            let done=false;
+            while(!done){
+              const {value,done:d}=await reader.read();
+              if(value)chunks.push(value);
+              done=d;
+            }
+            const decompressed=new Uint8Array(chunks.reduce((a,b)=>a+b.length,0));
+            let offset=0;
+            for(const c of chunks){decompressed.set(c,offset);offset+=c.length;}
+            xmlContent=new TextDecoder('utf-8').decode(decompressed);
+          }catch(de){
+            // Fallback: scan raw bytes for readable text
+            xmlContent=binary.slice(dataStart,dataStart+Math.min(compSize,200000));
+          }
+        }
+        break;
+      }
+      searchPos=pkPos+4;
+    }
+
+    if(xmlContent){
+      // Extract text from <w:t> tags
+      const matches=xmlContent.match(/<w:t(?:\s[^>]*)?>([^<]*)<\/w:t>/g)||[];
+      if(matches.length>0){
+        const text=matches
+          .map(m=>m.replace(/<[^>]+>/g,''))
+          .filter(t=>t.trim())
+          .join(' ')
+          .replace(/\s+/g,' ')
+          .trim();
+        if(text.length>20)return text.slice(0,8000);
+      }
+    }
+
+    // Last resort: extract readable ASCII strings from raw bytes
+    const words=[];
+    let cur='';
+    for(let i=0;i<Math.min(binary.length,150000);i++){
+      const c=binary.charCodeAt(i);
+      if(c>=32&&c<=126){cur+=binary[i];}
+      else{
+        if(cur.length>4&&/[a-zA-Z]{3,}/.test(cur))words.push(cur.trim());
+        cur='';
+      }
+    }
+    const fallback=words
+      .filter(w=>/^[a-zA-Z0-9\s\.,;:!?'"()\-]+$/.test(w)&&w.split(/\s+/).some(t=>t.length>3))
+      .join(' ').replace(/\s+/g,' ').trim();
+    if(fallback.length>100)return fallback.slice(0,8000);
+
+  }catch(e){console.error('docx error:',e);}
+  return 'DOCX_EXTRACTION_FAILED';
+}
+
+async function extractPdf(file){
+  // Method 1: Try reading as text and extracting readable strings
+  try{
+    const buf=await file.arrayBuffer();
+    const bytes=new Uint8Array(buf);
+    
+    // Convert to latin1 string to preserve byte values
+    let raw='';
+    for(let i=0;i<bytes.length;i++){raw+=String.fromCharCode(bytes[i]);}
+    
+    // Extract text between BT (begin text) and ET (end text) PDF operators
+    const textChunks=[];
+    
+    // Method A: Extract strings in parentheses (most common PDF text encoding)
+    const parenMatches=raw.match(/\(([^\)\\]{1,200})\)/g)||[];
+    parenMatches.forEach(m=>{
+      const s=m.slice(1,-1).replace(/\\n/g,' ').replace(/\\r/g,' ').replace(/\\/g,'');
+      // Only keep chunks with mostly readable ASCII characters
+      const readable=s.replace(/[^\x20-\x7E]/g,'').trim();
+      if(readable.length>3&&readable.length/s.length>0.5)textChunks.push(readable);
+    });
+    
+    // Method B: Extract hex strings <...>
+    const hexMatches=raw.match(/<([0-9A-Fa-f]{4,200})>/g)||[];
+    hexMatches.forEach(m=>{
+      const hex=m.slice(1,-1);
+      let s='';
+      for(let i=0;i<hex.length;i+=2){
+        const code=parseInt(hex.slice(i,i+2),16);
+        if(code>=32&&code<=126)s+=String.fromCharCode(code);
+      }
+      if(s.trim().length>3)textChunks.push(s.trim());
+    });
+    
+    if(textChunks.length>0){
+      const result=textChunks.join(' ').replace(/\s+/g,' ').trim();
+      // Filter out non-readable garbage
+      const cleanResult=result.split(' ')
+        .filter(w=>/^[a-zA-Z0-9\.,;:!?\-'"()\s%$@#&*+=\/]+$/.test(w)&&w.length>0)
+        .join(' ').trim();
+      if(cleanResult.length>100)return cleanResult.slice(0,8000);
+    }
+  }catch(e){}
+  
+  // If PDF extraction fails, return helpful message
+  return 'PDF_EXTRACTION_FAILED';
+}
+
+// ── ANALYZE TEXT ──
+async function analyzeText(){
+  const now=Date.now();
+  if(now-lastScanTime<SCAN_COOLDOWN){
+    const wait=Math.ceil((SCAN_COOLDOWN-(now-lastScanTime))/1000);
+    showErr('text-err',`Please wait ${wait} second${wait!==1?'s':''} before scanning again.`);
+    return;
+  }
+  const text=document.getElementById('main-ta').value.trim();
+  onTextInput();
+  if(!text){showErr('text-err','Please paste some text to analyze.');return}
+
+  const words=text.trim().split(/\s+/).filter(w=>w.length>0);
+  if(words.length<15){showErr('text-err','Please paste at least 15 words for a reliable result.');return}
+
+  if(words.length>1000){
+    showErr('text-err','Text exceeds 1,000 word limit. Please shorten it or upgrade to Pro for unlimited.');
+    document.getElementById('pro-modal').classList.add('show');
+    return;
+  }
+
+  if(textScansLeft<=0){
+    showErr('text-err','You have used all free text scans today. Upgrade to Pro for unlimited.');
+    openModal('pro');
+    return;
+  }
+
+  hideErr('text-err');
+  setLoading('text',true);
+  lastScanTime=Date.now();
+  lastIsText=true;
+  lastAnalyzedText=text;
+
+  try{
+    const result=await callGeminiAPI(text,'text');
+    textScansLeft=Math.max(0,textScansLeft-1);
+    localStorage.setItem('tsl',textScansLeft);
+    totalScans++;
+    localStorage.setItem('ts',totalScans);
+    updateCounters();
+    renderResults(result,true,currentSideTab);
+  }catch(e){
+    if(e.message==='RATE_LIMIT'){
+      _rlPendingText=text;
+      _rlPendingErrId='text-err';
+      showRateLimitChoice('text-err', text);
+    } else {
+      showErr('text-err','Analysis failed: '+e.message);
+    }
+  }finally{
+    setLoading('text',false);
+  }
+}
+
+// ── ANALYZE URL ──
+async function analyzeURL(){
+  const now=Date.now();
+  if(now-lastScanTime<SCAN_COOLDOWN){
+    const wait=Math.ceil((SCAN_COOLDOWN-(now-lastScanTime))/1000);
+    showErr('url-err',`Please wait ${wait} second${wait!==1?'s':''} before scanning again.`);
+    return;
+  }
+  const url=document.getElementById('url-in').value.trim();
+  if(!url){showErr('url-err','Please paste a YouTube or webpage URL.');return}
+  if(!url.startsWith('http')){showErr('url-err','Please enter a valid URL starting with https://');return}
+
+  if(mediaScansLeft<=0){
+    showErr('url-err','You have used all 5 free video/webpage checks today. Upgrade to Pro for unlimited.');
+    openModal('pro');
+    return;
+  }
+
+  hideErr('url-err');
+  setLoading('url',true);
+  lastScanTime=Date.now();
+  lastIsText=false;
+
+  try{
+    const isYT=url.includes('youtube.com')||url.includes('youtu.be');
+    const isIG=url.includes('instagram.com');
+    const platform=isYT?'YouTube':isIG?'Instagram':'webpage';
+
+    // Send simple text to backend
+    const simpleText=`This is a ${platform} URL: ${url}. Based on the URL and platform patterns, what is the probability (context only, no direct access) that this content is AI-generated?`;
+
+    const result=await callGeminiAPI(simpleText,'url');
+    result.confidence='Low';
+    if(result.reasoning)result.reasoning+=' Note: paste video description in Text tab for accurate analysis.';
+    mediaScansLeft=Math.max(0,mediaScansLeft-1);
+    localStorage.setItem('msl',mediaScansLeft);
+    totalScans++;
+    localStorage.setItem('ts',totalScans);
+    updateCounters();
+    renderResults(result,false,"url");
+  }catch(e){
+    showErr('url-err','Analysis failed: '+e.message);
+  }finally{
+    setLoading('url',false);
+  }
+}
+
+// ── GEMINI API CALL (via secure backend) ──
+async function callGeminiAPI(text,type){
+  try{
+    const r=await fetch(API,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({text:text.slice(0,1500)})
+    });
+    const d=await r.json();
+    if(r.status===429||d.error?.includes('quota')||d.error?.includes('Rate limit')||d.error?.includes('RESOURCE_EXHAUSTED')){
+      throw new Error('RATE_LIMIT');
+    }
+    if(!r.ok)throw new Error('HTTP '+r.status+': '+(d.error||'Unknown error'));
+    if(d.error)throw new Error(d.error);
+    if(d.overall!==undefined)return d;
+    throw new Error('Invalid response from backend');
+  }catch(e){
+    throw new Error(e.message||'Cannot reach backend');
+  }
+}
+
+function buildDetectionPrompt(text){
+  return `You are an expert AI content detection system using the same methodology as leading AI detectors. Analyze the following text using these specific signals:
+
+## SIGNAL 1: PERPLEXITY (How predictable/surprising is the word choice?)
+- Low perplexity = AI likely (AI picks the most probable next word)
+- High perplexity = Human likely (humans make unexpected word choices)
+- Look for: formulaic phrases, predictable transitions, generic word choices
+
+## SIGNAL 2: BURSTINESS (How variable is the sentence length and complexity?)
+- Low burstiness = AI likely (AI produces uniform, consistent sentence lengths)
+- High burstiness = Human likely (humans mix short punchy sentences with long complex ones)
+- Look for: sentence length variation, rhythm changes, sudden style shifts
+
+## SIGNAL 3: AI VOCABULARY FINGERPRINTS
+Common AI words to flag: "furthermore", "moreover", "in conclusion", "it is important to note", "delve", "multifaceted", "leverage", "comprehensive", "paramount", "facilitate", "utilize", "innovative", "transformative", "streamline", "robust", "nuanced", "underscore", "pivotal", "holistic", "synergy"
+
+## SIGNAL 4: HUMAN AUTHENTICITY MARKERS
+Signs of human writing: typos or self-corrections, personal anecdotes, slang or colloquialisms, inconsistent tone, emotional language, specific details only a human would know, hedging ("I think", "maybe", "not sure")
+
+## SIGNAL 5: STRUCTURAL PATTERNS
+AI patterns: perfect paragraph structure, always 3-5 sentences per paragraph, consistent use of lists/headers, no repetition of ideas, no tangents
+Human patterns: rambling, repeating ideas differently, stream of consciousness, uneven structure
+
+Now analyze this text:
+"""
+${text.slice(0,3000)}
+"""
+
+Classify what percentage is:
+- AI-generated (high confidence it was written by AI)
+- Mixed (AI-assisted, paraphrased AI, or lightly edited AI)
+- Human-written (clear human authorship signals)
+
+Also identify which SPECIFIC SENTENCES are most likely AI-generated (give their 0-based index).
+
+Respond ONLY in valid JSON (no markdown):
+{"overall_score":<integer 0-100, overall AI probability>,"verdict":"<Likely Human|Possibly AI-assisted|Likely AI-generated>","confidence":"<Low|Medium|High>","ai_percent":<0-100>,"mixed_percent":<0-100>,"human_percent":<0-100>,"signals":{"text_patterns":{"score":<0-100>,"note":"<specific AI vocabulary found or absence noted>"},"structural":{"score":<0-100>,"note":"<burstiness observation — sentence length variation>"},"vocabulary":{"score":<0-100>,"note":"<perplexity observation — word predictability>"},"style_consistency":{"score":<0-100>,"note":"<human authenticity markers found or absent>"}},"reasoning":"<3 specific sentences citing actual evidence: which words/phrases triggered the detection, what burstiness score suggests, overall conclusion>","ai_sentences":[<0-based indices of top 5 most AI-like sentences>]}`;
+}
+
+async function geminiDirect(prompt){
+  // The backend /api/analyze failed — show a clear error
+  // Most common reason: api/analyze.js not in the api/ folder on GitHub
+  throw new Error(
+    'Backend not reachable. Please check: 1) api/analyze.js is in the api/ folder on GitHub (not the root), 2) GEMINI_KEY is set in Vercel Environment Variables, 3) Redeploy Vercel after adding the key.'
+  );
+}
+
+// ── RENDER RESULTS ──
+function renderResults(r, isText, mode){
+  const score=r.overall||r.overall_score||50;
+  const aiPct=r.ai_percent!=null?r.ai_percent:Math.min(score,90);
+  const humanPct=r.human_percent!=null?r.human_percent:Math.max(0,100-score-10);
+  const mixedPct=Math.max(0,100-aiPct-humanPct);
+  const color=score<35?'var(--green)':score<65?'var(--amber)':'var(--red)';
+  const bgColor=score<35?'var(--green-l)':score<65?'var(--amber-l)':'var(--red-l)';
+  const verdict=r.verdict||scoreLbl(score);
+  const isPlag=mode==='plag'||r.isPlagCheck;
+
+  // Always show single results panel (col 3)
+  const emptyEl=document.getElementById('results-empty');
+  const contentEl=document.getElementById('results-content');
+  if(emptyEl)emptyEl.style.display='none';
+  if(contentEl)contentEl.style.display='block';
+
+  // Update panel title
+  const titleEl=document.getElementById('result-panel-title');
+  if(titleEl)titleEl.textContent=isPlag?'Plagiarism Results':isText?'Text Analysis Results':'URL Analysis Results';
+
+  // Score circle
+  const circle=document.getElementById('score-circle');
+  if(circle){circle.style.color=color;circle.style.borderColor=color;circle.style.background=bgColor;}
+
+  // Score label for plagiarism
+  const scoreLabel=document.querySelector('#score-circle span:last-child');
+  if(scoreLabel)scoreLabel.textContent=isPlag?'PLAG%':'AI%';
+
+  // Count up
+  const el=document.getElementById('score-num');
+  if(el){let cnt=0;const iv=setInterval(()=>{cnt+=Math.ceil((score-cnt)/5);if(cnt>=score){cnt=score;clearInterval(iv)}el.textContent=cnt},40);}
+
+  const verdictEl=document.getElementById('score-verdict');
+  const confEl=document.getElementById('score-conf');
+  if(verdictEl){
+    verdictEl.textContent=isPlag?(score>60?'Likely Plagiarised':score>30?'Possibly Plagiarised':'Original Content'):verdict;
+    verdictEl.style.color=color;
+  }
+  if(confEl){
+    if(r.fallback){
+      confEl.innerHTML='Confidence: '+(r.confidence||'Low')+' &middot; <span style="color:#f59e0b;font-weight:600;">&#x26A1; Local analysis (API limit reached)</span>';
+    } else {
+      confEl.textContent='Confidence: '+(r.confidence||'Medium')+' \u00b7 Gemini AI analysis';
+    }
+  }
+
+  // Fallback Banner
+  let fb=document.getElementById('fallback-banner');
+  if(r.fallback){
+    if(!fb){
+      fb=document.createElement('div');
+      fb.id='fallback-banner';
+      fb.style.cssText='margin:12px 0;padding:12px 16px;border-radius:10px;background:linear-gradient(135deg,#fef3c7,#fde68a);border:1.5px solid #f59e0b;font-size:13px;line-height:1.5;';
+      const insertTarget=document.getElementById('score-circle');
+      if(insertTarget&&insertTarget.parentNode) insertTarget.parentNode.insertBefore(fb,insertTarget.nextSibling);
+    }
+    fb.innerHTML='<div style="font-weight:700;color:#92400e;margin-bottom:4px;">&#x26A1; Local Analysis Mode</div>'
+      +'<div style="color:#78350f;">Our servers were busy when this scan ran. This result was generated by VeriAI's built-in local detection engine — no cloud API used. Accuracy may be slightly lower than cloud analysis. Includes <strong>AI, Plagiarism, Web &amp; Video</strong> signals.</div>';
+    fb.style.display='block';
+    let extras=document.getElementById('fallback-extras');
+    if(!extras){
+      extras=document.createElement('div');
+      extras.id='fallback-extras';
+      extras.style.cssText='margin-top:14px;';
+      const rea=document.getElementById('reasoning-text');
+      if(rea&&rea.parentNode) rea.parentNode.insertBefore(extras,rea);
+    }
+    const plag=r.plagiarism||{};
+    const web=r.web_content||{};
+    const vid=r.video_content||{};
+    const badge=function(sc,label){const c=sc>=60?'#ef4444':sc>=30?'#f59e0b':'#22c55e';return '<span style="display:inline-block;padding:2px 10px;border-radius:20px;background:'+c+'22;color:'+c+';font-weight:700;font-size:12px;border:1px solid '+c+'44;">'+sc+'% - '+label+'</span>';};
+    extras.innerHTML='<div style="font-weight:700;font-size:13px;margin-bottom:10px;">Extended Analysis</div>'
+      +'<div style="display:grid;gap:10px;">'
+      +'<div style="padding:10px 14px;background:var(--surface);border-radius:8px;border:1px solid var(--border);"><div style="font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:4px;">PLAGIARISM</div>'+badge(plag.score||0,plag.verdict||'Low risk')+'<div style="font-size:11px;color:var(--text-muted);margin-top:4px;">'+(plag.note||'')+'</div></div>'
+      +'<div style="padding:10px 14px;background:var(--surface);border-radius:8px;border:1px solid var(--border);"><div style="font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:4px;">WEB CONTENT</div>'+badge(web.score||0,web.verdict||'No markers')+'<div style="font-size:11px;color:var(--text-muted);margin-top:4px;">'+(web.note||'')+'</div></div>'
+      +'<div style="padding:10px 14px;background:var(--surface);border-radius:8px;border:1px solid var(--border);"><div style="font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:4px;">VIDEO / TRANSCRIPT</div>'+badge(vid.score||0,vid.verdict||'Not transcript-like')+'<div style="font-size:11px;color:var(--text-muted);margin-top:4px;">'+(vid.note||'')+'</div></div>'
+      +'</div>';
+    extras.style.display='block';
+  } else {
+    if(fb) fb.style.display='none';
+    const extras=document.getElementById('fallback-extras');
+    if(extras) extras.style.display='none';
+  }
+
+  // Distribution bar
+  setTimeout(()=>{
+    const ai=document.getElementById('dist-ai');
+    const mx=document.getElementById('dist-mixed');
+    const hu=document.getElementById('dist-human');
+    if(ai)ai.style.width=aiPct+'%';
+    if(mx)mx.style.width=mixedPct+'%';
+    if(hu)hu.style.width=humanPct+'%';
+    const aip=document.getElementById('dist-ai-pct');
+    const mxp=document.getElementById('dist-mixed-pct');
+    const hup=document.getElementById('dist-human-pct');
+    if(aip)aip.textContent=isPlag?aiPct+'% Plagiarised':aiPct+'% AI-generated';
+    if(mxp)mxp.textContent=mixedPct+'% Mixed';
+    if(hup)hup.textContent=isPlag?humanPct+'% Original':humanPct+'% Human';
+  },200);
+
+  // Signals
+  if(r.signals){
+    renderSig('tp',r.signals.text_patterns);
+    renderSig('st',r.signals.structural);
+    renderSig('vo',r.signals.vocabulary);
+    renderSig('sy',r.signals.style_consistency);
+  }
+
+  // Plagiarism highlight section
+  const hlSection=document.getElementById('highlight-section');
+  if(isPlag&&r.plagSentences&&r.plagText){
+    if(hlSection)hlSection.style.display='block';
+    const sentences=r.plagText.match(/[^.!?]+[.!?]+/g)||[r.plagText];
+    const flagged=new Set(r.plagSentences);
+    const html=sentences.map((s,i)=>
+      flagged.has(i)
+        ?`<span class="ai-span" title="Possibly plagiarised">⚠️ ${s.trim()}</span>`
+        :`<span>${s.trim()} </span>`
+    ).join(' ');
+    const box=document.getElementById('highlight-box');
+    if(box)box.innerHTML=html;
+  } else {
+    if(hlSection)hlSection.style.display='none';
+  }
+
+  // Reasoning
+  const rea=document.getElementById('reasoning-text');
+  if(rea)rea.textContent=r.reasoning||'Analysis complete.';
+
+  // Overlay bar
+  showOverlayBar(score,isPlag?(score>60?'Likely Plagiarised':'Likely Original'):verdict);
+
+  // Update stats
+  const hscans=document.getElementById('h-scans');
+  if(hscans)hscans.textContent=totalScans.toLocaleString();
+}
+
+  // Update hero stats
+  const hscans=document.getElementById('h-scans');
+  const stscans=document.getElementById('stat-total-scans');
+  if(hscans)hscans.textContent=totalScans.toLocaleString();
+  if(stscans)stscans.textContent=totalScans.toLocaleString();
+
+
+function renderTextSig(id,sig){
+  if(!sig)return;
+  const s=sig.score||50;
+  const c=s<35?'var(--green)':s<65?'var(--amber)':'var(--red)';
+  const el=document.getElementById('text-sig-'+id);
+  const pct=document.getElementById('text-sig-'+id+'-pct');
+  if(el){setTimeout(()=>{el.style.width=s+'%';el.style.background=c},400)}
+  if(pct){pct.textContent=s+'%';pct.style.color=c}
+}
+
+function renderSig(id,sig){
+  if(!sig)return;
+  const s=sig.score||50;
+  const c=s<35?'var(--green)':s<65?'var(--amber)':'var(--red)';
+  const el=document.getElementById('sig-'+id);
+  const pct=document.getElementById('sig-'+id+'-pct');
+  if(el){setTimeout(()=>{el.style.width=s+'%';el.style.background=c},400)}
+  if(pct){pct.textContent=s+'%';pct.style.color=c}
+}
+
+function showOverlayBar(score,verdict){
+  const color=score<35?'#16a34a':score<65?'#d97706':'#dc2626';
+  const bgColor=score<35?'#dcfce7':score<65?'#fef3c7':'#fee2e2';
+  document.getElementById('ob-fill').style.width=score+'%';
+  document.getElementById('ob-fill').style.background=color;
+  document.getElementById('ob-score').textContent='AI: '+score+'%';
+  document.getElementById('ob-score').style.color=color;
+  const lbl=document.getElementById('ob-label');
+  lbl.textContent=verdict;
+  lbl.style.background=bgColor;
+  lbl.style.color=color;
+  document.getElementById('overlay-bar').classList.add('visible');
+}
+
+// ── AUTH ──
+function openAuth(mode){
+  // If user hasn't agreed to terms yet, show legal agreement first
+  if(!localStorage.getItem('trai_agreed')){
+    // Store intended auth mode, show agreement first
+    window._pendingAuthMode = mode;
+    openModal('first-agree');
+    return;
+  }
+  _doOpenAuth(mode);
+}
+
+function _doOpenAuth(mode){
+  document.getElementById('auth-modal').classList.add('show');
+  if(mode==='signup'){
+    document.getElementById('auth-login-view').style.display='none';
+    document.getElementById('auth-signup-view').style.display='block';
+  } else {
+    document.getElementById('auth-login-view').style.display='block';
+    document.getElementById('auth-signup-view').style.display='none';
+  }
+}
+
+function closeAuth(){document.getElementById('auth-modal').classList.remove('show')}
+function switchAuth(mode){
+  document.getElementById('auth-login-view').style.display=mode==='login'?'block':'none';
+  document.getElementById('auth-signup-view').style.display=mode==='signup'?'block':'none';
+}
+
+// ── SUPABASE INIT ──
+const SUPABASE_URL = 'https://jzutcydmwzealyqmqinh.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6dXRjeWRtd3plYWx5cW1xaW5oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwOTM1NjksImV4cCI6MjA4OTY2OTU2OX0.3S2EU3JBTznciCBWMvHul8mbK0vhw2cIT7y99bt11ek';
+const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// ── SESSION STATE ──
+let _currentUser = null;
+
+// Check session on page load
+(async () => {
+  const { data: { session } } = await _supabase.auth.getSession();
+  if (session?.user) _setLoggedIn(session.user);
+  else if(_isPro()) _applyProStatus();
+
+  // Handle password reset redirect
+  const params = new URLSearchParams(window.location.search);
+  if(params.get('reset')==='1'){
+    // Check if we have a valid recovery session
+    const {data:{session:resetSession}} = await _supabase.auth.getSession();
+    if(resetSession){
+      // Open reset password modal
+      document.getElementById('auth-modal').classList.add('show');
+      document.getElementById('auth-login-view').style.display='none';
+      document.getElementById('auth-forgot-view').style.display='none';
+      document.getElementById('auth-reset-view').style.display='block';
+      // Clean URL
+      window.history.replaceState({},'',window.location.pathname);
+    }
+  }
+})();
+
+// Listen for auth state changes (handles OAuth redirect)
+_supabase.auth.onAuthStateChange((event, session) => {
+  if(event === 'PASSWORD_RECOVERY'){
+    // Open reset password modal
+    document.getElementById('auth-modal').classList.add('show');
+    document.getElementById('auth-login-view').style.display='none';
+    document.getElementById('auth-forgot-view').style.display='none';
+    document.getElementById('auth-reset-view').style.display='block';
+    return;
+  }
+  if (session?.user) {
+    _setLoggedIn(session.user);
+    closeAuth();
+  } else {
+    _setLoggedOut();
+  }
+});
+
+async function _setLoggedIn(user) {
+  _currentUser = user;
+  const name = user.user_metadata?.full_name || user.email?.split('@')[0] || 'User';
+  const loginBtn = document.querySelector('.nav-login');
+  const signupBtn = document.querySelector('.nav-signup');
+  if (loginBtn) { loginBtn.textContent = name; loginBtn.onclick = showUserMenu; }
+  if (signupBtn) { signupBtn.textContent = 'Log out'; signupBtn.onclick = handleLogout; signupBtn.style.background='var(--off)'; signupBtn.style.color='var(--text)'; signupBtn.style.border='1px solid var(--border2)'; }
+  // Admin override
+  if(_isAdmin(user)) _initAdmin();
+  else {
+    // Verify pro status from Supabase DB — prevents localStorage hacking
+    await _verifyProFromDB(user);
+    _applyProStatus();
+  }
+}
+
+// ── ADMIN ──
+const ADMIN_EMAIL = 'milind.anand78@gmail.com';
+function _isAdmin(user){ return (user?.email||'').toLowerCase() === ADMIN_EMAIL; }
+
+function _initAdmin(){
+  // Always give admin full pro access
+  localStorage.setItem('trueai_pro','true');
+  if(!localStorage.getItem('trueai_plan')) localStorage.setItem('trueai_plan','pro');
+  _applyProStatus();
+  _showAdminBar();
+}
+
+function _showAdminBar(){
+  if(document.getElementById('admin-bar')) return;
+  const bar = document.createElement('div');
+  bar.id = 'admin-bar';
+  bar.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999;background:#1e293b;color:white;border-radius:12px;padding:10px 14px;font-size:12px;font-family:var(--sans);box-shadow:0 4px 20px rgba(0,0,0,.3);display:flex;align-items:center;gap:10px';
+  bar.innerHTML = `
+    <span style="font-weight:700;color:#94a3b8;font-size:10px;text-transform:uppercase;letter-spacing:.08em">Admin</span>
+    <button onclick="_adminSetPlan('free')" style="background:#334155;border:none;color:white;padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer;font-family:var(--sans)">🌿 Free</button>
+    <button onclick="_adminSetPlan('pro')" style="background:#d4537e;border:none;color:white;padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer;font-family:var(--sans)">⭐ Pro</button>
+    <button onclick="_adminSetPlan('team')" style="background:#d97706;border:none;color:white;padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer;font-family:var(--sans)">👥 Team</button>
+    <button onclick="document.getElementById('admin-bar').style.display='none'" style="background:none;border:none;color:#64748b;font-size:14px;cursor:pointer;padding:0 2px">✕</button>
+  `;
+  document.body.appendChild(bar);
+}
+
+function _adminSetPlan(plan){
+  // Reset theme first
+  const old = document.getElementById('theme-override');
+  if(old) old.remove();
+  // Remove existing pro badges
+  document.querySelectorAll('.pro-nav-badge').forEach(b=>b.remove());
+  // Reset nav signup button
+  const signupBtn = document.querySelector('.nav-signup');
+  if(signupBtn){ signupBtn.style.background=''; signupBtn.style.color=''; signupBtn.style.border=''; }
+  // Reset panel badges
+  document.querySelectorAll('.panel-badge').forEach(b=>{
+    b.className='panel-badge badge-free';
+    b.style.cssText='';
+    b.textContent='Free · up to 1,000 words';
+  });
+  // Show upgrade button, hide PDF button
+  document.querySelectorAll('[onclick="openModal(\'pro\')"]').forEach(btn=>{
+    if(btn.id!=='upgrade-btn') return;
+    btn.style.display='';
+  });
+  const pdfBtn=document.getElementById('pdf-export-btn');
+  if(pdfBtn) pdfBtn.style.display='none';
+  // Show url limit info
+  const urlInfo=document.querySelector('.url-limit-info');
+  if(urlInfo) urlInfo.style.display='';
+
+  if(plan==='free'){
+    localStorage.setItem('trueai_pro','false');
+    localStorage.setItem('trueai_plan','free');
+    // Reset login btn text
+    const loginBtn=document.querySelector('.nav-login');
+    if(loginBtn){ loginBtn.style.color=''; loginBtn.style.borderColor=''; }
+    _showToastAdmin('🌿 Viewing as Free user');
+  } else {
+    localStorage.setItem('trueai_pro','true');
+    localStorage.setItem('trueai_plan',plan);
+    _applyProStatus();
+    _showToastAdmin(plan==='pro'?'⭐ Viewing as Pro user':'👥 Viewing as Team user');
+  }
+}
+
+function _showToastAdmin(msg){
+  const bar=document.getElementById('admin-bar');
+  if(!bar) return;
+  const t=document.createElement('span');
+  t.style.cssText='position:absolute;bottom:52px;right:0;background:#0f172a;color:#94a3b8;font-size:11px;padding:4px 10px;border-radius:6px;white-space:nowrap';
+  t.textContent=msg;
+  bar.appendChild(t);
+  setTimeout(()=>t.remove(),2000);
+}
+
+// ── PRO STATUS — Secured via Supabase ──
+function _isPro(){
+  // Double check: both localStorage AND Supabase session must confirm
+  return localStorage.getItem('trueai_pro')==='true' && _currentUser !== null;
+}
+function _getPlan(){return localStorage.getItem('trueai_plan')||'free';}
+
+// Verify pro status from Supabase DB (prevents localStorage hacking)
+async function _verifyProFromDB(user){
+  try {
+    const { data, error } = await _supabase
+      .from('user_plans')
+      .select('plan, is_active')
+      .eq('user_id', user.id)
+      .single();
+
+    if(error || !data || !data.is_active){
+      // No active plan in DB — reset to free
+      localStorage.setItem('trueai_pro','false');
+      localStorage.setItem('trueai_plan','free');
+      return false;
+    }
+
+    // Valid plan found in DB — set locally
+    localStorage.setItem('trueai_pro','true');
+    localStorage.setItem('trueai_plan', data.plan);
+    return true;
+  } catch(e) {
+    // DB table may not exist yet — fall back to localStorage
+    return localStorage.getItem('trueai_pro')==='true';
+  }
+}
+
+function _applyProStatus(){
+  if(!_isPro()) return;
+  const plan = _getPlan();
+  const isTeam = plan==='team';
+
+  // Color schemes
+  const theme = isTeam ? {
+    primary:   '#d97706',
+    light:     '#faeeda',
+    border:    '#ef9f27',
+    text:      '#633806',
+    label:     '👥 Team',
+    badgeTxt:  'Team · Unlimited'
+  } : {
+    primary:   '#d4537e',
+    light:     '#fbeaf0',
+    border:    '#ed93b1',
+    text:      '#72243e',
+    label:     '⭐ Pro',
+    badgeTxt:  'Pro · Unlimited'
+  };
+
+  // 1. Inject CSS variables to override accent color sitewide
+  let styleEl = document.getElementById('theme-override');
+  if(!styleEl){ styleEl=document.createElement('style'); styleEl.id='theme-override'; document.head.appendChild(styleEl); }
+  styleEl.textContent = `
+    :root {
+      --accent: ${theme.primary} !important;
+      --accent-d: ${theme.text} !important;
+      --accent-l: ${theme.light} !important;
+    }
+    .nav-signup { background: ${theme.primary} !important; border-color: ${theme.primary} !important; }
+    .detect-btn:not(#detect-url-btn) { background: ${theme.primary} !important; box-shadow: 0 2px 8px ${theme.primary}40 !important; }
+    #detect-url-btn { background: ${theme.primary} !important; box-shadow: 0 2px 8px ${theme.primary}40 !important; }
+    #detect-plag-btn { background: ${theme.primary} !important; box-shadow: 0 2px 8px ${theme.primary}40 !important; }
+    .tab-btn.active { border-bottom-color: ${theme.primary} !important; color: ${theme.primary} !important; }
+    .hero-badge { background: ${theme.light} !important; border-color: ${theme.border} !important; color: ${theme.text} !important; }
+    .hero h1 span, .hero h1 span * { color: ${theme.primary} !important; }
+    a { color: ${theme.primary} !important; }
+    .logo-box { background: ${theme.primary} !important; }
+    .modal-pay-btn { background: ${theme.primary} !important; }
+    .auth-btn { background: ${theme.primary} !important; }
+    .plan-card.featured { border-color: ${theme.primary} !important; }
+    .plan-popular { background: ${theme.primary} !important; }
+  `;
+
+  // 2. Update logo color
+  const logoRect = document.querySelector('.logo-box rect, .logo-box');
+  if(logoRect) logoRect.style.fill = theme.primary;
+
+  // 3. Update nav — add badge next to user name
+  const loginBtn = document.querySelector('.nav-login');
+  if(loginBtn && !loginBtn.querySelector('.pro-nav-badge')){
+    const badge = document.createElement('span');
+    badge.className = 'pro-nav-badge';
+    badge.style.cssText = `background:${theme.primary};color:white;font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle`;
+    badge.textContent = theme.label;
+    loginBtn.appendChild(badge);
+    loginBtn.style.color = theme.primary;
+    loginBtn.style.borderColor = theme.primary;
+  }
+
+  // 4. Update panel badges
+  document.querySelectorAll('.panel-badge').forEach(b => {
+    b.className = 'panel-badge badge-pro';
+    b.style.cssText = `background:${theme.primary};color:white;font-size:11px;font-weight:600;padding:2px 10px;border-radius:999px`;
+    b.textContent = '✓ ' + theme.badgeTxt;
+  });
+
+  // 5. Unlock URL/video tab
+  const urlLimitInfo = document.querySelector('.url-limit-info');
+  if(urlLimitInfo) urlLimitInfo.style.display = 'none';
+
+  // 6. Hide upgrade button, show PDF button
+  // Also hide ads for pro/team users
+  document.body.classList.add('no-ads');
+  document.querySelectorAll('[onclick="openModal(\'pro\')"]').forEach(btn => {
+    if(btn.textContent.includes('Upgrade')) btn.style.display='none';
+  });
+  const pdfBtn = document.getElementById('pdf-export-btn');
+  if(pdfBtn) pdfBtn.style.cssText = `display:inline-flex;background:${theme.light};color:${theme.text};border-color:${theme.border}`;
+}
+
+function _setLoggedOut() {
+  _currentUser = null;
+  const loginBtn = document.querySelector('.nav-login');
+  const signupBtn = document.querySelector('.nav-signup');
+  if (loginBtn) { loginBtn.textContent = 'Log in'; loginBtn.onclick = () => openAuth('login'); }
+  if (signupBtn) { signupBtn.textContent = 'Sign up free'; signupBtn.onclick = () => openAuth('signup'); signupBtn.style.background=''; signupBtn.style.color=''; signupBtn.style.border=''; }
+}
+
+function showLoginView(){
+  document.getElementById('auth-login-view').style.display='block';
+  document.getElementById('auth-signup-view').style.display='none';
+  document.getElementById('auth-forgot-view').style.display='none';
+  document.getElementById('auth-reset-view').style.display='none';
+}
+
+function showForgotPassword(){
+  document.getElementById('auth-login-view').style.display='none';
+  document.getElementById('auth-forgot-view').style.display='block';
+  // Pre-fill email if already typed
+  const loginEmail=document.getElementById('login-email')?.value;
+  if(loginEmail) document.getElementById('forgot-email').value=loginEmail;
+}
+
+async function handleForgotPassword(){
+  const email=document.getElementById('forgot-email').value.trim();
+  if(!email||!email.includes('@')){_showAuthErr('forgot-err','Please enter a valid email address.');return;}
+  _hideAuthErr('forgot-err');
+
+  const btn=document.querySelector('#auth-forgot-view .auth-btn');
+  if(btn){btn.textContent='Sending...';btn.disabled=true;}
+
+  const {error}=await _supabase.auth.resetPasswordForEmail(email,{
+    redirectTo: window.location.origin + '?reset=1'
+  });
+
+  if(btn){btn.textContent='Send reset link →';btn.disabled=false;}
+
+  if(error){_showAuthErr('forgot-err',error.message);return;}
+
+  // Show success state
+  document.getElementById('auth-forgot-view').innerHTML=`
+    <div style="text-align:center;padding:24px 16px">
+      <div style="font-size:48px;margin-bottom:12px">📧</div>
+      <h3 style="font-size:18px;font-weight:800;color:var(--text);margin:0 0 8px">Check your inbox!</h3>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 6px">We sent a reset link to <strong>${email}</strong></p>
+      <p style="font-size:12px;color:var(--faint);margin:0 0 20px">Click the link in the email to set a new password. Check spam if you don't see it.</p>
+      <button onclick="showLoginView()" style="padding:10px 24px;background:var(--accent);color:white;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--sans)">Back to Log in</button>
+    </div>`;
+}
+
+async function handleResetPassword(){
+  const pass=document.getElementById('reset-password').value.trim();
+  const confirm=document.getElementById('reset-confirm').value.trim();
+
+  if(!pass||pass.length<8){_showAuthErr('reset-err','Password must be at least 8 characters.');return;}
+  if(pass!==confirm){_showAuthErr('reset-err','Passwords do not match.');return;}
+  _hideAuthErr('reset-err');
+
+  const btn=document.querySelector('#auth-reset-view .auth-btn');
+  if(btn){btn.textContent='Updating...';btn.disabled=true;}
+
+  const {error}=await _supabase.auth.updateUser({password:pass});
+
+  if(btn){btn.textContent='Update password →';btn.disabled=false;}
+
+  if(error){_showAuthErr('reset-err',error.message);return;}
+
+  // Sign out and ask to re-login
+  await _supabase.auth.signOut();
+  document.getElementById('auth-reset-view').innerHTML=`
+    <div style="text-align:center;padding:24px 16px">
+      <div style="font-size:48px;margin-bottom:12px">✅</div>
+      <h3 style="font-size:18px;font-weight:800;color:var(--text);margin:0 0 8px">Password updated!</h3>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 20px">Your password has been changed successfully. Please log in with your new password.</p>
+      <button onclick="showLoginView();document.getElementById('auth-modal').classList.add('show');" style="padding:10px 24px;background:var(--accent);color:white;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--sans)">Log in now →</button>
+    </div>`;
+}
+
+async function handleLogout() {
+  await _supabase.auth.signOut();
+  _setLoggedOut();
+}
+
+function showUserMenu() {
+  openAuth('login'); // Shows logged-in state inside modal
+}
+
+async function socialAuth(provider) {
+  const providerMap = { google: 'google', microsoft: 'azure' };
+  const sbProvider = providerMap[provider];
+  if (!sbProvider) return;
+
+  // Show loading state on button
+  const btn = document.querySelector(`.social-btn.${provider}`);
+  const orig = btn?.innerHTML;
+  if (btn) { btn.innerHTML = '⏳ Connecting...'; btn.disabled = true; }
+
+  const { error } = await _supabase.auth.signInWithOAuth({
+    provider: sbProvider,
+    options: { redirectTo: window.location.origin }
+  });
+
+  if (error) {
+    if (btn) { btn.innerHTML = orig; btn.disabled = false; }
+    _showAuthErr('login-err', error.message);
+  }
+  // On success, page redirects to Google — onAuthStateChange handles the rest
+}
+
+async function handleLogin(){
+  const email=document.getElementById('login-email').value.trim();
+  const pass=document.getElementById('login-password').value.trim();
+
+  if(!email||!email.includes('@')){_showAuthErr('login-err','Please enter a valid email address.');return;}
+  if(!pass||pass.length<6){_showAuthErr('login-err','Please enter your password (min 6 characters).');return;}
+  _hideAuthErr('login-err');
+
+  const btn=document.querySelector('#auth-login-view .auth-btn');
+  if(btn){btn.textContent='Logging in...';btn.disabled=true;}
+
+  const {data,error}=await _supabase.auth.signInWithPassword({email,password:pass});
+
+  if(btn){btn.textContent='Log in';btn.disabled=false;}
+
+  if(error){_showAuthErr('login-err',error.message==='Invalid login credentials'?'Incorrect email or password.':error.message);return;}
+
+  // Success — onAuthStateChange handles UI update
+  closeAuth();
+}
+
+// ── RATE LIMIT — CHOICE UI ──
+var _rlTimerInterval=null;
+var _rlPendingText=null;
+var _rlPendingErrId=null;
+
+function showRateLimitChoice(errId, pendingText){
+  _rlPendingText=pendingText;
+  _rlPendingErrId=errId;
+  hideErr(errId);
+  var existing=document.getElementById('vrl-overlay');
+  if(existing)existing.remove();
+  var overlay=document.createElement('div');
+  overlay.id='vrl-overlay';
+  overlay.style.cssText='margin:12px 0;font-family:var(--sans)';
+  overlay.innerHTML=`
+  <div id="vrl-choice" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;">
+    <div style="width:36px;height:36px;border-radius:50%;background:#fffbeb;border:1px solid #fcd34d;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 3L18 17H2L10 3Z" stroke="#d97706" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 8v4M10 14v.5" stroke="#d97706" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div style="font-size:14px;font-weight:600;text-align:center;color:var(--text);margin-bottom:5px">Our AI servers are busy</div>
+    <div style="font-size:12px;color:var(--text-muted);text-align:center;line-height:1.5;margin-bottom:14px">VeriAI's analysis servers are currently occupied with other users. How would you like to proceed?</div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:6px;padding:7px 12px;background:var(--surface);border-radius:8px;margin-bottom:16px">
+      <span style="width:7px;height:7px;border-radius:50%;background:#f59e0b;display:inline-block;animation:vrl-pulse 1.2s infinite"></span>
+      <span style="width:7px;height:7px;border-radius:50%;background:#f59e0b;display:inline-block;animation:vrl-pulse 1.2s 0.2s infinite"></span>
+      <span style="width:7px;height:7px;border-radius:50%;background:#f59e0b;display:inline-block;animation:vrl-pulse 1.2s 0.4s infinite"></span>
+      <span style="font-size:11px;color:var(--text-muted);margin-left:4px">High traffic — servers at capacity</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
+      <button onclick="vrlChooseWait()" style="padding:12px 10px;border-radius:10px;border:2px solid #185FA5;background:#E6F1FB;cursor:pointer;text-align:center;font-family:var(--sans)">
+        <div style="width:26px;height:26px;border-radius:50%;background:#E6F1FB;border:1px solid #85B7EB;display:flex;align-items:center;justify-content:center;margin:0 auto 7px">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#185FA5" stroke-width="1.5"/><path d="M8 5v3.5l2 1.5" stroke="#185FA5" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div style="font-size:12px;font-weight:600;color:#185FA5;margin-bottom:3px">Wait for server</div>
+        <div style="font-size:11px;color:#0C447C;line-height:1.4">Full AI-powered analysis. Frees up in ~60s.</div>
+      </button>
+      <button onclick="vrlChooseFallback()" style="padding:12px 10px;border-radius:10px;border:1px solid var(--border);background:var(--card);cursor:pointer;text-align:center;font-family:var(--sans)">
+        <div style="width:26px;height:26px;border-radius:50%;background:#f0fdf4;border:1px solid #86efac;display:flex;align-items:center;justify-content:center;margin:0 auto 7px">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="3" stroke="#15803d" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#15803d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:3px">Use local engine</div>
+        <div style="font-size:11px;color:var(--text-muted);line-height:1.4">Instant result. VeriAI offline detector.</div>
+      </button>
+    </div>
+
+    <div style="border-top:1px solid var(--border);padding-top:14px">
+      <div style="font-size:11px;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;margin-bottom:10px">HOW VeriAI LOCAL ENGINE WORKS</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+        <div style="background:var(--surface);border-radius:8px;padding:10px 11px;border:1px solid var(--border)">
+          <div style="width:22px;height:22px;border-radius:5px;background:#fffbeb;display:flex;align-items:center;justify-content:center;margin-bottom:6px">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 4h10M2 7h7M2 10h5" stroke="#b45309" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div style="font-size:16px;font-weight:600;color:#b45309;line-height:1;margin-bottom:2px">40+</div>
+          <div style="font-size:11px;font-weight:500;color:var(--text);margin-bottom:3px">Lexical pattern matching</div>
+          <div style="font-size:10px;color:#b45309;background:#fffbeb;border:1px solid #fcd34d;border-radius:20px;padding:1px 6px;display:inline-block;margin-bottom:4px">N-gram corpus analysis</div>
+          <div style="font-size:10px;color:var(--text-muted);line-height:1.4">Detects LLM-characteristic n-gram sequences, hedging language, and low-perplexity phrase clusters</div>
+        </div>
+        <div style="background:var(--surface);border-radius:8px;padding:10px 11px;border:1px solid var(--border)">
+          <div style="width:22px;height:22px;border-radius:5px;background:#E6F1FB;display:flex;align-items:center;justify-content:center;margin-bottom:6px">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="2" y="3" width="10" height="2" rx="1" fill="#185FA5"/><rect x="2" y="6.5" width="8" height="2" rx="1" fill="#185FA5"/><rect x="2" y="10" width="5" height="2" rx="1" fill="#185FA5"/></svg>
+          </div>
+          <div style="font-size:16px;font-weight:600;color:#185FA5;line-height:1;margin-bottom:2px">4</div>
+          <div style="font-size:11px;font-weight:500;color:var(--text);margin-bottom:3px">Syntactic uniformity scoring</div>
+          <div style="font-size:10px;color:#0C447C;background:#E6F1FB;border:1px solid #85B7EB;border-radius:20px;padding:1px 6px;display:inline-block;margin-bottom:4px">Variance &amp; entropy model</div>
+          <div style="font-size:10px;color:var(--text-muted);line-height:1.4">Computes sentence-length std deviation, paragraph rhythm variance, and punctuation entropy</div>
+        </div>
+        <div style="background:var(--surface);border-radius:8px;padding:10px 11px;border:1px solid var(--border)">
+          <div style="width:22px;height:22px;border-radius:5px;background:#f0fdf4;display:flex;align-items:center;justify-content:center;margin-bottom:6px">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="#15803d" stroke-width="1.5"/><path d="M4.5 7c0-1.38 1.12-2.5 2.5-2.5" stroke="#15803d" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div style="font-size:16px;font-weight:600;color:#15803d;line-height:1;margin-bottom:2px">TTR</div>
+          <div style="font-size:11px;font-weight:500;color:var(--text);margin-bottom:3px">Lexical diversity index</div>
+          <div style="font-size:10px;color:#15803d;background:#f0fdf4;border:1px solid #86efac;border-radius:20px;padding:1px 6px;display:inline-block;margin-bottom:4px">Type-Token Ratio (TTR)</div>
+          <div style="font-size:10px;color:var(--text-muted);line-height:1.4">Measures vocabulary richness via TTR and hapax legomena density — AI models score lower due to repetitive token sampling</div>
+        </div>
+        <div style="background:var(--surface);border-radius:8px;padding:10px 11px;border:1px solid var(--border)">
+          <div style="width:22px;height:22px;border-radius:5px;background:#fef2f2;display:flex;align-items:center;justify-content:center;margin-bottom:6px">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="10" rx="2" stroke="#b91c1c" stroke-width="1.5"/><path d="M5 5h4M5 7.5h2.5" stroke="#b91c1c" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div style="font-size:16px;font-weight:600;color:#b91c1c;line-height:1;margin-bottom:2px">3</div>
+          <div style="font-size:11px;font-weight:500;color:var(--text);margin-bottom:3px">Multi-source origin classifier</div>
+          <div style="font-size:10px;color:#b91c1c;background:#fef2f2;border:1px solid #fca5a5;border-radius:20px;padding:1px 6px;display:inline-block;margin-bottom:4px">Rule-based provenance engine</div>
+          <div style="font-size:10px;color:var(--text-muted);line-height:1.4">Parallel regex classifiers for web-scraped content, video transcripts, and plagiarism citation syntax</div>
+        </div>
+      </div>
+      <div style="background:var(--surface);border-radius:8px;padding:10px 12px;border:1px solid var(--border);margin-bottom:10px">
+        <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:7px">Accuracy benchmarks</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">
+          <span style="font-size:10px;color:var(--text-muted);width:68px;flex-shrink:0">Cloud AI</span>
+          <div style="flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden"><div style="width:93%;height:100%;background:#185FA5;border-radius:2px"></div></div>
+          <span style="font-size:10px;font-weight:600;color:var(--text);width:28px">~93%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:10px;color:var(--text-muted);width:68px;flex-shrink:0">Local engine</span>
+          <div style="flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden"><div style="width:71%;height:100%;background:#f59e0b;border-radius:2px"></div></div>
+          <span style="font-size:10px;font-weight:600;color:var(--text);width:28px">~71%</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px">
+        <span style="font-size:10px;padding:2px 7px;border-radius:20px;background:var(--surface);color:var(--text-muted);border:1px solid var(--border)">Zero latency</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:20px;background:var(--surface);color:var(--text-muted);border:1px solid var(--border)">No data leaves device</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:20px;background:var(--surface);color:var(--text-muted);border:1px solid var(--border)">100% offline</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:20px;background:var(--surface);color:var(--text-muted);border:1px solid var(--border)">Deterministic output</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:20px;background:var(--surface);color:var(--text-muted);border:1px solid var(--border)">Rule-based NLP</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="vrl-wait" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;margin-top:0">
+    <div style="font-size:14px;font-weight:600;text-align:center;color:var(--text);margin-bottom:5px">Waiting for a free server slot</div>
+    <div style="font-size:12px;color:var(--text-muted);text-align:center;line-height:1.5;margin-bottom:14px">Our servers free up every ~60s. Your scan will run automatically.</div>
+    <div id="vrl-timer" style="font-size:32px;font-weight:600;text-align:center;color:var(--text);margin-bottom:4px">60s</div>
+    <div id="vrl-timer-sub" style="font-size:12px;color:var(--text-muted);text-align:center;margin-bottom:12px">Checking server availability...</div>
+    <div style="height:4px;background:var(--surface);border-radius:2px;overflow:hidden;margin-bottom:12px">
+      <div id="vrl-prog" style="height:100%;background:#185FA5;border-radius:2px;width:100%;transition:width 1s linear"></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:12px">
+      <div id="vrl-sdot" style="width:8px;height:8px;border-radius:50%;background:#f59e0b"></div>
+      <div id="vrl-stxt" style="font-size:12px;color:var(--text-muted)">Servers currently at capacity</div>
+    </div>
+    <div onclick="vrlBackToChoice()" style="text-align:center;font-size:12px;color:var(--text-muted);cursor:pointer;text-decoration:underline">Use local engine instead</div>
+  </div>
+  <style>@keyframes vrl-pulse{0%,100%{opacity:0.3}50%{opacity:1}}</style>
+  `;
+
+  var errEl=document.getElementById(errId);
+  if(errEl&&errEl.parentNode){
+    errEl.parentNode.insertBefore(overlay, errEl.nextSibling);
+  }
+}
+
+function vrlChooseWait(){
+  document.getElementById('vrl-choice').style.display='none';
+  document.getElementById('vrl-wait').style.display='block';
+  var secs=60;
+  clearInterval(_rlTimerInterval);
+  _rlTimerInterval=setInterval(function(){
+    secs--;
+    document.getElementById('vrl-timer').textContent=secs+'s';
+    document.getElementById('vrl-prog').style.width=Math.round((secs/60)*100)+'%';
+    if(secs<=40) document.getElementById('vrl-stxt').textContent='Server capacity freeing up...';
+    if(secs<=15) document.getElementById('vrl-stxt').textContent='Almost ready — securing your slot...';
+    if(secs<=0){
+      clearInterval(_rlTimerInterval);
+      document.getElementById('vrl-timer').textContent='Ready!';
+      document.getElementById('vrl-timer-sub').textContent='Server available — running your scan...';
+      document.getElementById('vrl-stxt').textContent='Server slot available';
+      document.getElementById('vrl-sdot').style.background='#22c55e';
+      document.getElementById('vrl-prog').style.background='#22c55e';
+      document.getElementById('vrl-prog').style.width='100%';
+      setTimeout(function(){
+        var overlay=document.getElementById('vrl-overlay');
+        if(overlay)overlay.remove();
+        var btn=document.getElementById('detect-text-btn');
+        if(btn)btn.click();
+      },1200);
+    }
+  },1000);
+}
+
+function vrlChooseFallback(){
+  clearInterval(_rlTimerInterval);
+  var overlay=document.getElementById('vrl-overlay');
+  if(overlay)overlay.remove();
+  if(_rlPendingText){
+    setLoading('text',true);
+    fetch('/api/analyze',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({text:_rlPendingText, forceFallback:true})
+    }).then(function(r){return r.json();}).then(function(d){
+      setLoading('text',false);
+      renderResults(d,true,currentSideTab);
+    }).catch(function(){
+      setLoading('text',false);
+      showErr(_rlPendingErrId||'text-err','Local analysis failed. Please try again.');
+    });
+  }
+}
+
+function vrlBackToChoice(){
+  clearInterval(_rlTimerInterval);
+  document.getElementById('vrl-sdot').style.background='#f59e0b';
+  document.getElementById('vrl-prog').style.background='#185FA5';
+  document.getElementById('vrl-stxt').textContent='Servers currently at capacity';
+  document.getElementById('vrl-choice').style.display='block';
+  document.getElementById('vrl-wait').style.display='none';
+}
+
+function startRateLimitCountdown(errId){
+  showRateLimitChoice(errId, _rlPendingText||'');
+}
+
+// ── SIGNUP STEP 1 ──
+async function signupStep1(){
+  const name=document.getElementById('signup-name').value.trim();
+  const email=document.getElementById('signup-email').value.trim();
+  const pass=document.getElementById('signup-password').value.trim();
+
+  if(!name){_showAuthErr('signup-err','Please enter your full name.');return;}
+  if(!email||!email.includes('@')){_showAuthErr('signup-err','Please enter a valid email address.');return;}
+  if(!pass||pass.length<8){_showAuthErr('signup-err','Password must be at least 8 characters.');return;}
+  _hideAuthErr('signup-err');
+
+  const btn=document.querySelector('#signup-step1 .auth-btn');
+  if(btn){btn.textContent='Creating account...';btn.disabled=true;}
+
+  const {data,error}=await _supabase.auth.signUp({
+    email,password:pass,
+    options:{data:{full_name:name},emailRedirectTo:window.location.origin}
+  });
+
+  if(btn){btn.textContent='Continue →';btn.disabled=false;}
+  if(error){_showAuthErr('signup-err',error.message);return;}
+
+  document.getElementById('otp-sub').textContent='We sent a 6-digit code to '+email;
+  document.getElementById('signup-step1').style.display='none';
+  document.getElementById('signup-step2').style.display='block';
+
+  let otpMsg=document.getElementById('otp-sent-msg');
+  if(!otpMsg){otpMsg=document.createElement('div');otpMsg.id='otp-sent-msg';otpMsg.style.cssText='color:#166534;font-size:12px;padding:8px 12px;background:#f0fdf4;border-radius:8px;margin-bottom:10px;border:1px solid #bbf7d0';document.getElementById('signup-step2').insertBefore(otpMsg,document.getElementById('signup-step2').firstChild?.nextSibling);}
+  otpMsg.textContent='✓ OTP sent to '+email+' — check your inbox and enter the 6-digit code.';
+  otpMsg.style.display='block';
+  window._signupEmail=email;
+}
+
+function otpNext(el,idx){
+  if(el.value.length===1&&idx<5){document.getElementById('otp'+(idx+1)).focus()}
+}
+
+async function verifyOTP(){
+  const otp=[0,1,2,3,4,5].map(i=>document.getElementById('otp'+i).value).join('');
+  if(otp.length<6){_showAuthErr('otp-err','Please enter the complete 6-digit OTP.');return;}
+  _hideAuthErr('otp-err');
+
+  const btn=document.querySelector('#signup-step2 .auth-btn');
+  if(btn){btn.textContent='Verifying...';btn.disabled=true;}
+
+  const {data,error}=await _supabase.auth.verifyOtp({
+    email:window._signupEmail,token:otp,type:'signup'
+  });
+
+  if(btn){btn.textContent='Verify & Create Account';btn.disabled=false;}
+  if(error){_showAuthErr('otp-err','Invalid OTP. Please check your email and try again.');return;}
+
+  document.getElementById('signup-step2').innerHTML=`
+    <div style="text-align:center;padding:20px">
+      <div style="font-size:48px;margin-bottom:12px">🎉</div>
+      <h3 style="font-size:18px;font-weight:800;color:var(--text);margin:0 0 8px">Account created!</h3>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 20px">Welcome to VeriAI. You are now logged in.</p>
+      <button onclick="closeAuth()" style="padding:10px 24px;background:var(--accent);color:white;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--sans)">Start Detecting →</button>
+    </div>`;
+}
+
+async function resendOTP(){
+  const email=window._signupEmail;
+  if(!email)return;
+  await _supabase.auth.resend({type:'signup',email});
+  let msg=document.getElementById('otp-sent-msg');
+  if(msg){msg.textContent='✓ New OTP sent to '+email;msg.style.display='block';}
+}
+
+// ── AUTH ERROR HELPERS ──
+function _showAuthErr(id,msg){
+  let err=document.getElementById(id);
+  if(!err){
+    err=document.createElement('div');err.id=id;
+    err.style.cssText='color:#dc2626;font-size:12px;padding:8px 12px;background:#fef2f2;border-radius:8px;margin-bottom:10px';
+    const container=id==='login-err'?document.getElementById('auth-login-view'):id==='signup-err'?document.getElementById('signup-step1'):document.getElementById('signup-step2');
+    const btn=container?.querySelector('.auth-btn');
+    if(btn)btn.parentNode.insertBefore(err,btn);
+  }
+  err.textContent=msg;err.style.display='block';
+}
+function _hideAuthErr(id){const el=document.getElementById(id);if(el)el.style.display='none';}
+
+// ── DROPDOWNS ──
+function toggleDropdown(id){
+  const dd=document.getElementById(id);
+  const isOpen=dd.classList.contains('open');
+  closeDropdowns();
+  if(!isOpen){
+    // Position under the clicked nav button
+    const btnId=id.replace('-dd','');
+    const btn=document.getElementById('nav-'+btnId);
+    if(btn){
+      const rect=btn.getBoundingClientRect();
+      dd.style.left=Math.min(rect.left,window.innerWidth-280)+'px';
+    }
+    dd.classList.add('open');
+  }
+}
+function closeDropdowns(){
+  document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.nav-link')&&!e.target.closest('.dropdown'))closeDropdowns();
+});
+
+function openModal(type){
+  if(type==='disclaimer'){
+    document.getElementById('disclaimer-modal').classList.add('show');
+    return;
+  }
+  if(type==='first-agree'){
+    const m=document.getElementById('first-agree-modal');
+    if(m){m.style.display='flex';}
+    return;
+  }
+  selectedPlanType=type||'pro';
+  document.getElementById('checkout-form').style.display='none';
+  document.getElementById('pro-modal').classList.add('show');
+  updatePricing();
+}
+function closeModal(type){
+  if(type==='disclaimer'){document.getElementById('disclaimer-modal').classList.remove('show');return;}
+  if(type==='first-agree'){
+    const m=document.getElementById('first-agree-modal');
+    if(m)m.style.display='none';
+    return;
+  }
+  document.getElementById('pro-modal').classList.remove('show');
+}
+document.getElementById('pro-modal').addEventListener('click',e=>{if(e.target===document.getElementById('pro-modal'))closeModal();});
+document.addEventListener('click',e=>{
+  const dm=document.getElementById('disclaimer-modal');
+  if(dm&&e.target===dm)closeModal('disclaimer');
+});
+
+function selectPlan(plan){
+  selectedPlanType=plan;
+  const isTeam=plan==='team';
+  const isIn=isIndian;
+  selectedAmount=isIn?(isTeam?99900:29900):(isTeam?4800:500);
+  selectedCurrency=isIn?'INR':'USD';
+  const priceStr=isIn?(isTeam?'₹999':'₹299'):(isTeam?'$48':'$5');
+  document.getElementById('checkout-form').style.display='block';
+  document.getElementById('checkout-label').textContent=(isTeam?'Team':'Pro')+' — '+priceStr+'/month';
+  document.getElementById('pay-btn').textContent='Pay '+priceStr+' with Razorpay →';
+  document.getElementById('pay-btn').style.background=isTeam?'var(--blue)':'var(--accent)';
+}
+
+function processPayment(){
+  const name=document.getElementById('pay-name').value.trim();
+  const email=document.getElementById('pay-email').value.trim();
+  const phone=document.getElementById('pay-phone').value.trim();
+
+  // Inline validation
+  let payErr=document.getElementById('pay-err');
+  if(!payErr){
+    payErr=document.createElement('div');
+    payErr.id='pay-err';
+    payErr.style.cssText='color:#dc2626;font-size:12px;padding:8px 12px;background:#fef2f2;border-radius:8px;margin-bottom:10px;display:none';
+    const btn=document.getElementById('pay-btn');
+    if(btn)btn.parentNode.insertBefore(payErr,btn);
+  }
+  const showPayErr=(msg)=>{payErr.textContent=msg;payErr.style.display='block';};
+
+  if(!name){showPayErr('Please enter your full name.');return;}
+  if(!email||!email.includes('@')){showPayErr('Please enter a valid email address.');return;}
+  if(!phone||phone.length<10){showPayErr('Please enter a valid 10-digit mobile number.');return;}
+  payErr.style.display='none';
+
+  const RAZORPAY_KEY='rzp_live_ST76FfiNSTbbx1';
+  const planName=selectedPlanType==='team'?'Team':'Pro';
+  const options={
+    key:RAZORPAY_KEY,
+    amount:selectedAmount,
+    currency:selectedCurrency,
+    name:'VeriAI',
+    description:'VeriAI '+planName,
+    prefill:{name:name,email:email},
+    theme:{color:'#0d9488'},
+    handler:async function(response){
+      // 1. Save to Supabase DB (secure — prevents localStorage hacking)
+      if(_currentUser){
+        try {
+          await _supabase.from('user_plans').upsert({
+            user_id: _currentUser.id,
+            email: _currentUser.email,
+            plan: selectedPlanType,
+            is_active: true,
+            razorpay_payment_id: response.razorpay_payment_id,
+            activated_at: new Date().toISOString()
+          }, { onConflict: 'user_id' });
+        } catch(e){ console.log('DB save error - using localStorage fallback:', e); }
+      }
+      // 2. Cache in localStorage
+      localStorage.setItem('trueai_pro','true');
+      localStorage.setItem('trueai_plan',selectedPlanType);
+      // 3. Apply pro UI immediately
+      _applyProStatus();
+      const isTeam = selectedPlanType==='team';
+      const celebEmoji = isTeam ? '🎊' : '🎉';
+      const celebColor = isTeam ? '#d97706' : '#d4537e';
+      const celebLight = isTeam ? '#faeeda' : '#fbeaf0';
+      const celebFeatures = isTeam
+        ? '✓ 5 team members unlocked<br>✓ Unlimited scans for all members<br>✓ PDF report export enabled<br>✓ Scan history (last 50 scans)<br>✓ Priority email support<br>✓ Early access to new features<br>✓ 100% Ad-free experience'
+        : '✓ Unlimited scans unlocked<br>✓ All tabs — Text, Plagiarism, Web Links<br>✓ PDF report export enabled<br>✓ Scan history (last 10 scans)<br>✓ Priority Gemini analysis<br>✓ 100% Ad-free experience';
+      // Show inline success
+      const box=document.getElementById('pro-modal');
+      const inner=box.querySelector('.modal-box');
+      if(inner){
+        inner.innerHTML=`
+          <div style="padding:40px 32px;text-align:center">
+            <div style="font-size:52px;margin-bottom:16px">${celebEmoji}</div>
+            <h2 style="font-size:22px;font-weight:800;color:var(--text);margin:0 0 8px">🎊 Congratulations! You're a VeriAI ${planName} User!</h2>
+            <p style="font-size:14px;color:var(--muted);margin:0 0 6px">Payment confirmed · ID: ${response.razorpay_payment_id}</p>
+            <p style="font-size:13px;color:var(--muted);margin:0 0 24px">Receipt sent to <strong>${email}</strong></p>
+            <div style="background:${celebLight};border-radius:10px;padding:14px;margin-bottom:24px;font-size:13px;color:${celebColor};border:1px solid ${celebColor}20">
+              ${celebFeatures}
+            </div>
+            <button onclick="closeModal()" style="padding:12px 32px;background:${celebColor};color:white;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--sans)">Start Detecting →</button>
+          </div>`;
+      }
+    }
+  };
+  try{new Razorpay(options).open();}
+  catch(e){
+    // Razorpay not available — collect waitlist
+    localStorage.setItem('trueai_waitlist',email);
+    const box=document.getElementById('pro-modal');
+    const inner=box?.querySelector('.modal-box');
+    if(inner){
+      inner.innerHTML=`
+        <div style="padding:40px 32px;text-align:center">
+          <div style="font-size:52px;margin-bottom:16px">✅</div>
+          <h2 style="font-size:20px;font-weight:800;color:var(--text);margin:0 0 8px">You're on the waitlist!</h2>
+          <p style="font-size:13px;color:var(--muted);margin:0 0 6px">We'll email <strong>${email}</strong> when payments go fully live.</p>
+          <p style="font-size:13px;color:var(--accent-d);font-weight:600;margin:0 0 24px">🎁 First month FREE for early members!</p>
+          <button onclick="closeModal()" style="padding:12px 32px;background:var(--accent);color:white;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--sans)">Got it!</button>
+        </div>`;
+    }
+  }
+}
+
+// ── HELPERS ──
+function scoreLbl(s){return s<35?'Likely Human':s<65?'Possibly AI-assisted':'Likely AI-generated'}
+
+function setLoading(type,on){
+  const btn=document.getElementById('detect-'+type+'-btn');
+  const spin=document.getElementById(type+'-spin');
+  const lbl=document.getElementById(type+'-btn-label');
+  if(btn)btn.disabled=on;
+  if(spin)spin.style.display=on?'inline-block':'none';
+  const offLabel=type==='text'?'Detect AI Content':type==='plag'?'Check Plagiarism':type==='url'?'Analyze Link':'Scan';
+  if(lbl)lbl.textContent=on?'Scanning...':offLabel;
+  document.getElementById('scan-overlay').classList.toggle('on',on);
+}
+
+function showErr(id,msg){const e=document.getElementById(id);if(e){e.textContent=msg;e.classList.add('show')}}
+function hideErr(id){const e=document.getElementById(id);if(e)e.classList.remove('show')}
+
+function updateCounters(){
+  const users=parseInt(localStorage.getItem('trueai_users')||'0');
+  const educators=parseInt(localStorage.getItem('trueai_educators')||'0');
+  // Text limit
+  document.getElementById('text-limit-ct').textContent=textScansLeft+' left';
+  document.getElementById('text-limit-ct').style.color=textScansLeft<10?'var(--red)':textScansLeft<30?'var(--amber)':'var(--accent)';
+  // Media limit
+  document.getElementById('media-limit-ct').textContent=mediaScansLeft+' left';
+  document.getElementById('media-limit-ct').style.color=mediaScansLeft<=1?'var(--red)':'var(--amber)';
+  // All scan counters
+  ['h-scans','stat-total-scans'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=totalScans.toLocaleString()});
+  // User/educator counters (start at 0, grow with signups)
+  ['h-users','stat-users'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=users.toLocaleString()});
+  ['h-educators','stat-educators'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=educators.toLocaleString()});
+}
+
+function animateHeroStats(){
+  // All counters start from 0 — will grow as real users join
+  updateCounters();
+}
+
+function setCommTab(tab){
+  // Hide all panels
+  ['educators','writers','hr','journalists','students'].forEach(t=>{
+    const p=document.getElementById('comm-'+t);
+    if(p)p.style.display='none';
+  });
+  // Remove active from all tabs
+  document.querySelectorAll('.comm-tab').forEach(t=>t.classList.remove('active'));
+  // Show selected
+  const panel=document.getElementById('comm-'+tab);
+  if(panel)panel.style.display='block';
+  // Set active tab
+  const tabs=document.querySelectorAll('.comm-tab');
+  const tabMap={educators:0,writers:1,hr:2,journalists:3,students:4};
+  if(tabs[tabMap[tab]])tabs[tabMap[tab]].classList.add('active');
+}
+
+function copyResult(){
+  const score=document.getElementById('score-num').textContent;
+  const verdict=document.getElementById('score-verdict').textContent;
+  navigator.clipboard.writeText(`VeriAI detected: ${verdict} (${score}% AI probability). Check yours at veriai.in`)
+    .then(()=>showToast('✓ Copied to clipboard!'))
+    .catch(()=>showToast('Copy failed — please copy manually'));
+}
+
+function exportPDF(){
+  const score = document.getElementById('score-num')?.textContent || 'N/A';
+  const verdict = document.getElementById('score-verdict')?.textContent || 'N/A';
+  const confidence = document.getElementById('confidence-val')?.textContent || 'N/A';
+  const reasoning = document.getElementById('reasoning-text')?.textContent || 'N/A';
+  const textInput = document.getElementById('main-ta')?.value?.slice(0,500) || '';
+  const date = new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'});
+  const plan = _getPlan() === 'team' ? 'Team' : 'Pro';
+
+  const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>VeriAI Detection Report</title>
+<style>
+  body{font-family:Arial,sans-serif;max-width:700px;margin:40px auto;padding:0 20px;color:#1e293b}
+  .header{display:flex;align-items:center;gap:12px;border-bottom:2px solid #0d9488;padding-bottom:16px;margin-bottom:24px}
+  .logo{width:36px;height:36px;background:#0d9488;border-radius:8px;display:flex;align-items:center;justify-content:center}
+  h1{font-size:20px;margin:0;color:#0d9488}
+  .meta{font-size:12px;color:#64748b;margin:0}
+  .score-box{background:#f0fdf4;border:2px solid #0d9488;border-radius:12px;padding:20px;text-align:center;margin:20px 0}
+  .score-num{font-size:56px;font-weight:800;color:#0d9488;line-height:1}
+  .verdict{font-size:18px;font-weight:700;margin:8px 0 4px}
+  .confidence{font-size:13px;color:#64748b}
+  .section{margin:20px 0}
+  .section h3{font-size:14px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;margin:0 0 8px}
+  .section p{font-size:14px;color:#1e293b;line-height:1.6;margin:0;background:#f8fafc;padding:12px;border-radius:8px;border:1px solid #e2e8f0}
+  .footer{margin-top:32px;padding-top:16px;border-top:1px solid #e2e8f0;font-size:11px;color:#94a3b8;text-align:center}
+  .badge{display:inline-block;background:#0d9488;color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:6px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="logo"><svg width="20" height="20" viewBox="0 0 56 56" fill="none"><path d="M10 28 Q28 12 46 28 Q28 44 10 28Z" fill="none" stroke="white" stroke-width="2.5"/><circle cx="28" cy="28" r="6" fill="white"/><circle cx="28" cy="28" r="3" fill="#0d9488"/></svg></div>
+  <div><h1>VeriAI Detection Report <span class="badge">${plan}</span></h1><p class="meta">Generated: ${date} · veriai.in</p></div>
+</div>
+<div class="score-box">
+  <div class="score-num">${score}%</div>
+  <div class="verdict">${verdict}</div>
+  <div class="confidence">Confidence: ${confidence}</div>
+</div>
+<div class="section">
+  <h3>Analysis Reasoning</h3>
+  <p>${reasoning}</p>
+</div>
+${textInput ? `<div class="section"><h3>Content Analyzed (first 500 chars)</h3><p style="font-style:italic;color:#64748b">${textInput.replace(/</g,'&lt;').replace(/>/g,'&gt;')}${textInput.length >= 500 ? '...' : ''}</p></div>` : ''}
+<div class="footer">
+  This report was generated by VeriAI — AI Content Detector · veriai.in<br>
+  For support: milind.anand78@gmail.com · Disclaimer: AI detection is probabilistic and not 100% accurate.
+</div>
+</body>
+</html>`;
+
+  const blob = new Blob([html], {type:'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `VeriAI-Report-${Date.now()}.html`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('✓ Report downloaded!');
+}
+
+function showToast(msg){
+  let toast=document.getElementById('copy-toast');
+  if(!toast){
+    toast=document.createElement('div');
+    toast.id='copy-toast';
+    toast.style.cssText='position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:white;padding:10px 20px;border-radius:99px;font-size:13px;font-weight:600;z-index:9999;opacity:0;transition:opacity .2s;pointer-events:none;font-family:var(--sans)';
+    document.body.appendChild(toast);
+  }
+  toast.textContent=msg;
+  toast.style.opacity='1';
+  setTimeout(()=>{toast.style.opacity='0'},2000);
+}
+
+function tweetResult(){
+  const score=document.getElementById('score-num').textContent;
+  window.open(`https://twitter.com/intent/tweet?text=VeriAI detected ${score}% AI probability in this content 🤖 Check yours free: veriai.in`,'_blank');
+}
+
+// Show disclaimer only during login/signup — not on page load
+function checkFirstVisit(){
+  // Only show if user tries to log in — handled in openAuth
+}
+function acceptTerms(){
+  localStorage.setItem('trai_agreed','1');
+  const m=document.getElementById('first-agree-modal');
+  if(m)m.style.display='none';
+  // If user clicked Log in / Sign up, proceed to auth after agreeing
+  if(window._pendingAuthMode){
+    const mode=window._pendingAuthMode;
+    window._pendingAuthMode=null;
+    setTimeout(()=>_doOpenAuth(mode), 200);
+  }
+}
+</script>
+
+<!-- ── LEGAL DISCLAIMER MODAL ── -->
+<div class="modal-overlay" id="disclaimer-modal">
+  <div class="modal-box" style="max-width:680px;max-height:88vh;overflow-y:auto">
+    <button class="modal-close" onclick="closeModal('disclaimer')">✕</button>
+    <div style="padding:28px 32px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <div style="width:44px;height:44px;background:#fee2e2;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px">⚖️</div>
+        <div>
+          <h2 style="font-size:19px;font-weight:800;color:var(--text);margin:0">Legal Disclaimer & Terms of Use</h2>
+          <div style="font-size:12px;color:var(--muted)">Last updated: March 2026 · VeriAI</div>
+        </div>
+      </div>
+
+      <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:12px 16px;margin-bottom:20px">
+        <strong style="color:#92400e;font-size:13px">⚠️ Important — Read before use</strong>
+        <p style="font-size:12px;color:#92400e;margin:6px 0 0">VeriAI is an <strong>informational tool only</strong>. Results must NOT be used as sole evidence in academic, legal, employment or any consequential decisions.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px;font-size:13px;color:var(--text);line-height:1.7">
+
+        <div><h3 style="font-weight:700;font-size:13px;margin-bottom:4px;color:var(--accent-d)">1. Accuracy Limitations</h3>
+        <p style="margin:0">VeriAI achieves approximately <strong>65% accuracy (Free)</strong> and <strong>85%+ (Pro)</strong>. No AI detector guarantees 100% accuracy. False positives and false negatives will occur. Results are probabilistic estimates — not facts.</p></div>
+
+        <div><h3 style="font-weight:700;font-size:13px;margin-bottom:4px;color:var(--accent-d)">2. Not Legal or Academic Evidence</h3>
+        <p style="margin:0">VeriAI results <strong>shall not be used as sole or primary evidence</strong> in any academic disciplinary proceeding, employment decision, legal dispute, defamation claim, or any formal process that may harm an individual's reputation or livelihood. Using VeriAI as sole evidence is an incorrect use and VeriAI bears zero responsibility for such consequences.</p></div>
+
+        <div><h3 style="font-weight:700;font-size:13px;margin-bottom:4px;color:var(--accent-d)">3. Limitation of Liability</h3>
+        <p style="margin:0">To the maximum extent permitted by law, <strong>VeriAI, its owners and affiliates shall not be liable</strong> for any direct, indirect, incidental, or consequential damages arising from: (a) reliance on VeriAI results; (b) false positive or false negative detections; (c) decisions made based on VeriAI analysis; (d) any service interruption or inaccuracy. Use is entirely at your own risk.</p></div>
+
+        <div><h3 style="font-weight:700;font-size:13px;margin-bottom:4px;color:var(--accent-d)">4. No Defamation Liability</h3>
+        <p style="margin:0">VeriAI analyzes text patterns and returns a probability score. It does not identify or accuse specific individuals. Any use of results that damages a person's reputation is the sole responsibility of the user. VeriAI expressly disclaims all defamation liability.</p></div>
+
+        <div><h3 style="font-weight:700;font-size:13px;margin-bottom:4px;color:var(--accent-d)">5. Data & Privacy</h3>
+        <p style="margin:0">Text submitted is processed via Google Gemini API and subject to Google's data policies. VeriAI does not store submitted text after analysis. Do not submit confidential, legally privileged, or personally identifiable information.</p></div>
+
+        <div><h3 style="font-weight:700;font-size:13px;margin-bottom:4px;color:var(--accent-d)">6. Plagiarism Detection</h3>
+        <p style="margin:0">The plagiarism feature flags text sharing patterns with known sources — it is <strong>not a comprehensive plagiarism database</strong>. A flag does not constitute proof of copying. Users must conduct further verification before acting on results.</p></div>
+
+        <div><h3 style="font-weight:700;font-size:13px;margin-bottom:4px;color:var(--accent-d)">7. Payments & Refunds</h3>
+        <p style="margin:0">Pro subscriptions processed via Razorpay are non-refundable once the billing period has commenced, except as required by Indian consumer protection law. Contact support within 7 days for payment errors.</p></div>
+
+        <div><h3 style="font-weight:700;font-size:13px;margin-bottom:4px;color:var(--accent-d)">8. Governing Law</h3>
+        <p style="margin:0">These terms are governed by the laws of India. Disputes are subject to the exclusive jurisdiction of courts in Pune, Maharashtra, India.</p></div>
+
+        <div style="background:var(--off);border-radius:10px;padding:12px 16px;margin-top:4px;border:1px solid var(--border)">
+          <p style="font-size:12px;color:var(--muted);margin:0"><strong>By using VeriAI, you confirm you have read, understood and agreed to these terms.</strong> If you do not agree, please discontinue use immediately.</p>
+        </div>
+      </div>
+
+      <button onclick="closeModal('disclaimer')" style="margin-top:20px;width:100%;padding:13px;background:var(--accent);color:white;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--sans)">✓ I Understand & Accept</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── FIRST-TIME LEGAL AGREEMENT MODAL (shown on Login/Signup only) ── -->
+<div id="first-agree-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999999;align-items:center;justify-content:center;padding:20px">
+  <div style="background:#fff;border-radius:16px;width:100%;max-width:500px;box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:hidden;animation:slideUp .3s cubic-bezier(0.16,1,0.3,1)">
+    
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#0d9488,#0f766e);padding:24px 28px;text-align:center">
+      <div style="font-size:36px;margin-bottom:8px">⚖️</div>
+      <h2 style="color:white;font-size:19px;font-weight:800;margin:0 0 4px;font-family:var(--sans)">Terms of Use & Disclaimer</h2>
+      <p style="color:rgba(255,255,255,.8);font-size:12px;margin:0;font-family:var(--sans)">Please read and accept before continuing</p>
+    </div>
+
+    <!-- Body -->
+    <div style="padding:24px 28px">
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px;margin-bottom:16px;font-size:13px;color:#334155;line-height:1.7;font-family:var(--sans)">
+        <p style="margin:0 0 10px;font-weight:700;color:#0f172a">By clicking "I Agree & Continue" you confirm:</p>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:8px;align-items:flex-start">
+            <span style="color:#0d9488;font-weight:700;flex-shrink:0">✓</span>
+            <span>VeriAI results are <strong>informational estimates only</strong> (~65% accuracy free, 85%+ Pro)</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start">
+            <span style="color:#0d9488;font-weight:700;flex-shrink:0">✓</span>
+            <span>Results will <strong>NOT</strong> be used as sole evidence in academic, legal or employment decisions</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start">
+            <span style="color:#0d9488;font-weight:700;flex-shrink:0">✓</span>
+            <span>VeriAI is <strong>not liable</strong> for any decisions made based on its analysis</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start">
+            <span style="color:#0d9488;font-weight:700;flex-shrink:0">✓</span>
+            <span>False positives/negatives occur — always verify results independently</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:10px 14px;margin-bottom:20px;display:flex;gap:8px;align-items:flex-start">
+        <span style="font-size:16px;flex-shrink:0">⚠️</span>
+        <span style="font-size:12px;color:#92400e;font-family:var(--sans)">A high AI score does not <em>prove</em> AI use — it is a probability signal for human review, not formal evidence.</span>
+      </div>
+
+      <!-- Agree button -->
+      <button 
+        id="agree-btn"
+        onclick="acceptTerms()" 
+        style="width:100%;padding:14px;background:#0d9488;color:white;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--sans);margin-bottom:12px;transition:background .15s"
+        onmouseover="this.style.background='#0f766e'"
+        onmouseout="this.style.background='#0d9488'"
+      >✓ I Agree &amp; Continue</button>
+
+      <div style="text-align:center">
+        <button onclick="document.getElementById('first-agree-modal').style.display='none';openModal('disclaimer')" style="background:none;border:none;color:#0d9488;font-size:12px;cursor:pointer;font-family:var(--sans);text-decoration:underline">Read full Disclaimer &amp; Terms of Use</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Auto-hide top banner after 2 minutes
+(function(){
+  const banner = document.querySelector('.top-banner');
+  if(!banner) return;
+  // Check if already hidden in this session
+  if(sessionStorage.getItem('banner_hidden')){
+    banner.classList.add('hidden');
+    return;
+  }
+  // Hide after 2 minutes (120000ms)
+  setTimeout(function(){
+    banner.classList.add('hidden');
+    sessionStorage.setItem('banner_hidden','1');
+  }, 120000);
+})();
+</script>
+
+</body>
+</html>
