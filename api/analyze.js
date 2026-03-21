@@ -1,6 +1,4 @@
-// TrueAI v4 — Secure Gemini API Proxy
-// Uses ES Module export for Node 24 compatibility
-
+// Verai — Secure Gemini API Proxy
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -17,7 +15,7 @@ export default async function handler(req, res) {
     if (!text) { res.status(400).json({ error: 'No text provided' }); return; }
 
     const prompt = `Analyze this text for AI generation. Reply with EXACTLY this format:
-SCORE:[number 0-100]|REASON:[one sentence under 80 chars]
+SCORE:[number 0-100]|REASON:[one sentence reason under 80 chars]
 
 Text: ${text.slice(0, 1200)}`;
 
@@ -33,9 +31,25 @@ Text: ${text.slice(0, 1200)}`;
       }
     );
 
+    // Handle quota/rate limit gracefully
+    if (geminiRes.status === 429) {
+      res.status(429).json({ 
+        error: 'Rate limit reached. Please wait 60 seconds and try again. (Free tier: 10 requests/minute)' 
+      });
+      return;
+    }
+
     if (!geminiRes.ok) {
       const err = await geminiRes.json();
-      throw new Error(err.error?.message || 'Gemini error ' + geminiRes.status);
+      const msg = err.error?.message || 'Gemini error ' + geminiRes.status;
+      // Catch quota errors from 400 responses too
+      if (msg.includes('quota') || msg.includes('RESOURCE_EXHAUSTED')) {
+        res.status(429).json({ 
+          error: 'Rate limit reached. Please wait 60 seconds and try again.' 
+        });
+        return;
+      }
+      throw new Error(msg);
     }
 
     const data = await geminiRes.json();
@@ -67,7 +81,12 @@ Text: ${text.slice(0, 1200)}`;
     });
 
   } catch (err) {
-    console.error('TrueAI error:', err.message);
-    res.status(500).json({ error: err.message });
+    console.error('Verai error:', err.message);
+    // User-friendly error messages
+    if (err.message.includes('quota') || err.message.includes('RESOURCE_EXHAUSTED') || err.message.includes('exceeded')) {
+      res.status(429).json({ error: 'Rate limit reached. Please wait 60 seconds and try again.' });
+    } else {
+      res.status(500).json({ error: err.message });
+    }
   }
 }
