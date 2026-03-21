@@ -99,10 +99,10 @@ Text: ${text.slice(0, 1200)}`;
       });
     }
 
-    // ── All keys rate-limited → signal client to show choice UI
+    // ── All servers busy → signal client to show choice UI
     return res.status(429).json({
       error: 'RATE_LIMIT',
-      message: 'Our AI servers are currently busy. Please wait or use local engine.'
+      message: 'Our AI servers are currently busy with other users. Please wait or use the local engine.'
     });
 
   } catch (err) {
