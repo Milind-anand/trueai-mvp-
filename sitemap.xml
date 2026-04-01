@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ═══════════════════════════════════════════════
+       HOMEPAGE / DETECTOR — Priority 1.0
+       Updated: reflects new hero copy + geo targeting
+  ═══════════════════════════════════════════════ -->
+  <url>
+    <loc>https://veriai.in</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <!-- All international hreflang targets -->
+    <xhtml:link rel="alternate" hreflang="en"    href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-gb" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-us" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-in" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-au" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-ca" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-sg" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-ae" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-sa" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-de" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-fr" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-nl" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-se" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-no" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-jp" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="en-kr" href="https://veriai.in"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://veriai.in"/>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════
+       BLOG — Articles & Insights
+       Admin-controlled visibility; listed so Google
+       can index once you switch it ON
+  ═══════════════════════════════════════════════ -->
+  <url>
+    <loc>https://veriai.in/?page=blog</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"       href="https://veriai.in/?page=blog"/>
+    <xhtml:link rel="alternate" hreflang="en-gb"    href="https://veriai.in/?page=blog"/>
+    <xhtml:link rel="alternate" hreflang="en-us"    href="https://veriai.in/?page=blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://veriai.in/?page=blog"/>
+  </url>
+
+  <!-- Individual blog articles -->
+  <url>
+    <loc>https://veriai.in/?page=blog&amp;article=featured</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://veriai.in/?page=blog&amp;article=article1</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veriai.in/?page=blog&amp;article=article2</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veriai.in/?page=blog&amp;article=article3</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veriai.in/?page=blog&amp;article=article4</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veriai.in/?page=blog&amp;article=article5</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════
+       AI NEWS — Daily feed (updated daily)
+  ═══════════════════════════════════════════════ -->
+  <url>
+    <loc>https://veriai.in/?page=news</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"       href="https://veriai.in/?page=news"/>
+    <xhtml:link rel="alternate" hreflang="en-gb"    href="https://veriai.in/?page=news"/>
+    <xhtml:link rel="alternate" hreflang="en-us"    href="https://veriai.in/?page=news"/>
+    <xhtml:link rel="alternate" hreflang="en-au"    href="https://veriai.in/?page=news"/>
+    <xhtml:link rel="alternate" hreflang="en-de"    href="https://veriai.in/?page=news"/>
+    <xhtml:link rel="alternate" hreflang="en-ae"    href="https://veriai.in/?page=news"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://veriai.in/?page=news"/>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════
+       COMMUNITY — Forum & Posts
+  ═══════════════════════════════════════════════ -->
+  <url>
+    <loc>https://veriai.in/?page=community</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en"       href="https://veriai.in/?page=community"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://veriai.in/?page=community"/>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════
+       VERIFIED HUMAN BADGE
+  ═══════════════════════════════════════════════ -->
+  <url>
+    <loc>https://veriai.in/?page=badge</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en"       href="https://veriai.in/?page=badge"/>
+    <xhtml:link rel="alternate" hreflang="en-gb"    href="https://veriai.in/?page=badge"/>
+    <xhtml:link rel="alternate" hreflang="en-us"    href="https://veriai.in/?page=badge"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://veriai.in/?page=badge"/>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════
+       FEATURE LANDING PAGES (SEO keyword targets)
+       These don't exist as separate pages yet but
+       listing them signals intent to Google —
+       implement as anchor links or future pages
+  ═══════════════════════════════════════════════ -->
+
+  <!-- ChatGPT Detector -->
+  <url>
+    <loc>https://veriai.in/?detector=chatgpt</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Plagiarism Checker -->
+  <url>
+    <loc>https://veriai.in/?detector=plagiarism</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Deepfake Detector -->
+  <url>
+    <loc>https://veriai.in/?detector=deepfake</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Image AI Detector -->
+  <url>
+    <loc>https://veriai.in/?detector=image</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- For Educators -->
+  <url>
+    <loc>https://veriai.in/?for=educators</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- For HR / Recruiters -->
+  <url>
+    <loc>https://veriai.in/?for=hr</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- For Journalists -->
+  <url>
+    <loc>https://veriai.in/?for=journalists</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- EU AI Act compliance landing -->
+  <url>
+    <loc>https://veriai.in/?topic=eu-ai-act</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-de" href="https://veriai.in/?topic=eu-ai-act"/>
+    <xhtml:link rel="alternate" hreflang="en-fr" href="https://veriai.in/?topic=eu-ai-act"/>
+    <xhtml:link rel="alternate" hreflang="en-nl" href="https://veriai.in/?topic=eu-ai-act"/>
+  </url>
+
+</urlset>
