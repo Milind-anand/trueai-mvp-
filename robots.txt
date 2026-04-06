@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://veriai.in/sitemap.xml
