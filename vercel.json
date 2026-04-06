@@ -1,0 +1,28 @@
+{
+  "rewrites": [
+    { "source": "/blog",              "destination": "/?page=blog" },
+    { "source": "/blog/:article",     "destination": "/?page=blog&article=:article" },
+    { "source": "/news",              "destination": "/?page=news" },
+    { "source": "/community",         "destination": "/?page=community" },
+    { "source": "/badge",             "destination": "/?page=badge" },
+    { "source": "/detector/:type",    "destination": "/?detector=:type" },
+    { "source": "/for/:role",         "destination": "/?for=:role" },
+    { "source": "/topic/:slug",       "destination": "/?topic=:slug" }
+  ],
+  "routes": [
+    { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
+    { "src": "/robots.txt",  "dest": "/robots.txt"  }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options",  "value": "nosniff" },
+        { "key": "X-Frame-Options",          "value": "SAMEORIGIN" },
+        { "key": "X-XSS-Protection",         "value": "1; mode=block" },
+        { "key": "Referrer-Policy",          "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy",       "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    }
+  ]
+}
